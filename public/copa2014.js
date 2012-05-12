@@ -13,11 +13,11 @@ function pathSVG(radius,px,py,dx,dy) {
 	return path;
 }
 
-function Aro(containerId, radius) {
+function Wheel(containerId, radius, val1, val2, val3) {
 	
 	var thickness = 0.5*radius;
 	
-	var width = 2*radius + 2*thickness; // 2*raio + 2*largura da borda
+	var width = 2*radius + 2*thickness;
 	var height = width;
 	
 	var paper = Raphael(containerId, width, height);
@@ -27,28 +27,28 @@ function Aro(containerId, radius) {
 	var py = thickness;
 	var dx = radius;
 	var dy = radius;
-	var c3 = paper.path(pathSVG(radius,px,py,dx,dy));
+	var c1 = paper.path(pathSVG(radius,px,py,dx,dy));
 	
 	// direito inferior e.g. "M100,50 a50,50 0 0,1 -50,50"
 	var px = px + dx;
 	var py = py + dy;
 	var dx = -radius;
 	var dy = radius;
-	var c4 = paper.path(pathSVG(radius,px,py,dx,dy));
+	var c2 = paper.path(pathSVG(radius,px,py,dx,dy));
 
 	// esquerdo superior e inferior e.g. "M50,100 a50,50 0 0,1 0,-100"	
 	var px = px + dx;
 	var py = py + dy;
 	var dx = 0;
 	var dy = -2*radius;
-	var c5 = paper.path(pathSVG(radius,px,py,dx,dy));
+	var c3 = paper.path(pathSVG(radius,px,py,dx,dy));
 	
+	c1.attr("stroke-width", thickness);
+	c1.attr("stroke", "#f00");
+	c2.attr("stroke-width", thickness);
+	c2.attr("stroke", "#00f");
 	c3.attr("stroke-width", thickness);
-	c3.attr("stroke", "#f00");
-	c4.attr("stroke-width", thickness);
-	c4.attr("stroke", "#00f");
-	c5.attr("stroke-width", thickness);
-	c5.attr("stroke", "#fa0");
+	c3.attr("stroke", "#fa0");
 }
 
 function testes() {
@@ -92,6 +92,6 @@ function testes() {
 
 
 jQuery (function() {
-	Aro("transporte", 50);
+	Wheel("transporte", 50);
 	//testes();
 });
