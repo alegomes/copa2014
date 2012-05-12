@@ -30,8 +30,6 @@ function Wheel(containerId, radius, val1, val2, val3) {
 	// direito superior e.g "M50,0 a50,50 0 0,1 50,50"
 	var px = radius + thickness;
 	var py = thickness;
-	//var dx = radius;
-	//var dy = radius;
 	var dx = px + radius * Math.cos(0);
 	var dy = py + radius - (radius * Math.sin(0));
 	
@@ -40,8 +38,6 @@ function Wheel(containerId, radius, val1, val2, val3) {
 	// direito inferior e.g. "M100,50 a50,50 0 0,1 -50,50"
 	var px = dx;
 	var py = dy;
-	//var dx = -radius;
-	//var dy = radius;
 	dx = px - radius - (radius * Math.cos(-Math.PI/2));
 	dy = py - (radius * Math.sin(3/2 * Math.PI));
 	
@@ -50,8 +46,6 @@ function Wheel(containerId, radius, val1, val2, val3) {
 	// esquerdo superior e inferior e.g. "M50,100 a50,50 0 0,1 0,-100"	
 	var px = dx;
 	var py = dy;
-	//var dx = 0;
-	//var dy = -2*radius;
 	dx = px - radius * Math.cos(Math.PI/2);
 	dy = py - radius - (radius * Math.sin(Math.PI/2));
 	
