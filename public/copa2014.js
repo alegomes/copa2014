@@ -1,56 +1,47 @@
+function pathSVG(radius,px,py,dx,dy) {
+
+	// Para entender essa loucura, veja
+	// http://raphaeljs.com/reference.html#Paper.path
+	// http://www.w3.org/TR/SVG/paths.html#PathData
+
+	var p = px + "," + py + " ";
+	var r = radius + "," + radius + " ";
+	var rotation = "0 ";
+	var segment = "0,1 ";	
+	var d = dx + "," + dy;
+	var path = "M" + p + "a" + r + rotation + segment + d;
+	return path;
+}
+
 function Aro(containerId, radius) {
 	
-	var thickness = 0.1*radius;
+	var thickness = 0.5*radius;
 	
 	var width = 2*radius + 2*thickness; // 2*raio + 2*largura da borda
 	var height = width;
 	
 	var paper = Raphael(containerId, width, height);
 
-	// Para entender essa loucura, veja
-	// http://raphaeljs.com/reference.html#Paper.path
-	// http://www.w3.org/TR/SVG/paths.html#PathData
-	var px = 1.1*radius;
-	var py = 0.1*radius;
-	var p = px + "," + py + " ";
-	var r = radius + "," + radius + " ";
-	var rotation = "0 ";
-	var segment = "0,1 ";
+	// direito superior e.g "M50,0 a50,50 0 0,1 50,50"
+	var px = radius + thickness;
+	var py = thickness;
 	var dx = radius;
 	var dy = radius;
-	var d = dx + "," + dy;
-	var path = "M" + p + "a" + r + rotation + segment + d;
-
-	// direito superior e.g "M50,0 a50,50 0 0,1 50,50"
-	var c3 = paper.path(path);
-	
-	var px = px + dx;
-	var py = py + dy;
-	var p = px + "," + py + " ";
-	var r = radius + "," + radius + " ";
-	var rotation = "0 ";
-	var segment = "0,1 ";
-	var dx = -radius;
-	var dy = radius;
-	var d = dx + "," + dy;
-	var path = "M" + p + "a" + r + rotation + segment + d;
+	var c3 = paper.path(pathSVG(radius,px,py,dx,dy));
 	
 	// direito inferior e.g. "M100,50 a50,50 0 0,1 -50,50"
-	var c4 = paper.path(path);
-	
 	var px = px + dx;
 	var py = py + dy;
-	var p = px + "," + py + " ";
-	var r = radius + "," + radius + " ";
-	var rotation = "0 ";
-	var segment = "0,1 ";
+	var dx = -radius;
+	var dy = radius;
+	var c4 = paper.path(pathSVG(radius,px,py,dx,dy));
+
+	// esquerdo superior e inferior e.g. "M50,100 a50,50 0 0,1 0,-100"	
+	var px = px + dx;
+	var py = py + dy;
 	var dx = 0;
 	var dy = -2*radius;
-	var d = dx + "," + dy;
-	var path = "M" + p + "a" + r + rotation + segment + d;
-	
-	// esquerdo superior e inferior e.g. "M50,100 a50,50 0 0,1 0,-100"
-	var c5 = paper.path(path);
+	var c5 = paper.path(pathSVG(radius,px,py,dx,dy));
 	
 	c3.attr("stroke-width", thickness);
 	c3.attr("stroke", "#f00");
