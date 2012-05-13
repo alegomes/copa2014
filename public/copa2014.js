@@ -10,12 +10,19 @@ function Wheel(containerId, radius, values) {
 	
 	var paper = Raphael(containerId, width, height);
 
-	paper.piechart(cx, cy, radius, values);
+	var pie = paper.piechart(cx, cy, radius, values, { colors: ["#FFB300", "#F74040", "#75E075"]});
+	
 	var circle = paper.circle(cx, cy, radius-thickness);
 	circle.attr("fill", "#fff");
 	circle.attr("stroke", "#fff");
 }
 
 jQuery (function() {
-	Wheel("transporte", 100, [10,20,30]);
+	Wheel("aeroportos", 100, [10,20,30]);
+	Wheel("estadios", 100, [10,25,45]);
+	Wheel("hotelaria", 100, [10,25,45]);
+	Wheel("mobilidade", 100, [10,25,45]);
+	Wheel("portos", 100, [10,25,45]);
+	Wheel("seguranca", 100, [10,25,45]);
+	Wheel("telecomunicacoes", 100, [10,25,45]);	
 });
