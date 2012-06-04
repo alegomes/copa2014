@@ -1,0 +1,55 @@
+Arquivo de Dados Brutos
+
+1. Enconding irreconhecivel pelo CKAN. Converti pra LATIN8
+2. Numeros em formato brasileiro. Troquei , por .
+^(.*?);(.*?);(.*?);(.*?);(.*?);(.*?);([\d]+),([\d]{8});([\d]+),([\d]{8});([\d]+),([\d]{8});
+$1;$2;$3;$4;$5;$6;$7.$8;$9.$10;$11.$12;
+
+Exemplos de http://docs.ckan.org/en/latest/using-data-api.html
+
+# Schema
+http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_mapping
+http://thedatahub.org/api/data/3b961dcf-f2fc-4425-8c07-159a58557bc9/_mapping?pretty=true
+
+http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_search?pretty=true\&q=Tema:aeroportos
+http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_search?pretty=true&source={"query":{"match_all":{}}}
+http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_search?pretty=true&source={"query":{"term":{"Tema":"aeroportos"}}}
+http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_search?pretty=true&source={"query":{"constant_score":{"filter":{"term":{"Tema":"aeroportos"}}}}}
+http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_search?pretty=true&source={query: {query_string:{default_field:"Tema",query:"hotela*"}}}}
+
+# Quantidade de registros por Tema
+
+
+# Totalizacao dos investimentos previstos
+#http://thedatahub.org/api/data/4e256209-7e2d-4481-9627-da73e191baf2/_search?pretty=true&source={"query":{"match_all":{}},"facets":{"totais" : {"statistical" : {"field" : "Investimento-Previsto-para-a-Etapa" }}}}
+#http://thedatahub.org/api/data/3b961dcf-f2fc-4425-8c07-159a58557bc9/_search?pretty=true&source={"query":{"match_all":{}},"facets":{"totais":{"statistical":{"field":"Investimento-Previsto-para-a-Etapa"}}}}
+http://thedatahub.org/api/data/ad90de8a-17c7-4576-a6a5-cc8c68b61f89/_search?pretty=true&source={"query":{"match_all":{}},"facets":{"totais":{"statistical":{"field":"Investimento-Previsto-para-a-Etapa"}}}}
+
+# Total de investimentos previstos por tema
+http://thedatahub.org/api/data/ad90de8a-17c7-4576-a6a5-cc8c68b61f89/_search?pretty=true&source={"query":{"match_all":{}},"facets":{"investimentos_previstos_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Previsto-para-a-Etapa"}}}}
+
+# Total de investimentos previstos, contratados e executados por tema
+http://thedatahub.org/api/data/ad90de8a-17c7-4576-a6a5-cc8c68b61f89/_search?pretty=true&source={"query":{"match_all":{}},"facets":{"investimentos_previstos_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Previsto-para-a-Etapa"}},"investimentos_contratados_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Contratado-para-a-Etapa"}},"investimentos_executados_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Executado-para-a-Etapa"}}}}
+
+Se for GET, tem que ter o 'source='
+
+$.ajax({url: "http://thedatahub.org/en/api/data/075de5b0-19ba-45fb-bfaa-603a78c47d45/_search?pretty=true",
+	dataType: 'json',
+	type: "GET",
+	data: "source="+JSON.stringify({"query":{"match_all":{}}}),
+	success: function(data) { console.log('Success')},
+	error: function(xhr, message, error) {console.log('Error')},
+	complete: function() {console.log('Completed')}
+});
+
+Se for POST, não precisa do source, mas precisa da API key
+
+$.ajax({url: "http://thedatahub.org/en/api/data/075de5b0-19ba-45fb-bfaa-603a78c47d45/_search?pretty=true",
+	headers: {"Authorization": "36849769-4a12-416c-a45c-ae3b94e2ad18"},
+	dataType: 'json',
+	type: "POST",
+	data: JSON.stringify({"query":{"match_all":{}}}),
+	success: function(data) { console.log('Success')},
+	error: function(xhr, message, error) {console.log('Error')},
+	complete: function() {console.log('Completed')}
+});

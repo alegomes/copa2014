@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl http://thedatahub.org/en/api/data/075de5b0-19ba-45fb-bfaa-603a78c47d45/_search -d '{"query":{"term" : { "Tema" : "portos" }} }'
