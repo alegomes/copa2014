@@ -2,7 +2,7 @@ body{
   background: #000;
 }
 .top{
-  background: url(images/top_fundo_02_03.png) repeat-x center;
+  background: url(../images/top_fundo_02_03.png) repeat-x center;
   height: 241px;
 }
 .top_area{
@@ -12,13 +12,13 @@ body{
   margin: 0 auto;
 }
 .marca{
-  background: url(images/marca_03.png) no-repeat center;
+  background: url(../images/marca_03.png) no-repeat center;
   height: 141px;
   width:306px;
   margin-left: 10px;
 }
 .menu{
-  background: url(images/menu_03.png) no-repeat center;
+  background: url(../images/menu_03.png) no-repeat center;
   height: 100px;
   width:813px;
   position: absolute;
@@ -37,7 +37,7 @@ body{
   left:0;
 }
 .menu .financ:hover{
-  background: url(images/menu_financ_03.png) no-repeat center;
+  background: url(../images/menu_financ_03.png) no-repeat center;
 }
 .menu .gerais{
   background: none;
@@ -48,7 +48,7 @@ body{
   left:307px;
 }
 .menu .gerais:hover{
-  background: url(images/menu_informacoesgerais_03.png) no-repeat center;
+  background: url(../images/menu_informacoesgerais_03.png) no-repeat center;
 }
 .menu .legislacao{
   background: none;
@@ -59,7 +59,7 @@ body{
   left:520px;
 }
 .menu .legislacao:hover{
-  background: url(images/menu_legislacao_03.png) no-repeat center;
+  background: url(../images/menu_legislacao_03.png) no-repeat center;
 }
 .menu .glossario{
   background: none;
@@ -70,7 +70,7 @@ body{
   left:653px;
 }
 .menu .glossario:hover{
-  background: url(images/menu_glossario_03.png) no-repeat center;
+  background: url(/images/menu_glossario_03.png) no-repeat center;
 }
 .menu .progresso{
   background: none;
@@ -81,7 +81,7 @@ body{
   left: 223px;
 }
 .menu .progresso:hover{
-  background: url(images/menu_progresso_03.png) no-repeat center;
+  background: url(../images/menu_progresso_03.png) no-repeat center;
 }
 .menu .valores{
   background: none;
@@ -92,7 +92,7 @@ body{
   left: 424px;
 }
 .menu .valores:hover{
-  background: url(images/menu_valores_03.png) no-repeat center;
+  background: url(../images/menu_valores_03.png) no-repeat center;
 }
 
 .menu_utilitario{
@@ -118,44 +118,44 @@ body{
   width:464px;
 }
 .corpo .estadios{
-  background: url(images/estadios_03.png) no-repeat center;
+  background: url(../images/estadios_03.png) no-repeat center;
   margin: 0 13px 8px 0;
 }
 .corpo .estadios:hover{
-  background: url(images/estadio_on_03.png) no-repeat center;
+  background: url(../images/estadio_on_03.png) no-repeat center;
 }
 .corpo .mobilidade{
-  background: url(images/mobilidade_03.png) no-repeat center;
+  background: url(../images/mobilidade_03.png) no-repeat center;
   margin: 0 0px 8px 13px;
 }
 .corpo .mobilidade:hover{
-  background: url(images/mobilidade_on_03.png) no-repeat center;
+  background: url(../images/mobilidade_on_03.png) no-repeat center;
 }
 .corpo .hotel{
-  background: url(images/hoteis_03.png) no-repeat center;
+  background: url(../images/hoteis_03.png) no-repeat center;
   margin: 0 13px 8px 0;
 }
 .corpo .hotel:hover{
-  background: url(images/hoteis_on_03.png) no-repeat center;
+  background: url(../images/hoteis_on_03.png) no-repeat center;
 }
 .corpo .portos{
-  background: url(images/portos_03.png) no-repeat center;
+  background: url(../images/portos_03.png) no-repeat center;
   margin: 0 0px 8px 13px;
 }
 .corpo .portos:hover{
-  background: url(images/portos_on_03.png) no-repeat center;
+  background: url(../images/portos_on_03.png) no-repeat center;
 }
 .corpo .seguranca{
-  background: url(images/seguranca_03.png) no-repeat center;
+  background: url(../images/seguranca_03.png) no-repeat center;
   margin: 0 13px 8px 0;
 }
 .corpo .seguranca:hover{
-  background: url(images/seguranca_on_03.png) no-repeat center;
+  background: url(../images/seguranca_on_03.png) no-repeat center;
 }
 .corpo .aeroportos{
-  background: url(images/aeroportos_03.png) no-repeat center;
+  background: url(../images/aeroportos_03.png) no-repeat center;
   margin: 0 0px 8px 13px;
 }
 .corpo .aeroportos:hover;{
-  background: url(images/aeroportos_on_03.png) no-repeat center;
+  background: url(../images/aeroportos_on_03.png) no-repeat center;
 }
