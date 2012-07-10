@@ -1,128 +1,172 @@
 body{
   background: #000;
+  font-family: Verdana,Arial,Serif;
 }
 .top{
-  background: url(../images/top_fundo_02_03.png) repeat-x center;
-  height: 241px;
+  background: url(../images/top_fundo_02_03.png) repeat-x 50% 100%;
+  height: 212px;
 }
 .top_area{
   width: 960px;
-  height: 241px;
   position: relative;
   margin: 0 auto;
 }
-.marca{
-  background: url(../images/marca_03.png) no-repeat center;
-  height: 141px;
-  width:306px;
-  margin-left: 10px;
-}
-.menu{
-  background: url(../images/menu_03.png) no-repeat center;
-  height: 100px;
-  width:813px;
+.bola{
+  background: url(../images/bola.png) no-repeat center;
+  height: 114px;
+  width: 123px;
   position: absolute;
-  top: 75px;
-  left: 147px;
-}
-.menu a{
-  display:block;
-}
-.menu .financ{
-  background: none;
-  position: absolute;
-  height: 32px;
-  width: 307px;
-  top:0;
-  left:0;
-}
-.menu .financ:hover{
-  background: url(../images/menu_financ_03.png) no-repeat center;
-}
-.menu .gerais{
-  background: none;
-  position: absolute;
-  height: 32px;
-  width: 213px;
-  top:0;
-  left:307px;
-}
-.menu .gerais:hover{
-  background: url(../images/menu_informacoesgerais_03.png) no-repeat center;
-}
-.menu .legislacao{
-  background: none;
-  position: absolute;
-  height: 32px;
-  width: 133px;
-  top:0;
-  left:520px;
-}
-.menu .legislacao:hover{
-  background: url(../images/menu_legislacao_03.png) no-repeat center;
-}
-.menu .glossario{
-  background: none;
-  position: absolute;
-  height: 32px;
-  width: 160px;
-  top:0;
-  left:653px;
-}
-.menu .glossario:hover{
-  background: url(/images/menu_glossario_03.png) no-repeat center;
-}
-.menu .progresso{
-  background: none;
-  position: absolute;
-  height: 67px;
-  width: 199px;
-  top: 33px;
-  left: 223px;
-}
-.menu .progresso:hover{
-  background: url(../images/menu_progresso_03.png) no-repeat center;
-}
-.menu .valores{
-  background: none;
-  position: absolute;
-  height: 67px;
-  width: 191px;
-  top: 33px;
-  left: 424px;
-}
-.menu .valores:hover{
-  background: url(../images/menu_valores_03.png) no-repeat center;
+  top: -9px;
+  left: 10px;
+  z-index: 1;
 }
 
-.menu_utilitario{
-  height: 30px;
-  width:350px;
+.menu{
+  height: 73px;
+  width: 880px;
   position: absolute;
-  top: 11px;
-  right: 0px;
-  color: #fff;
+  top: 4px;
+  left: 80px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: normal;
 }
-.menu_utilitario a{
-  color: #fff;
+.menu h1{
+  margin: 0px 0 0 47px;
+  color: #779E31;
+  font-family: Verdana,Arial,Serif;
+  font-size: 27px;
+  line-height: 14px;
+  width: 191px;
+  height: 53px;
+  padding: 20px 0 0 0;
+  border-right: 1px solid white;
+}
+.menu h1 span{
+  font-size: 11px;
+}
+.menu .legenda{
+  background-image: url(../images/legenda.png);
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  padding: 4px 0 0 25px;
+  position: absolute;
+  height: 69px;
+  width: 197px;
+  left: 239px;
+  border-left: 1px solid #CAC7C7;
+  border-right: 1px solid white;
   text-decoration: none;
+  color: #838282;
+  margin: 0;
+  font-size: 12px;
+  list-style: none;
+  font-weight: normal;
+  top: 0;
+}
+.menu .legenda li{
+  padding: 5px 0 0 0;
+}
+.menu .legenda span{
+  width: 11px;
+  display: block;
+  height: 11px;
+  float: left;
+  margin: 2px 4px;
+}
+.menu .legenda .vermelho span{
+  background: #b32a2f;
+}
+.menu .legenda .amarelo span{
+  background: #f1be18;
+}
+.menu .legenda .verde span{
+  background: #39b54a;
+}
+.menu .investimentos{
+  background-image: url(../images/icon_investimento.png);
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  padding: 19px 0 0 62px;
+  position: absolute;
+  height: 54px;
+  width: 107px;
+  top: 0;
+  left: 463px;
+  border-left: 1px solid #CAC7C7;
+  border-right: 1px solid white;
+  text-decoration: none;
+  color: #838282;
+}
+.menu .proporcao{
+  background-image: url(../images/icon_proporcao.png);
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  padding: 19px 0 0 62px;
+  position: absolute;
+  height: 54px;
+  width: 90px;
+  top: 0;
+  left: 634px;
+  border-left: 1px solid #CAC7C7;
+  border-right: 1px solid white;
+  text-decoration: none;
+  color: #838282;
+}
+
+.menu .download{
+  background-image: url(../images/download.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  position: absolute;
+  height: 73px;
+  width: 91px;
+  top: 0;
+  left: 788px;
+  border-left: 1px solid #CAC7C7;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+}
+.menu .investimentos:hover, .menu .proporcao:hover, .menu .download:hover{
+  background-color: #fff;
+}
+.menu .marcado{
+  background-color: #fff;
 }
 .corpo{
   width: 960px;
   position: relative;
-  margin: 0 auto;
+  margin: -80px auto 0;
 }
 .corpo a{
   display: inline-block;
   height:211px;
   width:464px;
 }
-.corpo .estadios{
-  background: url(../images/estadios_03.png) no-repeat center;
-  margin: 0 13px 8px 0;
+
+.corpo .quadro{
+  float: left;
+  width: 408px;
+  background: white;
+  margin: 32px 10px 32px 61px;
+  height: 147px;
+  padding: 10px 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
-.corpo .estadios:hover{
-  background: url(../images/estadio_on_03.png) no-repeat center;
+.corpo .quadro div{
+  margin: -46px 0 0 -67px;
+}
+.corpo #estadios {
+
+}
+.corpo .aeroportos{
 }
 .corpo .mobilidade{
   background: url(../images/mobilidade_03.png) no-repeat center;
@@ -151,11 +195,4 @@ body{
 }
 .corpo .seguranca:hover{
   background: url(../images/seguranca_on_03.png) no-repeat center;
-}
-.corpo .aeroportos{
-  background: url(../images/aeroportos_03.png) no-repeat center;
-  margin: 0 0px 8px 13px;
-}
-.corpo .aeroportos:hover;{
-  background: url(../images/aeroportos_on_03.png) no-repeat center;
 }
