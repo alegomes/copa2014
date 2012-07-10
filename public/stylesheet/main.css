@@ -148,11 +148,25 @@ body{
   height:211px;
   width:464px;
 }
-.corpo #estadios div {
-  background: url(../images/estadio.png) no-repeat center;
+
+.corpo .quadro{
+  float: left;
+  width: 408px;
+  background: white;
+  margin: 32px 10px 32px 61px;
+  height: 147px;
+  padding: 10px 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
-.corpo .aeroportos div{
-  background: url(../images/aeroporto.png) no-repeat center;
+.corpo .quadro div{
+  margin: -46px 0 0 -67px;
+}
+.corpo #estadios {
+
+}
+.corpo .aeroportos{
 }
 .corpo .mobilidade{
   background: url(../images/mobilidade_03.png) no-repeat center;
