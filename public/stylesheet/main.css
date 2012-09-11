@@ -151,48 +151,65 @@ body{
 
 .corpo .quadro{
   float: left;
-  width: 408px;
+  width: 433px;
   background: white;
-  margin: 32px 10px 32px 61px;
+  margin: 32px 0px 32px 45px;
   height: 147px;
   padding: 10px 0;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 40px 10px 10px 40px;
+  -moz-border-radius: 40px 10px 10px 40px;
+  border-radius: 40px 10px 10px 40px;
 }
 .corpo .quadro div{
-  margin: -46px 0 0 -67px;
+  margin: -44px 0 0 -33px;
+  position: relative;
 }
-.corpo #estadios {
+.corpo #estadios .image-title{
+  background: url(../images/estadio.png) no-repeat center;
+  position: absolute;
+  height: 142px;
+  width: 142px;
+  top: 88px;
+  left: 80px;
+}
+.corpo #aeroportos .image-title{
+  background: url(../images/aeroporto.png) no-repeat center;
+  position: absolute;
+  height: 114px;
+  width: 108px;
+  top: 104px;
+  left: 98px;
+}
+.corpo #mobilidade .image-title{
+  background: url(../images/mobilidade.png) no-repeat center;
+  position: absolute;
+  height: 114px;
+  width: 108px;
+  top: 101px;
+  left: 88px;
+}
+.corpo #hotelaria .image-title{
+  background: url(../images/hotelaria.png) no-repeat center;
+  position: absolute;
+  height: 114px;
+  width: 108px;
+  top: 100px;
+  left: 93px;
 
 }
-.corpo .aeroportos{
+.corpo #seguranca .image-title{
+  background: url(../images/seguranca.png) no-repeat center;
+  position: absolute;
+  height: 114px;
+  width: 108px;
+  top: 99px;
+  left: 94px;
 }
-.corpo .mobilidade{
-  background: url(../images/mobilidade_03.png) no-repeat center;
-  margin: 0 0px 8px 13px;
-}
-.corpo .mobilidade:hover{
-  background: url(../images/mobilidade_on_03.png) no-repeat center;
-}
-.corpo .hotel{
-  background: url(../images/hoteis_03.png) no-repeat center;
-  margin: 0 13px 8px 0;
-}
-.corpo .hotel:hover{
-  background: url(../images/hoteis_on_03.png) no-repeat center;
-}
-.corpo .portos{
-  background: url(../images/portos_03.png) no-repeat center;
-  margin: 0 0px 8px 13px;
-}
-.corpo .portos:hover{
-  background: url(../images/portos_on_03.png) no-repeat center;
-}
-.corpo .seguranca{
-  background: url(../images/seguranca_03.png) no-repeat center;
-  margin: 0 13px 8px 0;
-}
-.corpo .seguranca:hover{
-  background: url(../images/seguranca_on_03.png) no-repeat center;
+.corpo #portos .image-title{
+  background: url(../images/portos.png) no-repeat center;
+  position: absolute;
+  height: 114px;
+  width: 148px;
+  top: 108px;
+  left: 75px;
 }
