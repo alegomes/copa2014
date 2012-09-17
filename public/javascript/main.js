@@ -16,15 +16,15 @@ function geraCirculo(value, json) {
             "stroke-width": 20
         },
         hash = document.location.hash;
-      
+
     // Custom Attribute
     r.customAttributes.arc = function (value, total, R, colorParam) {
      	var alpha = 360 / total * value,
-     	  a = (90 - alpha) * Math.PI / 180, 
-     	  x = 116 + R * Math.cos(a), 
-     	  y = 116 - R * Math.sin(a), 
+     	  a = (90 - alpha) * Math.PI / 180,
+     	  x = 116 + R * Math.cos(a),
+     	  y = 116 - R * Math.sin(a),
      	  color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)"), path;
-   
+
      	var color = colorParam;
 
      	if (total == value) {
@@ -34,7 +34,7 @@ function geraCirculo(value, json) {
      	}
      	return {path: path, stroke: color};
     };
-   
+
     var red = r.path().attr(param1).attr({arc: [0, 100, R, "rgba(255, 0, 0, 1)"]});
     var yellow = r.path().attr(param2).attr({arc: [0, 100, R, "rgba(0, 0, 255, 1)"]});
     var green = r.path().attr(param3).attr({arc: [0, 100, R, "rgba(0, 255, 0, 1)"]});
@@ -67,7 +67,6 @@ function geraCirculo(value, json) {
 	}
 
 	(function () {
-	  console.log(json);
 		updateVal(json.previsto, json.previsto, R, red, "rgba(179, 42, 47, 1)");
 		updateVal(json.contratado, json.previsto, R, yellow, "rgba(241, 190, 42, 1)");
 		updateVal(json.executado, json.previsto, R, green, "rgba(57, 181, 74, 1)");
