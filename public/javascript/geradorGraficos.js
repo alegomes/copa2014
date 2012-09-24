@@ -75,7 +75,25 @@ function geraCirculo(value, json) {
 }
 
 
+function geraGrafico(id, json) {
+    var r = Raphael(id);
+    console.log(json);
+    var lines = r.linechart(10, 10, 232, 155, 
+        [[1, 2, 3, 4, 5, 6, 7],[3.5, 4.5, 5.5, 6.5, 7, 8]], // Eixo - X
+        [[12, 32, 23, 15, 17, 27, 22], [10, 20, 30, 25, 15, 28]], //Eixo - Y
+        { axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['red','green']}
+    ).hoverColumn(function () {
+        this.tags = r.set();
 
+        for (var i = 0, ii = this.y.length; i < ii; i++) {
+            this.tags.push(r.tag(this.x, this.y[i], this.values[i], 160, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
+        }
+    }, function () {
+        this.tags && this.tags.remove();
+    });
+
+    lines.symbols.attr({ r: 4 });
+}
 
 
 

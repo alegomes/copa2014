@@ -1,15 +1,13 @@
-var API_BASE = 'http://thedatahub.org/api/data/ad90de8a-17c7-4576-a6a5-cc8c68b61f89';
-
 var Copa2014 = {
 
-	registrosPorTema: function(callback) {
+	registrosPorTema: function(resourceUrl, callback) {
 
 		var query = {
 			"query":{"match_all":{}},"facets":{"temas":{"terms":{"field":"Tema"}}}
 		}
 
 		$.ajax({
-			url: API_BASE + "/_search?pretty=true",
+			url: resourceUrl + "/_search?pretty=true",
 			dataType: "json",
 			type: "GET",
 			data: "source="+JSON.stringify(query),
@@ -19,7 +17,7 @@ var Copa2014 = {
 		});
 	},
 
-	investimentosPorTema: function(callback) {
+	investimentosPorTema: function(resourceUrl, callback) {
 
 		var query = {
 			"query":{
@@ -50,7 +48,7 @@ var Copa2014 = {
 
 		//http://thedatahub.org/api/data/ad90de8a-17c7-4576-a6a5-cc8c68b61f89/_search?pretty=true&source={"query":{"match_all":{}},"facets":{"investimentos_previstos_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Previsto-para-a-Etapa"}},"investimentos_contratados_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Contratado-para-a-Etapa"}},"investimentos_executados_por_tema":{"terms_stats":{"key_field":"Tema","value_field":"Investimento-Executado-para-a-Etapa"}}}}
 		$.ajax({
-			url: API_BASE + "/_search?pretty=true",
+			url: resourceUrl + "/_search?pretty=true",
 			dataType: 'json',
 			type: "GET",
 			processData: false,
@@ -97,5 +95,31 @@ var Copa2014 = {
 				console.log("Fim do AJAX");
 			}
 		});
+	},
+
+	ultimosInvestimentosPorTema: function(callback) {
+		var temas = ["mobilidade","urbana","aeroportos","segurança","pública","estádio","arena","portos","hotelaria","telecomunicações"];
+		var results = [];
+		var mixed = {};
+
+		var resources = DataHubApi.getResourceList("copa-2014");
+		for (var i = 0; i < resources.length; i++) {
+			this.investimentosPorTema(resources[i].webstore_url,
+			{onSuccess: function(json) {
+				results.push(json);
+				if (results.length == resources.length) {
+					for (var t in temas) {
+						mixed[temas[t]] = {};
+						mixed[temas[t]][resources[i].last_modified] = json[temas[t]];
+					}
+
+					console.log(mixed);
+				}
+			},
+			onError: function() {
+				console.log("Erro ao buscar dados!");
+			}
+			});
+		}
 	}
 }

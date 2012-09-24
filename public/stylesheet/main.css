@@ -213,3 +213,14 @@ body{
   top: 108px;
   left: 75px;
 }
+
+.grafico {
+  width: 238px;
+  height: 180px;
+  margin: 25px 0 0 -8px !important;
+  float: left;
+}
+
+.quadro svg {
+  float: left;
+}
