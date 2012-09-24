@@ -8,7 +8,7 @@ jQuery(function() {
       geraCirculo("mobilidade", json.mobilidade);
       geraCirculo("portos", json.portos);
       geraCirculo("seguranca", json.segurança);
-      geraCirculo("telecomunicacoes", json.telecomunicações);
+      // geraCirculo("telecomunicacoes", json.telecomunicações);
 			
 		},
 		onError: function(xhr, message, error) {

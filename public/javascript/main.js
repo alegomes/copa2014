@@ -88,4 +88,3 @@ function geraCirculo(value, json) {
 
 
 
-
