@@ -151,50 +151,157 @@ body{
 
 .corpo .quadro{
   float: left;
-  width: 433px;
+  width: 423px;
+  height: 162px;
   background: white;
-  margin: 32px 0px 32px 45px;
-  height: 147px;
+  margin: 32px 0px 32px 56px;
   padding: 10px 0;
+  position: relative;
   -webkit-border-radius: 40px 10px 10px 40px;
   -moz-border-radius: 40px 10px 10px 40px;
   border-radius: 40px 10px 10px 40px;
 }
 .corpo .quadro div{
-  margin: -44px 0 0 -33px;
+  margin: 0;
   position: relative;
+  color: #444;
+}
+.corpo .quadro h1 {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 126px;
+  top: -51px;
+}
+.corpo .quadro p {
+  font-size: 12px;
+  display: block;
+  position: absolute;
+  top: -9px;
+  right: 15px;
+  width: 240px;
+}
+.corpo .quadro .porcento_0{
+  position: absolute;
+  top: 34px;
+  left: 98px;
+}
+.corpo .quadro .porcento_0 .marcador{
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 2px;
+  background: #B32A2F;
+  top: -4px;
+  right: 50%;
+}
+.corpo .quadro .porcento_50{
+  position: absolute;
+  bottom: 34px;
+  left: 96px;
+}
+.corpo .quadro .porcento_50 .marcador{
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 2px;
+  background: #B32A2F;
+  bottom: -4px;
+  right: 49%;
+}
+.corpo .quadro .legenda{
+  padding: 0;
+  position: absolute;
+  height: 22px;
+  width: 258px;
+  right: 0px;
+  text-decoration: none;
+  margin: 0;
+  font-size: 12px;
+  list-style: none;
+  font-weight: normal;
+  top: 28px;
+}
+.corpo .quadro .legenda li{
+  padding:0;
+  float: left;
+}
+.corpo .quadro .legenda span{
+  width: 11px;
+  display: block;
+  height: 11px;
+  float: left;
+  margin: 2px 4px;
+}
+.corpo .quadro .legenda .amarelo span.square{
+  background: #f1be18;
+}
+.corpo .quadro .legenda .verde span.square{
+  background: #39b54a;
+}
+.corpo .quadro .grafico_yx {
+  display: block;
+  top: 9px;
+  position: absolute;
+  right: 11px;
+  width: 246px;
+  height: 134px;
+  margin: 25px 0 0 -8px !important;
+}
+.corpo #estadios #estadios_circulo, .corpo #aeroportos #aeroportos_circulo, .corpo #mobilidade #mobilidade_circulo, .corpo #hotelaria #hotelaria_circulo,  .corpo #seguranca #seguranca_circulo,  .corpo #portos #portos_circulo{
+  background: white;
+  position: absolute;
+  display: block;
+  top: -25px;
+  left: -42px;
+  padding: 5px;
+  height: 204px;
+  font-size: 11px;
+  -webkit-border-radius: 104px;
+  -moz-border-radius: 104px;
+  border-radius: 104px;
+}
+.corpo #estadios #estadios_circulo svg, .corpo #aeroportos #aeroportos_circulo svg, .corpo #mobilidade #mobilidade_circulo svg, .corpo #hotelaria #hotelaria_circulo svg,  .corpo #seguranca #seguranca_circulo svg,  .corpo #portos #portos_circulo svg{
+  position: absolute;
+  top: 0;
+}
+.corpo #estadios, .corpo #aeroportos, .corpo #mobilidade, .corpo #hotelaria, .corpo #seguranca, .corpo #portos{
+  width: 433px;
+  height: 162px;
 }
 .corpo #estadios .image-title{
   background: url(../images/estadio.png) no-repeat center;
   position: absolute;
   height: 142px;
   width: 142px;
-  top: 88px;
-  left: 80px;
+  top: 14px;
+  left: -4px;
 }
 .corpo #aeroportos .image-title{
   background: url(../images/aeroporto.png) no-repeat center;
   position: absolute;
   height: 114px;
   width: 108px;
-  top: 104px;
-  left: 98px;
+  top: 29px;
+  left: 19px;
 }
 .corpo #mobilidade .image-title{
   background: url(../images/mobilidade.png) no-repeat center;
   position: absolute;
   height: 114px;
   width: 108px;
-  top: 101px;
-  left: 88px;
+  top: 25px;
+  left: 7px;
 }
 .corpo #hotelaria .image-title{
   background: url(../images/hotelaria.png) no-repeat center;
   position: absolute;
   height: 114px;
   width: 108px;
-  top: 100px;
-  left: 93px;
+  top: 22px;
+  left: 12px;
 
 }
 .corpo #seguranca .image-title{
@@ -202,25 +309,19 @@ body{
   position: absolute;
   height: 114px;
   width: 108px;
-  top: 99px;
-  left: 94px;
+  top: 24px;
+  left: 12px;
 }
 .corpo #portos .image-title{
   background: url(../images/portos.png) no-repeat center;
   position: absolute;
   height: 114px;
   width: 148px;
-  top: 108px;
-  left: 75px;
-}
-
-.grafico {
-  width: 238px;
-  height: 180px;
-  margin: 25px 0 0 -8px !important;
-  float: left;
+  top: 32px;
+  left: -7px;
 }
 
 .quadro svg {
   float: left;
+  top: 8px;
 }

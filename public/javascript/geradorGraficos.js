@@ -1,19 +1,19 @@
 function geraCirculo(value, json) {
-    var r = Raphael(value, 236, 236),
-        R = 96,
+    var r = Raphael(value, 204, 204),
+        R = 89,
         init = true,
         param1 = {
             stroke: "#fff",
-            "stroke-width": 28,
+            "stroke-width": 24,
             "box-shadow": "0 0 10px #000"
         },
         param2 = {
             stroke: "#fff",
-            "stroke-width": 24
+            "stroke-width": 20
         },
         param3 = {
             stroke: "#fff",
-            "stroke-width": 20
+            "stroke-width": 16
         },
         hash = document.location.hash;
 
@@ -21,16 +21,16 @@ function geraCirculo(value, json) {
     r.customAttributes.arc = function (value, total, R, colorParam) {
      	var alpha = 360 / total * value,
      	  a = (90 - alpha) * Math.PI / 180,
-     	  x = 116 + R * Math.cos(a),
-     	  y = 116 - R * Math.sin(a),
-     	  color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)"), path;
+     	  x = 102 + R * Math.cos(a),
+     	  y = 102 - R * Math.sin(a),
+     	  color = "hsb(".concat(Math.round(R) / 186, ",", value / total, ", .75)"), path;
 
      	var color = colorParam;
 
      	if (total == value) {
-     		path = [["M", 116, 116 - R], ["A", R, R, 0, 1, 1, 115.99, 116 - R]];
+     		path = [["M", 102, 102 - R], ["A", R, R, 0, 1, 1, 101.99, 102 - R]];
      	} else {
-     		path = [["M", 116, 116 - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]];
+     		path = [["M", 102, 102 - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]];
      	}
      	return {path: path, stroke: color};
     };
@@ -78,15 +78,15 @@ function geraCirculo(value, json) {
 function geraGrafico(id, json) {
     var r = Raphael(id);
     console.log(json);
-    var lines = r.linechart(10, 10, 232, 155, 
-        [[1, 2, 3, 4, 5, 6, 7],[3.5, 4.5, 5.5, 6.5, 7, 8]], // Eixo - X
-        [[12, 32, 23, 15, 17, 27, 22], [10, 20, 30, 25, 15, 28]], //Eixo - Y
-        { axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['red','green']}
+    var lines = r.linechart(10, 10, 230, 100, 
+        [[0, 1, 2, 3, 4],[0, 1, 2, 3, 4]], // Eixo - X
+        [[0, 12, 30, 55, 58],[0, 10, 20, 25, 27]], //Eixo - Y
+        { axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
     ).hoverColumn(function () {
         this.tags = r.set();
 
         for (var i = 0, ii = this.y.length; i < ii; i++) {
-            this.tags.push(r.tag(this.x, this.y[i], this.values[i], 160, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
+            this.tags.push(r.tag(this.x, this.y[i], this.values[i], 165, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
         }
     }, function () {
         this.tags && this.tags.remove();
