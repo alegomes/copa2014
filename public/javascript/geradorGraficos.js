@@ -77,10 +77,10 @@ function geraCirculo(value, json) {
 
 function geraGrafico(id, json) {
     var r = Raphael(id);
-    console.log(json);
+    
     var lines = r.linechart(10, 10, 230, 100, 
-        [[0, 1, 2, 3, 4],[0, 1, 2, 3, 4]], // Eixo - X
-        [[0, 12, 30, 55, 58],[0, 10, 20, 25, 27]], //Eixo - Y
+        [[0, 1, 2, 3],[0, 1, 2, 3]], // Eixo - X
+        [[0, 12, 30, 55],[0, 10, 20, 25]], //Eixo - Y
         { axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
     ).hoverColumn(function () {
         this.tags = r.set();
@@ -93,6 +93,21 @@ function geraGrafico(id, json) {
     });
 
     lines.symbols.attr({ r: 4 });
+
+    //Eixo X
+    lines.axis[0].text.items[0].attr('text', "11/1988");
+    lines.axis[0].text.items[1].attr('text', "");
+    lines.axis[0].text.items[2].attr('text', "12/1988");
+    lines.axis[0].text.items[3].attr('text', "");
+    lines.axis[0].text.items[4].attr('text', "01/1989");
+    lines.axis[0].text.items[5].attr('text', "");
+    lines.axis[0].text.items[6].attr('text', "02/1989");
+
+    //Eixo Y
+    var itens = lines.axis[1].text.items;
+    for (var i = 0; i < itens.length; i++) {
+        itens[i].attr('text',itens[i].attr('text')+'%');
+    }
 }
 
 

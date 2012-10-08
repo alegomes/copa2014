@@ -1,24 +1,46 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
-require 'savon'
+require 'sinatra/activerecord'
+require 'haml'
+require 'sass'
+require 'compass'
 
-get "/" do
-  send_file File.join(settings.public_folder, 'index.html')
+
+env = (ENV["RACK_ENV"] || "development")
+set :sass_dir, 'public/stylesheets'
+
+YAML::load(File.open('config/database.yml'))[env].symbolize_keys.each do |key, value|
+  set key, value
 end
 
-get "/teste" do
-	# client = Savon.client("http://www.thomas-bayer.com/axis2/services/BLZService?wsdl")
+ActiveRecord::Base.establish_connection(
+  adapter: "mysql", 
+  host: settings.db_host,
+  database: settings.db_name,
+  username: settings.db_username,
+  password: settings.db_password)
 
-	# puts client.wsdl.soap_actions
+class Investimentos < ActiveRecord::Base  
+end
 
-	# response = client.request :get_bank, :body => { :blz => "70070010" }
-	# puts response.body[:get_bank_response][:details]
 
-	client = Savon.client("http://transparencia.gov.br/copa2014/gestor/portalcopaws?wsdl")
-	
-	puts client.wsdl.soap_actions
+configure do
+  Compass.configuration do |config|
+    config.project_path = File.dirname(__FILE__)
+    config.sass_dir = 'asdasdasdasdas assets'
+  end
 
-	response = client.request :get_arquivo, :body => { :id_arquivo => 1 }
+  set :haml, { :format => :html5 }
+  set :scss, Compass.sass_engine_options
+  set :sass_dir, 'assets'
+end
 
-  send_file File.join(settings.public_folder, 'teste.html')
+get '/main.css' do
+  content_type 'text/css', :charset => 'utf-8'
+  scss :"stylesheet/main"
+end
+
+get "/" do
+  # @invs = Investimentos.where tema: :aeroporto
+	erb :index
 end
