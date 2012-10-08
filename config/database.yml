@@ -1,0 +1,5 @@
+development:
+  db_name: 'copa2014'
+  db_host: 'localhost'
+  db_username: 'root'
+  db_password: 'root'
