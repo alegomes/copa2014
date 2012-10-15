@@ -10,7 +10,7 @@ require 'compass'
 require './config/environments'
 
 
-class Investimentos < ActiveRecord::Base  
+class Investimento < ActiveRecord::Base  
 end
 
 
@@ -41,7 +41,7 @@ end
 
 
 get "/" do
-  @invs = Investimentos.where tema: :aeroporto
+  @invs = Investimento.where tema: :aeroporto
   puts @invs.size
 	erb :index, layout: :layout
 end
