@@ -1,7 +1,6 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
-require 'haml'
 require 'sass'
 require 'compass'
 
@@ -27,18 +26,17 @@ end
 configure do
   Compass.configuration do |config|
     config.project_path = File.dirname(__FILE__)
-    config.sass_dir = 'asdasdasdasdas assets'
+    config.sass_dir = 'assets'
   end
 
-  set :haml, { :format => :html5 }
   set :scss, Compass.sass_engine_options
-  set :sass_dir, 'assets'
 end
 
 get '/main.css' do
   content_type 'text/css', :charset => 'utf-8'
-  scss :"stylesheet/main"
+  scss :"../assets/stylesheet/main"
 end
+
 
 get "/" do
   # @invs = Investimentos.where tema: :aeroporto
