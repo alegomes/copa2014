@@ -8,6 +8,7 @@ gem 'compass'
 
 group :development, :test do
   gem 'mysql'
+  gem 'sqlite3'
 end
 
 group :production do
