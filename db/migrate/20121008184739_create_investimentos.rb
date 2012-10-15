@@ -1,7 +1,6 @@
 class CreateInvestimentos < ActiveRecord::Migration
   def self.up
-  	puts 'Aew'
-  	create_table :investimentos2 do |t|
+  	create_table :investimento do |t|
   		t.string :tema
   		t.float :valor_previsto
   		t.float :valor_contratado
@@ -11,6 +10,6 @@ class CreateInvestimentos < ActiveRecord::Migration
   end
 
   def self.down
-  	drop_table :investimentos2
+  	drop_table :investimento
   end
 end
