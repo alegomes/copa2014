@@ -11,6 +11,6 @@ class CreateInvestimentos < ActiveRecord::Migration
   end
 
   def self.down
-  	drop_table :investimentos
+  	drop_table :investimentos2
   end
 end
