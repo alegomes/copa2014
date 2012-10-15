@@ -45,6 +45,7 @@ DEPENDENCIES
   activerecord
   compass
   mysql
+  sqlite3
   pg
   sass
   sinatra
