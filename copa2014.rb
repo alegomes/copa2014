@@ -2,6 +2,8 @@ require 'rubygems'
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
+require 'uri'
+
 require 'sass'
 require 'compass'
 
@@ -39,7 +41,8 @@ end
 
 
 get "/" do
-  # @invs = Investimentos.where tema: :aeroporto
+  @invs = Investimentos.where tema: :aeroporto
+  puts @invs.size
 	erb :index, layout: :layout
 end
 
