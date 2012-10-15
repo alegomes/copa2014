@@ -5,20 +5,8 @@ require 'sinatra/activerecord'
 require 'sass'
 require 'compass'
 
+require './config/environments'
 
-env = (ENV["RACK_ENV"] || "development")
-set :sass_dir, 'public/stylesheets'
-
-YAML::load(File.open('config/database.yml'))[env].symbolize_keys.each do |key, value|
-  set key, value
-end
-
-ActiveRecord::Base.establish_connection(
-  adapter: "mysql", 
-  host: settings.db_host,
-  database: settings.db_name,
-  username: settings.db_username,
-  password: settings.db_password)
 
 class Investimentos < ActiveRecord::Base  
 end
