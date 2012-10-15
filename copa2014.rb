@@ -35,7 +35,7 @@ end
 
 get "/" do
   @invs = Investimento.where tema: :aeroporto
-  puts @invs.size
+  puts "Investimentos: "+@invs.size
 	erb :index, layout: :layout
 end
 
