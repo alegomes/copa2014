@@ -1,1 +1,0 @@
-create table investimentos(id_investimento int not null key auto_increment, tema text null, valor_previsto decimal(20,4) null, valor_contratado decimal(20,4) null, valor_executado decimal(20,4) null, created_at datetime);
