@@ -78,7 +78,7 @@ function geraCirculo(value, json) {
 function geraGrafico(id, json) {
     var r = Raphael(id);
     
-    var lines = r.linechart(10, 10, 230, 100, 
+    var lines = r.linechart(20, 10, 208, 100, 
         [[0, 1, 2, 3],[0, 1, 2, 3]], // Eixo - X
         [[0, 12, 30, 55],[0, 10, 20, 25]], //Eixo - Y
         { axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}

@@ -229,18 +229,21 @@ body{
   padding:0;
   float: left;
 }
-.corpo .quadro .legenda span{
+.corpo .quadro .legenda .amarelo div.square{
+  background: #f1be18;
   width: 11px;
   display: block;
   height: 11px;
   float: left;
   margin: 2px 4px;
 }
-.corpo .quadro .legenda .amarelo span.square{
-  background: #f1be18;
-}
-.corpo .quadro .legenda .verde span.square{
+.corpo .quadro .legenda .verde div.square{
   background: #39b54a;
+  width: 11px;
+  display: block;
+  height: 11px;
+  float: left;
+  margin: 2px 4px;
 }
 .corpo .quadro .grafico_yx {
   display: block;
