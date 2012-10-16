@@ -23,7 +23,12 @@
             <div class="bola"></div>
 
             <div class="menu">
-                <h1>COPA 2014<br /><span>Por debaixo dos gramados</span></h1>
+                <a href="/" title="Home" rel="home">
+                    <h1>
+                        <div>OpenCopa</div>
+                        <div class="subtitle">Por debaixo dos gramados</div>
+                    </h1>
+                </a>
           
                 <ul class="legenda">
                     <li class="vermelho"><span></span>Não contratado</li>
@@ -32,9 +37,13 @@
                 </ul>
 
                 <% menu = (yield_content(:menu) || "investimentos").strip %>
-                <a href="/" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">Andamento dos investimentos</a>
-                <a href="/proporcao-de-valores" class="proporcao <%= 'marcado' if menu == 'proporcao' %>">Proporção de valores</a>
-                <a href="#" class="download"></a>
+                <a href="/" title="Andamento dos investimentos" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">
+                    Andamento dos investimentos
+                </a>
+                <a href="/proporcao-de-valores" title="Proporção de valore" class="proporcao <%= 'marcado' if menu == 'proporcao' %>">
+                    Proporção de valores
+                </a>
+                <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="download"></a>
             </div>
         </div>
     </div>
