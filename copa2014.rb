@@ -31,11 +31,29 @@ get '/images/*' do
   end
 end
 
+helpers do
+  def format_number number
+    ("%.2f" % number).gsub('.',',').gsub(/(\d)(?=\d{3}+(,\d*)?$)/,'\1.')
+  end
+
+  def format_percent value, base
+    ((value / base) * 100).round.to_i
+  end
+end
+
 
 
 get "/" do
-  @invs = Investimento.where tema: :aeroporto
-  puts "Investimentos: #{@invs.size}"
+  @investimentos = Investimento.all
+  @investimentos.each do |inv|
+    @aeroporto = inv if inv.tema.to_sym == :aeroporto
+    @desenvolvimento_turistico = inv if inv.tema.to_sym == :desenvolvimento_turistico
+    @estadio = inv if inv.tema.to_sym == :estadio
+    @mobilidade_urbana = inv if inv.tema.to_sym == :mobilidade_urbana
+    @porto = inv if inv.tema.to_sym == :porto
+    @seguranca = inv if inv.tema.to_sym == :seguranca
+  end
+
 	erb :index, layout: :layout
 end
 

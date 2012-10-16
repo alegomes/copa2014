@@ -1,5 +1,5 @@
 <div class="quadro">
-  <div id="estadios">
+  <div id="estadios" data-valor-previsto="<%= @estadio.valor_previsto %>" data-valor-contratado="<%= @estadio.valor_contratado %>" data-valor-executado="<%= @estadio.valor_executado %>">
       <div id="estadios_circulo">
         <div class="porcento_0">0%
           <div class="marcador"></div>
@@ -9,17 +9,23 @@
         </div>
       </div>
       <h1>Estádios e Arenas</h1>
-      <p>Verba prevista: <span id="valor_estadio"></span></p>
+      <p>Verba prevista: <span id="valor_estadio"><%= format_number @estadio.valor_previsto %></span></p>
       <ul class="legenda">
-          <li class="amarelo"><div class="square"></div><span id="porcentagem_estadio_contratado">80</span>% contratado</li>
-          <li class="verde"><div class="square"></div><span id="porcentagem_estadio_executado">20</span>% Executado</li>
+          <li class="amarelo">
+            <div class="square"></div>
+            <span id="porcentagem_estadio_contratado"><%= format_percent @estadio.valor_contratado, @estadio.valor_previsto %></span>% contratado
+          </li>
+          <li class="verde">
+            <div class="square"></div>
+            <span id="porcentagem_estadio_executado"><%= format_percent @estadio.valor_executado, @estadio.valor_previsto %></span>% Executado
+          </li>
       </ul>
       <div class="image-title"></div>
       <div id="grafico_estadios" class="grafico_yx"></div>
   </div>
 </div>
 <div class="quadro">
-    <div id="aeroportos">
+    <div id="aeroportos" data-valor-previsto="<%= @aeroporto.valor_previsto %>" data-valor-contratado="<%= @aeroporto.valor_contratado %>" data-valor-executado="<%= @aeroporto.valor_executado %>">
         <div id="aeroportos_circulo">
           <div class="porcento_0">0%
             <div class="marcador"></div>
@@ -29,17 +35,23 @@
           </div>
         </div>
         <h1>Aeroportos</h1>
-        <p>Verba prevista: <span id="valor_aeroportos"></span></p>
+        <p>Verba prevista: <span id="valor_aeroportos"><%= format_number @aeroporto.valor_previsto %></span></p>
         <ul class="legenda">
-            <li class="amarelo"><div class="square"></div><span id="porcentagem_aeroportos_contratado">80</span>% contratado</li>
-            <li class="verde"><div class="square"></div><span id="porcentagem_aeroportos_executado">80</span>% Executado</li>
+            <li class="amarelo">
+              <div class="square"></div>
+              <span id="porcentagem_aeroportos_contratado"><%= format_percent @aeroporto.valor_contratado, @aeroporto.valor_previsto %></span>% contratado
+            </li>
+            <li class="verde">
+              <div class="square"></div>
+              <span id="porcentagem_aeroportos_executado"><%= format_percent @aeroporto.valor_executado, @aeroporto.valor_previsto %></span>% Executado
+            </li>
         </ul>                
         <div class="image-title"></div>
         <div id="grafico_aeroportos" class="grafico_yx"></div>
     </div>
 </div>
 <div class="quadro">
-    <div id="mobilidade">
+    <div id="mobilidade" data-valor-previsto="<%= @mobilidade_urbana.valor_previsto %>" data-valor-contratado="<%= @mobilidade_urbana.valor_contratado %>" data-valor-executado="<%= @mobilidade_urbana.valor_executado %>">
         <div id="mobilidade_circulo">
           <div class="porcento_0">0%
             <div class="marcador"></div>
@@ -49,17 +61,23 @@
           </div>                  
         </div>
         <h1>Mobilidade Urbana</h1>
-        <p>Verba prevista: <span id="valor_mobilidade"></span></p>
+        <p>Verba prevista: <span id="valor_mobilidade"><%= format_number @mobilidade_urbana.valor_previsto %></span></p>
         <ul class="legenda">
-            <li class="amarelo"><div class="square"></div><span id="porcentagem_mobilidade_contratado">80</span>% contratado</li>
-            <li class="verde"><div class="square"></div><span id="porcentagem_mobilidade_executado">80</span>% Executado</li>
+            <li class="amarelo">
+              <div class="square"></div>
+              <span id="porcentagem_mobilidade_contratado"><%= format_percent @mobilidade_urbana.valor_contratado, @mobilidade_urbana.valor_previsto %></span>% contratado
+            </li>
+            <li class="verde">
+              <div class="square"></div>
+              <span id="porcentagem_mobilidade_executado"><%= format_percent @mobilidade_urbana.valor_executado, @mobilidade_urbana.valor_previsto %></span>% Executado
+            </li>
         </ul>                
         <div class="image-title"></div>
         <div id="grafico_mobilidade" class="grafico_yx"></div>
     </div>
 </div>
 <div class="quadro">
-    <div id="hotelaria">
+    <div id="hotelaria" data-valor-previsto="<%= @desenvolvimento_turistico.valor_previsto %>" data-valor-contratado="<%= @desenvolvimento_turistico.valor_contratado %>" data-valor-executado="<%= @desenvolvimento_turistico.valor_executado %>">
         <div id="hotelaria_circulo">
           <div class="porcento_0">0%
             <div class="marcador"></div>
@@ -69,17 +87,23 @@
           </div>                  
         </div>
         <h1>Hotelaria</h1>
-        <p>Verba prevista: <span id="valor_hotelaria"></span></p>
+        <p>Verba prevista: <span id="valor_hotelaria"><%= format_number @desenvolvimento_turistico.valor_previsto %></span></p>
         <ul class="legenda">
-            <li class="amarelo"><div class="square"></div><span id="porcentagem_hotelaria_contratado">80</span>% contratado</li>
-            <li class="verde"><div class="square"></div><span id="porcentagem_hotelaria_executado">80</span>% Executado</li>
+            <li class="amarelo">
+              <div class="square"></div>
+              <span id="porcentagem_hotelaria_contratado"><%= format_percent @desenvolvimento_turistico.valor_contratado, @desenvolvimento_turistico.valor_previsto %></span>% contratado
+            </li>
+            <li class="verde">
+              <div class="square"></div>
+              <span id="porcentagem_hotelaria_executado"><%= format_percent @desenvolvimento_turistico.valor_executado, @desenvolvimento_turistico.valor_previsto %></span>% Executado
+            </li>
         </ul>                
         <div class="image-title"></div>
         <div id="grafico_hotelaria" class="grafico_yx"></div>
     </div>
 </div>
 <div class="quadro">
-    <div id="seguranca">
+    <div id="seguranca" data-valor-previsto="<%= @seguranca.valor_previsto %>" data-valor-contratado="<%= @seguranca.valor_contratado %>" data-valor-executado="<%= @seguranca.valor_executado %>">
         <div id="seguranca_circulo">
           <div class="porcento_0">0%
             <div class="marcador"></div>
@@ -89,10 +113,16 @@
           </div>                  
         </div>
         <h1>Segurança Pública</h1>
-        <p>Verba prevista: <span id="valor_seguranca"></span></p>
+        <p>Verba prevista: <span id="valor_seguranca"><%= format_number @seguranca.valor_previsto %></span></p>
         <ul class="legenda">
-            <li class="amarelo"><div class="square"></div><span id="porcentagem_seguranca_contratado">80</span>% contratado</li>
-            <li class="verde"><div class="square"></div><span id="porcentagem_seguranca_executado">80</span>% Executado</li>
+            <li class="amarelo">
+              <div class="square"></div>
+              <span id="porcentagem_seguranca_contratado"><%= format_percent @seguranca.valor_contratado, @seguranca.valor_previsto %></span>% contratado
+            </li>
+            <li class="verde">
+              <div class="square"></div>
+              <span id="porcentagem_seguranca_executado"><%= format_percent @seguranca.valor_executado, @seguranca.valor_previsto %></span>% Executado
+            </li>
         </ul>                
         <div class="image-title">
         </div>
@@ -100,7 +130,7 @@
     </div>
 </div>
 <div class="quadro">
-    <div id="portos">
+    <div id="portos" data-valor-previsto="<%= @porto.valor_previsto %>" data-valor-contratado="<%= @porto.valor_contratado %>" data-valor-executado="<%= @porto.valor_executado %>">
         <div id="portos_circulo">
           <div class="porcento_0">0%
             <div class="marcador"></div>
@@ -110,10 +140,16 @@
           </div>
         </div>
         <h1>Portos</h1>
-        <p>Verba prevista: <span id="valor_portos"></span></p>
+        <p>Verba prevista: <span id="valor_portos"><%= format_number @porto.valor_previsto %></span></p>
         <ul class="legenda">
-            <li class="amarelo"><div class="square"></div><span id="porcentagem_portos_contratado">80</span>% contratado</li>
-            <li class="verde"><div class="square"></div><span id="porcentagem_portos_executado">80</span>% Executado</li>
+            <li class="amarelo">
+              <div class="square"></div>
+              <span id="porcentagem_portos_contratado"><%= format_percent @porto.valor_contratado, @porto.valor_previsto %></span>% contratado
+            </li>
+            <li class="verde">
+              <div class="square"></div>
+              <span id="porcentagem_portos_executado"><%= format_percent @porto.valor_executado, @porto.valor_previsto %></span>% Executado
+            </li>
         </ul>                
         <div class="image-title"></div>
         <div id="grafico_portos" class="grafico_yx"></div>
