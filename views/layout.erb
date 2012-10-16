@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
-    <title>COPA 2014 transparência em 1º lugar</title>
+    <title><%= yield_content :title %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
     <meta name="author" content="Alexandre Gomes, Wesley Rocha, Célio Latorraca">
 
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <%= yield_content :stylesheets %>
 
-    <script type="text/javascript" src="javascript/jquery-1.7.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascript/raphael.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascript/g.raphael.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascript/g.line.js" charset="utf-8"></script>
 
-    <script type="text/javascript" src="javascript/datahub-api.js" charset="utf-8"></script>
     <script type="text/javascript" src="javascript/geradorGraficos.js" charset="utf-8"></script>
-    <script type="text/javascript" src="javascript/copa2014-queries.js" charset="utf-8"></script>
 
-    <script type="text/javascript" src="javascript/copa2014.js" charset="utf-8"></script>
-    <script type="text/javascript" src="javascript/proporcao.js" charset="utf-8"></script>
+    <%= yield_content :javascripts %>
 </head>
 
 <body>
@@ -33,9 +30,10 @@
                     <li class="amarelo"><span></span>Contratado e não executado</li>
                     <li class="verde"><span></span>Executado</li>
                 </ul>
-          
-                <a href="/" class="investimentos marcado">Andamento dos investimentos</a>
-                <a href="/proporcao-de-valores" class="proporcao">Proporção de valores</a>
+
+                <% menu = (yield_content(:menu) || "investimentos").strip %>
+                <a href="/" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">Andamento dos investimentos</a>
+                <a href="/proporcao-de-valores" class="proporcao <%= 'marcado' if menu == 'proporcao' %>">Proporção de valores</a>
                 <a href="#" class="download"></a>
             </div>
         </div>

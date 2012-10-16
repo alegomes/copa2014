@@ -260,7 +260,7 @@ body{
       top: 8px;
     }
   }
-  #estadios #estadios_circulo, #aeroportos #aeroportos_circulo, #mobilidade #mobilidade_circulo, #hotelaria #hotelaria_circulo,  #seguranca #seguranca_circulo,  #portos #portos_circulo{
+  #estadios #estadios_circulo, #aeroportos #aeroportos_circulo, #mobilidade #mobilidade_circulo, #desenvolvimento_turistico #desenvolvimento_turistico_circulo,  #seguranca #seguranca_circulo,  #portos #portos_circulo{
     background: white;
     position: absolute;
     display: block;
@@ -276,7 +276,7 @@ body{
       top: 0;
     }
   }
-  #estadios, #aeroportos, #mobilidade, #hotelaria, #seguranca, #portos{
+  #estadios, #aeroportos, #mobilidade, #desenvolvimento_turistico, #seguranca, #portos{
     width: 433px;
     height: 162px;
   }
@@ -304,7 +304,7 @@ body{
     top: 25px;
     left: 7px;
   }
-  #hotelaria .image-title{
+  #desenvolvimento_turistico .image-title{
     background: url(../images/hotelaria.png) no-repeat center;
     position: absolute;
     height: 114px;

@@ -28,13 +28,13 @@ jQuery(function() {
   geraGrafico("grafico_mobilidade","");
 
   //Desenvolvimento Turistico
-	var desenvolvimento_turistico = jQuery("#hotelaria");
-	geraCirculo("hotelaria_circulo", {
+	var desenvolvimento_turistico = jQuery("#desenvolvimento_turistico");
+	geraCirculo("desenvolvimento_turistico_circulo", {
 		previsto: desenvolvimento_turistico.data("valorPrevisto"),
 		contratado: desenvolvimento_turistico.data("valorContratado"),
 		executado: desenvolvimento_turistico.data("valorExecutado")
 	});
-  geraGrafico("grafico_hotelaria","");
+  geraGrafico("grafico_desenvolvimento_turistico","");
 
 	//Segurança
 	var seguranca = jQuery("#seguranca");

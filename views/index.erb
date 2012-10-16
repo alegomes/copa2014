@@ -1,3 +1,19 @@
+<% content_for :stylesheets do %>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+<% end %>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript" src="javascript/main.js" charset="utf-8"></script>
+<% end %>
+
+<% content_for :title do %>
+  COPA 2014 transpar&ecirc;ncia em 1&ordm; lugar
+<% end %>
+
+<% content_for :menu do %>
+  investimentos
+<% end %>
+
 <div class="quadro">
   <div id="estadios" data-valor-previsto="<%= @estadio.valor_previsto %>" data-valor-contratado="<%= @estadio.valor_contratado %>" data-valor-executado="<%= @estadio.valor_executado %>">
       <div id="estadios_circulo">
@@ -77,8 +93,8 @@
     </div>
 </div>
 <div class="quadro">
-    <div id="hotelaria" data-valor-previsto="<%= @desenvolvimento_turistico.valor_previsto %>" data-valor-contratado="<%= @desenvolvimento_turistico.valor_contratado %>" data-valor-executado="<%= @desenvolvimento_turistico.valor_executado %>">
-        <div id="hotelaria_circulo">
+    <div id="desenvolvimento_turistico" data-valor-previsto="<%= @desenvolvimento_turistico.valor_previsto %>" data-valor-contratado="<%= @desenvolvimento_turistico.valor_contratado %>" data-valor-executado="<%= @desenvolvimento_turistico.valor_executado %>">
+        <div id="desenvolvimento_turistico_circulo">
           <div class="porcento_0">0%
             <div class="marcador"></div>
           </div>
@@ -86,20 +102,20 @@
             <div class="marcador"></div>
           </div>                  
         </div>
-        <h1>Hotelaria</h1>
-        <p>Verba prevista: <span id="valor_hotelaria"><%= format_number @desenvolvimento_turistico.valor_previsto %></span></p>
+        <h1>Desenvolvimento Turístico</h1>
+        <p>Verba prevista: <span id="valor_desenvolvimento_turistico"><%= format_number @desenvolvimento_turistico.valor_previsto %></span></p>
         <ul class="legenda">
             <li class="amarelo">
               <div class="square"></div>
-              <span id="porcentagem_hotelaria_contratado"><%= format_percent @desenvolvimento_turistico.valor_contratado, @desenvolvimento_turistico.valor_previsto %></span>% contratado
+              <span id="porcentagem_desenvolvimento_turistico_contratado"><%= format_percent @desenvolvimento_turistico.valor_contratado, @desenvolvimento_turistico.valor_previsto %></span>% contratado
             </li>
             <li class="verde">
               <div class="square"></div>
-              <span id="porcentagem_hotelaria_executado"><%= format_percent @desenvolvimento_turistico.valor_executado, @desenvolvimento_turistico.valor_previsto %></span>% Executado
+              <span id="porcentagem_hdesenvolvimento_turistico_executado"><%= format_percent @desenvolvimento_turistico.valor_executado, @desenvolvimento_turistico.valor_previsto %></span>% Executado
             </li>
         </ul>                
         <div class="image-title"></div>
-        <div id="grafico_hotelaria" class="grafico_yx"></div>
+        <div id="grafico_desenvolvimento_turistico" class="grafico_yx"></div>
     </div>
 </div>
 <div class="quadro">

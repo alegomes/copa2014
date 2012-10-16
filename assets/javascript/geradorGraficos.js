@@ -39,7 +39,6 @@ function geraCirculo(value, json) {
     var yellow = r.path().attr(param2).attr({arc: [0, 100, R, "rgba(0, 0, 255, 1)"]});
     var green = r.path().attr(param3).attr({arc: [0, 100, R, "rgba(0, 255, 0, 1)"]});
 
-
 	function updateVal(value, total, R, hand, color) {
 		if (total == 31) {
 			// month

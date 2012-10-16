@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
+require 'sinatra/content_for'
 require 'uri'
 
 require 'sass'
