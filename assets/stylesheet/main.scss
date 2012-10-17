@@ -36,18 +36,22 @@ body{
   @include  border-radius(10px);
   font-size: 12px;
   font-weight: normal;
-  h1{
-    margin: 0px 0 0 47px;
-    color: #779E31;
-    font-family: Verdana,Arial,Serif;
-    font-size: 27px;
-    line-height: 14px;
-    width: 191px;
-    height: 53px;
-    padding: 20px 0 0 0;
-    border-right: 1px solid white;
-    span{
-      font-size: 11px;
+  a {
+    text-decoration: none;
+    h1{
+      margin: 0px 0 0 47px;
+      color: #779E31;
+      font-family: Verdana,Arial,Serif;
+      font-size: 27px;
+      line-height: 14px;
+      width: 191px;
+      height: 53px;
+      padding: 20px 0 0 0;
+      border-right: 1px solid white;
+      .subtitle{
+        font-size: 11px;
+        margin-top: 11px;
+      }
     }
   }
   .legenda{
