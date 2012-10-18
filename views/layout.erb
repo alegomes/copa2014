@@ -52,13 +52,13 @@
                 </ul>
 
                 <% menu = (yield_content(:menu) || "investimentos").strip %>
-                <a href="/" title="Andamento dos investimentos" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">
+                <a href="/" title="Andamento dos investimentos" rel="home" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">
                     Andamento dos investimentos
                 </a>
                 <a href="/proporcao-de-valores" title="Proporção de valore" class="proporcao <%= 'marcado' if menu == 'proporcao' %>">
                     Proporção de valores
                 </a>
-                <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="download"></a>
+                <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="download" rel="nofollow"></a>
             </div>
         </div>
     </div>
@@ -70,10 +70,10 @@
      <div id="rodape">
         <div id="autor"><label>Autor:</label>Wesley Rocha - Design de Interfaces</br>
           E-mail: wesleyweb@gmail.com</br></br>
-          <a id="linkedin" title="Contato do linkdin" href="br.linkedin.com/in/wesleyrocha1" target="_blank">Contato do linkdin</a>
-          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/wesley.rocha.10048" target="_blank">Contato do facebook</a>
-          <a id="twitter" title="Contato do twitter" href="https://twitter.com/wesleyrocha" target="_blank">Contato do twitter</a>
-          <a id="lattes"  title="Currículo Lattes" href="http://lattes.cnpq.br/5660156278323141" target="_blank">Currículo Lattes</a>
+          <a id="linkedin" title="Contato do linkdin" href="br.linkedin.com/in/wesleyrocha1" target="_blank" rel="nofollow">Contato do linkdin</a>
+          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/wesley.rocha.10048" target="_blank" rel="nofollow">Contato do facebook</a>
+          <a id="twitter" title="Contato do twitter" href="https://twitter.com/wesleyrocha" target="_blank" rel="nofollow">Contato do twitter</a>
+          <a id="lattes"  title="Currículo Lattes" href="http://lattes.cnpq.br/5660156278323141" target="_blank" rel="nofollow">Currículo Lattes</a>
         </div>
         <div id="colaboradores"><label>Colaboradores:</label>
           <ul>

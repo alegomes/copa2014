@@ -45,7 +45,9 @@ end
 
 
 get "/" do
+  puts "Count: #{Investimento.desc(:created_at).count}"
   @investimentos = Investimento.all
+
   @investimentos.each do |inv|
     @aeroporto = inv if inv.tema.to_sym == :aeroporto
     @desenvolvimento_turistico = inv if inv.tema.to_sym == :desenvolvimento_turistico
