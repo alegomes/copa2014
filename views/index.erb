@@ -172,3 +172,12 @@
     </div>
 </div>
 <div style="clear:both"></div>
+
+<script type="text/javascript">
+  var json_estadios = <%= @investimentos['estadio'].map(&:to_hash).to_json %>;
+  var json_aeroportos = <%= @investimentos['aeroporto'].map(&:to_hash).to_json %>;
+  var json_desenvolvimento_turistico = <%= @investimentos['desenvolvimento_turistico'].map(&:to_hash).to_json %>;
+  var json_mobilidade_urbana = <%= @investimentos['mobilidade_urbana'].map(&:to_hash).to_json %>;
+  var json_portos = <%= @investimentos['porto'].map(&:to_hash).to_json %>;
+  var json_seguranca = <%= @investimentos['seguranca'].map(&:to_hash).to_json %>;
+</script>

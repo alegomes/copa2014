@@ -1,57 +1,57 @@
 jQuery(function() {
 	
 	//Estadios
-	var estadios = jQuery("#estadios");
+	var estadio = json_estadios[json_estadios.length-1];
 	geraCirculo("estadios_circulo", {
-		previsto: estadios.data("valorPrevisto"),
-		contratado: estadios.data("valorContratado"),
-		executado: estadios.data("valorExecutado")
+		previsto: estadio["valor_previsto"],
+		contratado: estadio["valor_contratado"],
+		executado: estadio["valor_executado"]
 	});
-  geraGrafico("grafico_estadios","");
+  geraGrafico("grafico_estadios", json_estadios);
 
   //Aeroportos
-	var aeroportos = jQuery("#aeroportos");
+	var aeroporto = json_aeroportos[json_aeroportos.length-1];
 	geraCirculo("aeroportos_circulo", {
-		previsto: aeroportos.data("valorPrevisto"),
-		contratado: aeroportos.data("valorContratado"),
-		executado: aeroportos.data("valorExecutado")
+		previsto: aeroporto["valor_previsto"],
+		contratado: aeroporto["valor_contratado"],
+		executado: aeroporto["valor_executado"]
 	});
-  geraGrafico("grafico_aeroportos","");
+  geraGrafico("grafico_aeroportos", json_aeroportos);
 
 	//Mobilidade Hurbana
-	var mobilidade_urbana = jQuery("#mobilidade");
+	var mobilidade_urbana = json_mobilidade_urbana[json_mobilidade_urbana.length-1];
 	geraCirculo("mobilidade_circulo", {
-		previsto: mobilidade_urbana.data("valorPrevisto"),
-		contratado: mobilidade_urbana.data("valorContratado"),
-		executado: mobilidade_urbana.data("valorExecutado")
+		previsto: mobilidade_urbana["valor_previsto"],
+		contratado: mobilidade_urbana["valor_contratado"],
+		executado: mobilidade_urbana["valor_executado"]
 	});
-  geraGrafico("grafico_mobilidade","");
+  geraGrafico("grafico_mobilidade", json_mobilidade_urbana);
 
   //Desenvolvimento Turistico
-	var desenvolvimento_turistico = jQuery("#desenvolvimento_turistico");
+	var desenvolvimento_turistico = json_desenvolvimento_turistico[json_desenvolvimento_turistico.length-1];
 	geraCirculo("desenvolvimento_turistico_circulo", {
-		previsto: desenvolvimento_turistico.data("valorPrevisto"),
-		contratado: desenvolvimento_turistico.data("valorContratado"),
-		executado: desenvolvimento_turistico.data("valorExecutado")
+		previsto: desenvolvimento_turistico["valor_previsto"],
+		contratado: desenvolvimento_turistico["valor_contratado"],
+		executado: desenvolvimento_turistico["valor_executado"]
 	});
-  geraGrafico("grafico_desenvolvimento_turistico","");
+  geraGrafico("grafico_desenvolvimento_turistico", json_desenvolvimento_turistico);
 
 	//Segurança
-	var seguranca = jQuery("#seguranca");
+	var seguranca = json_seguranca[json_seguranca.length-1];
 	geraCirculo("seguranca_circulo", {
-		previsto: seguranca.data("valorPrevisto"),
-		contratado: seguranca.data("valorContratado"),
-		executado: seguranca.data("valorExecutado")
+		previsto: seguranca["valor_previsto"],
+		contratado: seguranca["valor_contratado"],
+		executado: seguranca["valor_executado"]
 	});
-  geraGrafico("grafico_seguranca","");
+  geraGrafico("grafico_seguranca", json_seguranca);
 
   //Portos
-	var portos = jQuery("#portos");
+	var porto = json_portos[json_portos.length-1];
 	geraCirculo("portos_circulo", {
-		previsto: portos.data("valorPrevisto"),
-		contratado: portos.data("valorContratado"),
-		executado: portos.data("valorExecutado")
+		previsto: porto["valor_previsto"],
+		contratado: porto["valor_contratado"],
+		executado: porto["valor_executado"]
 	});
-  geraGrafico("grafico_portos","");
+  geraGrafico("grafico_portos", json_portos);
 
 });

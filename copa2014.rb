@@ -12,6 +12,16 @@ require './config/environments'
 
 
 class Investimento < ActiveRecord::Base  
+
+  def to_hash
+    {
+      valor_previsto: valor_previsto.to_f,
+      valor_contratado: valor_contratado.to_f,
+      valor_executado: valor_executado.to_f,
+      data: created_at.strftime("%m/%Y")
+    }
+  end
+
 end
 
 
@@ -45,17 +55,14 @@ end
 
 
 get "/" do
-  puts "Count: #{Investimento.desc(:created_at).count}"
-  @investimentos = Investimento.all
+  @investimentos = Investimento.order("created_at ASC").all.group_by(&:tema)
 
-  @investimentos.each do |inv|
-    @aeroporto = inv if inv.tema.to_sym == :aeroporto
-    @desenvolvimento_turistico = inv if inv.tema.to_sym == :desenvolvimento_turistico
-    @estadio = inv if inv.tema.to_sym == :estadio
-    @mobilidade_urbana = inv if inv.tema.to_sym == :mobilidade_urbana
-    @porto = inv if inv.tema.to_sym == :porto
-    @seguranca = inv if inv.tema.to_sym == :seguranca
-  end
+  @aeroporto = @investimentos['aeroporto'].last
+  @desenvolvimento_turistico = @investimentos['desenvolvimento_turistico'].last
+  @estadio = @investimentos['estadio'].last
+  @mobilidade_urbana = @investimentos['mobilidade_urbana'].last
+  @porto = @investimentos['porto'].last
+  @seguranca = @investimentos['seguranca'].last
 
 	erb :index, layout: :layout
 end
@@ -63,5 +70,9 @@ end
 get "/proporcao-de-valores" do
   erb :proporcao_valores, layout: :layout
 end
+
+
+
+
 
 

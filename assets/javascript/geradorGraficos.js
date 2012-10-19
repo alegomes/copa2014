@@ -76,16 +76,26 @@ function geraCirculo(value, json) {
 
 function geraGrafico(id, json) {
     var r = Raphael(id);
-    
+
+    var valores_contratados = [];
+    var valores_executados = [];
+    var datas = [];
+    for (var i in json) {
+        var obj = json[i];
+        valores_contratados.push(Math.round(100 * (obj['valor_contratado'] / obj['valor_previsto'])));
+        valores_executados.push(Math.round(100 * (obj['valor_executado'] / obj['valor_previsto'])));
+        datas.push(i);
+    }
+
     var lines = r.linechart(20, 10, 208, 100, 
-        [[0, 1, 2, 3],[0, 1, 2, 3]], // Eixo - X
-        [[0, 12, 30, 55],[0, 10, 20, 25]], //Eixo - Y
-        { axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
+        [datas,datas], // Eixo - X
+        [valores_contratados,valores_executados], //Eixo - Y
+        {axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
     ).hoverColumn(function () {
         this.tags = r.set();
 
         for (var i = 0, ii = this.y.length; i < ii; i++) {
-            this.tags.push(r.tag(this.x, this.y[i], this.values[i], 165, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
+            this.tags.push(r.tag(this.x, this.y[i], this.values[i]+"%", 165, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
         }
     }, function () {
         this.tags && this.tags.remove();
@@ -94,13 +104,28 @@ function geraGrafico(id, json) {
     lines.symbols.attr({ r: 4 });
 
     //Eixo X
-    lines.axis[0].text.items[0].attr('text', "11/1988");
-    lines.axis[0].text.items[1].attr('text', "");
-    lines.axis[0].text.items[2].attr('text', "12/1988");
-    lines.axis[0].text.items[3].attr('text', "");
-    lines.axis[0].text.items[4].attr('text', "01/1989");
-    lines.axis[0].text.items[5].attr('text', "");
-    lines.axis[0].text.items[6].attr('text', "02/1989");
+    var items = lines.axis[0].text.items;
+    for (var i in items) {
+        var achou = false;
+        for (var j in json) {
+            if (items[i].attr('text') == (j.toString())) {
+                items[i].attr('text', json[j]["data"]);
+                achou = true;
+                break;
+            }
+        }
+        if (!achou) {
+            items[i].remove();//attr('text', '');
+        }
+    }
+    
+    // lines.axis[0].text.items[0].attr('text', "11/1988");
+    // lines.axis[0].text.items[1].attr('text', "");
+    // lines.axis[0].text.items[2].attr('text', "12/1988");
+    // lines.axis[0].text.items[3].attr('text', "");
+    // lines.axis[0].text.items[4].attr('text', "01/1989");
+    // lines.axis[0].text.items[5].attr('text', "");
+    // lines.axis[0].text.items[6].attr('text', "02/1989");
 
     //Eixo Y
     var itens = lines.axis[1].text.items;
