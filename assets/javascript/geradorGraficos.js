@@ -115,17 +115,9 @@ function geraGrafico(id, json) {
             }
         }
         if (!achou) {
-            items[i].remove();//attr('text', '');
+            items[i].remove();
         }
     }
-    
-    // lines.axis[0].text.items[0].attr('text', "11/1988");
-    // lines.axis[0].text.items[1].attr('text', "");
-    // lines.axis[0].text.items[2].attr('text', "12/1988");
-    // lines.axis[0].text.items[3].attr('text', "");
-    // lines.axis[0].text.items[4].attr('text', "01/1989");
-    // lines.axis[0].text.items[5].attr('text', "");
-    // lines.axis[0].text.items[6].attr('text', "02/1989");
 
     //Eixo Y
     var itens = lines.axis[1].text.items;
@@ -133,14 +125,3 @@ function geraGrafico(id, json) {
         itens[i].attr('text',itens[i].attr('text')+'%');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
