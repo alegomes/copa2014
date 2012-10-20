@@ -42,23 +42,9 @@ get '/images/*' do
   end
 end
 
-helpers do
-  def format_percent value, base
-    ((value / base) * 100).round.to_i
-  end
-end
-
-
 
 get "/" do
   @investimentos = Investimento.order("created_at ASC").all.group_by(&:tema)
-
-  @aeroporto = @investimentos['aeroporto'].last
-  @desenvolvimento_turistico = @investimentos['desenvolvimento_turistico'].last
-  @estadio = @investimentos['estadio'].last
-  @mobilidade_urbana = @investimentos['mobilidade_urbana'].last
-  @porto = @investimentos['porto'].last
-  @seguranca = @investimentos['seguranca'].last
 
 	erb :index, layout: :layout
 end
@@ -66,9 +52,3 @@ end
 get "/proporcao-de-valores" do
   erb :proporcao_valores, layout: :layout
 end
-
-
-
-
-
-
