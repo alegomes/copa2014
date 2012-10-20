@@ -43,10 +43,6 @@ get '/images/*' do
 end
 
 helpers do
-  def format_number number
-    ("%.2f" % number).gsub('.',',').gsub(/(\d)(?=\d{3}+(,\d*)?$)/,'\1.')
-  end
-
   def format_percent value, base
     ((value / base) * 100).round.to_i
   end
