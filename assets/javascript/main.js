@@ -107,5 +107,5 @@ function formatFloatToString(number) {
 }
 
 function formatPercent(value, base) {
-	return Math.round(((value / base) * 100));
+	return Math.floor(((value / base) * 100));
 }

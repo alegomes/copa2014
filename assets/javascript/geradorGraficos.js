@@ -82,15 +82,16 @@ function geraGrafico(id, json) {
     var datas = [];
     for (var i in json) {
         var obj = json[i];
-        valores_contratados.push(Math.round(100 * (obj['valor_contratado'] / obj['valor_previsto'])));
-        valores_executados.push(Math.round(100 * (obj['valor_executado'] / obj['valor_previsto'])));
+        valores_contratados.push(Math.floor(100 * (obj['valor_contratado'] / obj['valor_previsto'])));
+        valores_executados.push(Math.floor(100 * (obj['valor_executado'] / obj['valor_previsto'])));
         datas.push(i);
     }
 
+    console.log(datas);
     var lines = r.linechart(20, 10, 208, 100, 
         [datas,datas], // Eixo - X
         [valores_contratados,valores_executados], //Eixo - Y
-        {axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
+        {axisxstep: datas.length-1, axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
     ).hoverColumn(function () {
         this.tags = r.set();
 
@@ -108,7 +109,13 @@ function geraGrafico(id, json) {
     for (var i in items) {
         var achou = false;
         for (var j in json) {
+            if (id == "grafico_mobilidade") {
+                console.log(items[i].attr('text') + " - " +j);
+            }
             if (items[i].attr('text') == (j.toString())) {
+                if (id == "grafico_mobilidade") {
+                    console.log("achou");
+                }
                 items[i].attr('text', json[j]["data"]);
                 achou = true;
                 break;
