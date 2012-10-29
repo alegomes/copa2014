@@ -49,6 +49,7 @@ get "/" do
 	erb :index, layout: :layout
 end
 
-get "/proporcao-de-valores" do
-  erb :proporcao_valores, layout: :layout
+get "/:tema" do
+  puts params[:tema]
+  erb :tema, layout: :layout
 end
