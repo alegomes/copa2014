@@ -1,398 +1,600 @@
-@import "compass/css3/border-radius";
+  @import "compass/css3/border-radius";
+  @import "compass/css3/transform";
+  @import "compass/css3/box-shadow";
 
 
-$hover_menu: #fff;
+  $hover_menu: #fff;
 
-body{
-  background: #000;
-  font-family: Verdana,Arial,Serif;
-}
-.top{
-  background: url(../images/top_fundo_02_03.png) repeat-x 50% 100%;
-  height: 212px;
-}
-.top_area{
-  width: 960px;
-  position: relative;
-  margin: 0 auto;
-}
-.bola{
-  background: url(../images/bola.png) no-repeat center;
-  height: 114px;
-  width: 123px;
-  position: absolute;
-  top: -9px;
-  left: 10px;
-  z-index: 1;
-}
-.menu{
-  height: 73px;
-  width: 880px;
-  position: absolute;
-  top: 4px;
-  left: 80px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: rgba(255, 255, 255, 0.9);
-  @include  border-radius(10px);
-  font-size: 12px;
-  font-weight: normal;
-  a {
-    text-decoration: none;
-    h1{
-      margin: 0px 0 0 47px;
-      color: #779E31;
-      font-family: Verdana,Arial,Serif;
-      font-size: 27px;
-      line-height: 14px;
-      width: 191px;
-      height: 53px;
-      padding: 20px 0 0 0;
-      border-right: 1px solid white;
-      .subtitle{
-        font-size: 11px;
-        margin-top: 11px;
-      }
-    }
+  body{
+    background: #000;
+    font-family: Verdana,Arial,Serif;
   }
-  .legenda{
-    background-image: url(../images/legenda.png);
-    background-repeat: no-repeat;
-    background-position: 10px 50%;
-    padding: 4px 0 0 25px;
-    position: absolute;
-    height: 69px;
-    width: 252px;
-    left: 239px;
-    border-left: 1px solid #CAC7C7;
-    border-right: 1px solid white;
-    text-decoration: none;
-    color: #838282;
-    margin: 0;
-    font-size: 12px;
-    list-style: none;
-    font-weight: normal;
-    top: 0;
-    li{
-      padding: 5px 0 0 0;
-      span{
-        width: 11px;
-        display: block;
-        height: 11px;
-        float: left;
-        margin: 2px 4px;
-      }
-    }
-    .vermelho span{
-      background: #b32a2f;
-    }
-    .amarelo span{
-      background: #f1be18;
-    }
-    .verde span{
-      background: #39b54a;
-    }
+  .top{
+    background: url(../images/top_fundo_02_03.png) repeat-x 50% 100%;
+    height: 212px;
   }
-  .investimentos{
-    background-image: url(../images/icon_investimento.png);
-    background-repeat: no-repeat;
-    background-position: 10px 50%;
-    padding: 28px 0 0 78px;
-    position: absolute;
-    height: 45px;
-    width: 192px;
-    top: 0;
-    left: 518px;
-    border-left: 1px solid #CAC7C7;
-    border-right: 1px solid white;
-    text-decoration: none;
-    color: #838282;
-    &:hover{
-      background-color: $hover_menu;
-    }
-  }
-  .proporcao{
-    background-image: url(../images/icon_proporcao.png);
-    background-repeat: no-repeat;
-    background-position: 10px 50%;
-    padding: 19px 0 0 62px;
-    position: absolute;
-    height: 54px;
-    width: 90px;
-    top: 0;
-    left: 634px;
-    border-left: 1px solid #CAC7C7;
-    border-right: 1px solid white;
-    text-decoration: none;
-    color: #838282;
-    &:hover{
-      background-color: $hover_menu;
-    }
-  }
-  .download{
-    background-image: url(../images/download.png);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    position: absolute;
-    height: 73px;
-    width: 91px;
-    top: 0;
-    left: 788px;
-    border-left: 1px solid #CAC7C7;
-    @include  border-radius(0 10px 10px 0);
-    &:hover{
-      background-color: $hover_menu;
-    }
-  }
-  .marcado{
-    background-color: #fff;
-  }
-}
-
-.corpo{
-  width: 960px;
-  position: relative;
-  margin: -80px auto 0;
-  display: table;
-  a{
-    display: inline-block;
-    height:211px;
-    width:464px;
-  }
-  .quadro{
-    float: left;
-    width: 423px;
-    height: 162px;
-    background: white;
-    margin: 32px 0px 32px 56px;
-    padding: 10px 0;
+  .top_area{
+    width: 960px;
     position: relative;
-    @include  border-radius(40px 10px 10px 40px);
-    div{
-      margin: 0;
-      position: relative;
-      color: #444;
-    }
-    h1 {
-      display: block;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: white;
-      position: absolute;
-      left: 126px;
-      top: -51px;
-    }
-    p {
-      font-size: 12px;
-      display: block;
-      position: absolute;
-      top: -9px;
-      right: 15px;
-      width: 240px;
-    }
-    .porcento_0{
-      position: absolute;
-      top: 34px;
-      left: 98px;
-      .marcador{
-        display: block;
-        position: absolute;
-        height: 5px;
-        width: 2px;
-        background: #B32A2F;
-        top: -4px;
-        right: 50%;
-      }
-    }
-    .porcento_50{
-      position: absolute;
-      bottom: 34px;
-      left: 96px;
-      .marcador{
-        display: block;
-        position: absolute;
-        height: 5px;
-        width: 2px;
-        background: #B32A2F;
-        bottom: -4px;
-        right: 49%;
+    margin: 0 auto;
+  }
+  .bola{
+    background: url(../images/bola.png) no-repeat center;
+    height: 114px;
+    width: 123px;
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    z-index: 1;
+  }
+  .menu{
+    height: 73px;
+    width: 880px;
+    position: absolute;
+    top: 4px;
+    left: 80px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+    @include  border-radius(10px);
+    font-size: 12px;
+    font-weight: normal;
+    a {
+      text-decoration: none;
+      h1{
+        margin: 0px 0 0 47px;
+        color: #779E31;
+        font-family: Verdana,Arial,Serif;
+        font-size: 27px;
+        line-height: 14px;
+        width: 191px;
+        height: 53px;
+        padding: 20px 0 0 0;
+        border-right: 1px solid white;
+        .subtitle{
+          font-size: 11px;
+          margin-top: 11px;
+        }
       }
     }
     .legenda{
-      padding: 0;
+      background-image: url(../images/legenda.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 4px 0 0 25px;
       position: absolute;
-      height: 22px;
-      width: 258px;
-      right: 0px;
+      height: 69px;
+      width: 252px;
+      left: 239px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
       text-decoration: none;
+      color: #838282;
       margin: 0;
       font-size: 12px;
       list-style: none;
       font-weight: normal;
-      top: 28px;
-      li{
-        padding:0;
-        float: left;
-      }
-      .amarelo div.square{
-        background: #f1be18;
-        width: 11px;
-        display: block;
-        height: 11px;
-        float: left;
-        margin: 2px 4px;
-      }
-      .verde div.square{
-        background: #39b54a;
-        width: 11px;
-        display: block;
-        height: 11px;
-        float: left;
-        margin: 2px 4px;
-      }
-    }
-    .grafico_yx {
-      display: block;
-      top: 9px;
-      position: absolute;
-      right: 11px;
-      width: 246px;
-      height: 134px;
-      margin: 25px 0 0 -8px !important;
-    }
-    svg {
-      float: left;
-      top: 8px;
-    }
-  }
-  #estadios #estadios_circulo, #aeroportos #aeroportos_circulo, #mobilidade #mobilidade_circulo, #desenvolvimento_turistico #desenvolvimento_turistico_circulo,  #seguranca #seguranca_circulo,  #portos #portos_circulo{
-    background: white;
-    position: absolute;
-    display: block;
-    top: -25px;
-    left: -42px;
-    padding: 5px;
-    height: 204px;
-    font-size: 11px;
-    @include  border-radius(104px);
-    min-width: 204px;
-    svg{
-      position: absolute;
       top: 0;
-    }
-  }
-  #estadios, #aeroportos, #mobilidade, #desenvolvimento_turistico, #seguranca, #portos{
-    width: 433px;
-    height: 162px;
-  }
-  #estadios .image-title{
-    background: url(../images/estadio.png) no-repeat center;
-    position: absolute;
-    height: 142px;
-    width: 142px;
-    top: 14px;
-    left: -4px;
-  }
-  #aeroportos .image-title{
-    background: url(../images/aeroporto.png) no-repeat center;
-    position: absolute;
-    height: 114px;
-    width: 108px;
-    top: 29px;
-    left: 19px;
-  }
-  #mobilidade .image-title{
-    background: url(../images/mobilidade.png) no-repeat center;
-    position: absolute;
-    height: 114px;
-    width: 108px;
-    top: 25px;
-    left: 7px;
-  }
-  #desenvolvimento_turistico .image-title{
-    background: url(../images/hotelaria.png) no-repeat center;
-    position: absolute;
-    height: 114px;
-    width: 108px;
-    top: 22px;
-    left: 12px;
-  }
-  #seguranca .image-title{
-    background: url(../images/seguranca.png) no-repeat center;
-    position: absolute;
-    height: 114px;
-    width: 108px;
-    top: 24px;
-    left: 12px;
-  }
-  #portos .image-title{
-    background: url(../images/portos.png) no-repeat center;
-    position: absolute;
-    height: 114px;
-    width: 148px;
-    top: 32px;
-    left: -7px;
-  }
-} 
-
-#rodape{
-  clear: both;
-  color: white;
-  width: 945px;
-  margin: 20px auto;
-  border-top: 1px dotted #888;
-  padding: 10px;
-  font-size: 12px;
-  display: table;
-  div{
-    float: left;
-    label{
-      display: block;
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
-  }
-  #autor{ 
-    a{
-      display: block;
-      height: 40px;
-      width: 40px;
-      font-size: 0;
-      float: left;
-      padding: 5px 10px 0 0;
-    }
-    a#linkedin {
-      background: url(../images/icon_linkedin.png) no-repeat center;
-    }
-    a#facebook{
-      background: url(../images/icon_face.png) no-repeat center;
-    }
-    a#twitter{
-      background: url(../images/icon_twitter.png) no-repeat center;
-    }
-    a#lattes{
-      background: url(../images/icon_lates.png) no-repeat center;
-    }
-  }
-  #colaboradores{
-    width: 455px;
-    ul {
-      margin: 0;
-      padding: 0 0 0 17px;
       li{
-        margin: 0px 0px 15px 0px;
+        padding: 5px 0 0 0;
+        span{
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+      }
+      .vermelho span{
+        background: #b32a2f;
+      }
+      .amarelo span{
+        background: #f1be18;
+      }
+      .verde span{
+        background: #39b54a;
+      }
+    }
+    .investimentos{
+      background-image: url(../images/icon_investimento.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 28px 0 0 78px;
+      position: absolute;
+      height: 45px;
+      width: 192px;
+      top: 0;
+      left: 518px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
+      text-decoration: none;
+      color: #838282;
+      &:hover{
+        background-color: $hover_menu;
+      }
+    }
+    .proporcao{
+      background-image: url(../images/icon_proporcao.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 19px 0 0 62px;
+      position: absolute;
+      height: 54px;
+      width: 90px;
+      top: 0;
+      left: 634px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
+      text-decoration: none;
+      color: #838282;
+      &:hover{
+        background-color: $hover_menu;
+      }
+    }
+    .download{
+      background-image: url(../images/download.png);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: absolute;
+      height: 73px;
+      width: 91px;
+      top: 0;
+      left: 788px;
+      border-left: 1px solid #CAC7C7;
+      @include  border-radius(0 10px 10px 0);
+      &:hover{
+        background-color: $hover_menu;
+      }
+    }
+    .marcado{
+      background-color: #fff;
+    }
+  }
+
+  .corpo{
+    width: 960px;
+    position: relative;
+    margin: -80px auto 0;
+    display: table;
+    a{
+      display: inline-block;
+      height:211px;
+      width:464px;
+    }
+    .quadro{
+      float: left;
+      width: 423px;
+      height: 162px;
+      background: white;
+      margin: 32px 0px 32px 56px;
+      padding: 10px 0;
+      position: relative;
+      @include  border-radius(40px 10px 10px 40px);
+      div{
+        margin: 0;
+        position: relative;
+        color: #444;
+      }
+      h1 {
+        display: block;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        left: 126px;
+        top: -51px;
+      }
+      p {
+        font-size: 12px;
+        display: block;
+        position: absolute;
+        top: -9px;
+        right: 15px;
+        width: 240px;
+      }
+      .porcento_0{
+        position: absolute;
+        top: 34px;
+        left: 98px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #B32A2F;
+          top: -4px;
+          right: 50%;
+        }
+      }
+      .porcento_50{
+        position: absolute;
+        bottom: 34px;
+        left: 96px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #B32A2F;
+          bottom: -4px;
+          right: 49%;
+        }
+      }
+      .legenda{
+        padding: 0;
+        position: absolute;
+        height: 22px;
+        width: 258px;
+        right: 0px;
+        text-decoration: none;
+        margin: 0;
+        font-size: 12px;
+        list-style: none;
+        font-weight: normal;
+        top: 28px;
+        li{
+          padding:0;
+          float: left;
+        }
+        .amarelo div.square{
+          background: #f1be18;
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+        .verde div.square{
+          background: #39b54a;
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+      }
+      .grafico_yx {
+        display: block;
+        top: 9px;
+        position: absolute;
+        right: 11px;
+        width: 246px;
+        height: 134px;
+        margin: 25px 0 0 -8px !important;
+      }
+      svg {
+        float: left;
+        top: 8px;
+      }
+    }
+    #estadios #estadios_circulo, #aeroportos #aeroportos_circulo, #mobilidade #mobilidade_circulo, #desenvolvimento_turistico #desenvolvimento_turistico_circulo,  #seguranca #seguranca_circulo,  #portos #portos_circulo{
+      background: white;
+      position: absolute;
+      display: block;
+      top: -25px;
+      left: -42px;
+      padding: 5px;
+      height: 204px;
+      font-size: 11px;
+      @include  border-radius(104px);
+      min-width: 204px;
+      svg{
+        position: absolute;
+        top: 0;
+      }
+    }
+    #estadios, #aeroportos, #mobilidade, #desenvolvimento_turistico, #seguranca, #portos{
+      width: 433px;
+      height: 162px;
+    }
+    #estadios .image-title{
+      background: url(../images/estadio.png) no-repeat center;
+      position: absolute;
+      height: 142px;
+      width: 142px;
+      top: 14px;
+      left: -4px;
+    }
+    #quadro_interno #estadios .image-title{
+      top: 40px;
+      left: 33px; 
+    }
+    #aeroportos .image-title{
+      background: url(../images/aeroporto.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 29px;
+      left: 19px;
+    }
+    #mobilidade .image-title{
+      background: url(../images/mobilidade.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 25px;
+      left: 7px;
+    }
+    #desenvolvimento_turistico .image-title{
+      background: url(../images/hotelaria.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 22px;
+      left: 12px;
+    }
+    #seguranca .image-title{
+      background: url(../images/seguranca.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 24px;
+      left: 12px;
+    }
+    #portos .image-title{
+      background: url(../images/portos.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 148px;
+      top: 32px;
+      left: -7px;
+    }
+  } 
+
+  #rodape{
+    clear: both;
+    color: white;
+    width: 945px;
+    margin: 20px auto;
+    border-top: 1px dotted #888;
+    padding: 10px;
+    font-size: 12px;
+    display: table;
+    div{
+      float: left;
+      label{
+        display: block;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+    }
+    #autor{ 
+      a{
+        display: block;
+        height: 40px;
+        width: 40px;
+        font-size: 0;
+        float: left;
+        padding: 5px 10px 0 0;
+      }
+      a#linkedin {
+        background: url(../images/icon_linkedin.png) no-repeat center;
+      }
+      a#facebook{
+        background: url(../images/icon_face.png) no-repeat center;
+      }
+      a#twitter{
+        background: url(../images/icon_twitter.png) no-repeat center;
+      }
+      a#lattes{
+        background: url(../images/icon_lates.png) no-repeat center;
+      }
+    }
+    #colaboradores{
+      width: 455px;
+      ul {
+        margin: 0;
+        padding: 0 0 0 17px;
+        li{
+          margin: 0px 0px 15px 0px;
+        }
+      }
+    }
+    #patrocinador{
+      width: 112px;
+    }
+    #autor{
+      width: 372px;
+    }
+  }
+  .quadro_moudura {
+    border: 8px solid white;
+    @include border-radius(15px);
+    background: white;
+    position: relative;
+    .quadro_interno{
+      background: #fff url("../images/mapa_brasil.jpg") no-repeat center center;
+      width: 950px;
+      height: 700px;
+      margin: 0 auto;
+      @include border-radius(10px);
+      position: relative;
+      #estadios #estadios_circulo{
+        top: -30px;
+        left: -39px;
+      }
+      a {
+        display: inline;
+        height: initial;
+        width: initial;
+        text-decoration: none;
+        color: #005FC5;
+      }
+      .migalha{
+        position: absolute;
+        top: -21px;
+        left: 105px;
+        height: 22px;
+        background: white;
+        padding: 5px 20px 5px 40px;
+        @include border-radius(0px 20px 20px 0px);
+        a {
+          float: left;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+      nav {
+        position: absolute;
+        right: 0;
+        top: -55px;
+        a{
+          background: white;
+          @include border-radius(35px);
+          font-size: 0px;
+          height: 70px;
+          width: 70px;
+          display: inline-block;
+        }
+      }
+      .porcento_0{
+        position: absolute;
+        top: 34px;
+        left: 98px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #B32A2F;
+          top: -4px;
+          right: 50%;
+        }
+      }
+      .porcento_50{
+        position: absolute;
+        bottom: 34px;
+        left: 96px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #B32A2F;
+          bottom: -4px;
+          right: 49%;
+        }
+      }
+      .cidades {
+        background: white;
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        position: absolute;
+        @include  box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
+        .seta_posicao {
+          height: 100px;
+          width: 100px;
+          border-radius: 50px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          .seta{
+            border-width: 0px 8px 18px 8px;
+            border-style: solid;
+            border-color: transparent transparent white transparent;
+            height: 0px;
+            width: 0px;
+            position: absolute;
+            left: 43px;
+            top: -16px;
+          }
+        }
+        .texto{
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+          height: 100px;
+          width: 100px;
+          padding: 0 10px;
+          h2{
+            font-size: 12px;
+          }
+        }
+      }
+      .brasilia{
+        top: 261px;
+        left: 523px;
+        .seta_posicao {
+          @include rotate(134deg);
+        }
+      }
+      .salvador{
+        left: 689px;
+        top: 213px;
+        .seta_posicao {
+          @include rotate(134deg);
+        }
+      }
+      .pa{
+        top: 574px;
+        left: 448px;
+        .seta_posicao {
+          @include rotate(93deg);
+        }
+      }
+      .sp{
+        top: 398px;
+        left: 551px;
+        .seta_posicao {
+          @include rotate(140deg);
+        }
+      }
+      .rio{
+        top: 468px;
+        left: 719px;
+        .seta_posicao {
+          @include rotate(292deg);
+        }
+      }
+      .recife{
+        top: 232px;
+        left: 841px;
+        .seta_posicao {
+          @include rotate(322deg);
+        }
+      }
+      .natal{
+        top: 92px;
+        left: 841px;
+        .seta_posicao {
+          @include rotate(226deg);
+        }
+      }
+      .fortaleza{
+        top: 46px;
+        left: 685px;
+        .seta_posicao {
+          @include rotate(136deg);
+        }
+      }
+      .manaus{
+        top: 59px;
+        left: 299px;
+        .seta_posicao {
+          @include rotate(114deg);
+        }
+      }
+      .curitiba{
+        top: 547px;
+        left: 591px;
+        .seta_posicao {
+          @include rotate(-35deg);
+        }
+      }
+      .cuiaba{
+        top: 364px;
+        left: 399px;
+        .seta_posicao {
+          @include rotate(31deg);
+        }
+      }
+      .bh{
+        top: 345px;
+        left: 698px;
+        .seta_posicao {
+          @include rotate(234deg);
+        }
       }
     }
   }
-  #patrocinador{
-    width: 112px;
-  }
-  #autor{
-    width: 372px;
-  }
-}
-.quadro_onterno{
-  background: #fff;
-  width: 960px;
-  margin: 0 auto;
-  @include border-radius(10px);
-}
