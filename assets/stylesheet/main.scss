@@ -61,7 +61,7 @@ body{
     padding: 4px 0 0 25px;
     position: absolute;
     height: 69px;
-    width: 197px;
+    width: 252px;
     left: 239px;
     border-left: 1px solid #CAC7C7;
     border-right: 1px solid white;
@@ -96,12 +96,12 @@ body{
     background-image: url(../images/icon_investimento.png);
     background-repeat: no-repeat;
     background-position: 10px 50%;
-    padding: 19px 0 0 62px;
+    padding: 28px 0 0 78px;
     position: absolute;
-    height: 54px;
-    width: 107px;
+    height: 45px;
+    width: 192px;
     top: 0;
-    left: 463px;
+    left: 518px;
     border-left: 1px solid #CAC7C7;
     border-right: 1px solid white;
     text-decoration: none;
@@ -274,7 +274,7 @@ body{
     height: 204px;
     font-size: 11px;
     @include  border-radius(104px);
-    min-width: 208px;
+    min-width: 204px;
     svg{
       position: absolute;
       top: 0;

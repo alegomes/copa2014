@@ -52,12 +52,12 @@
                 </ul>
 
                 <% menu = (yield_content(:menu) || "investimentos").strip %>
-                <a href="/" title="Andamento dos investimentos" rel="home" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">
-                    Andamento dos investimentos
+                <a href="/" title="Mostrar todos os temas" rel="home" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">
+                    Mostrar principais temas
                 </a>
-                <a href="/proporcao-de-valores" title="Proporção de valore" class="proporcao <%= 'marcado' if menu == 'proporcao' %>">
+                <!-- <a href="/proporcao-de-valores" title="Proporção de valore" class="proporcao <%= 'marcado' if menu == 'proporcao' %>">
                     Proporção de valores
-                </a>
+                </a> -->
                 <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="download" rel="nofollow"></a>
             </div>
         </div>

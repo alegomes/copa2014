@@ -8,11 +8,9 @@ configure :development, :test do
   end
 
   ActiveRecord::Base.establish_connection(
-    adapter: "mysql", 
+    adapter: "sqlite3", 
     host: settings.db_host,
-    database: settings.db_name,
-    username: settings.db_username,
-    password: settings.db_password
+    database: settings.db_name
   )
 end
 
