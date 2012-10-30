@@ -169,7 +169,7 @@
       padding: 10px 0;
       position: relative;
       @include  border-radius(40px 10px 10px 40px);
-      div{
+      a,div{
         margin: 0;
         position: relative;
         color: #444;
@@ -275,7 +275,7 @@
       padding: 5px;
       height: 204px;
       font-size: 11px;
-      @include  border-radius(104px);
+      @include  border-radius(107px);
       min-width: 204px;
       svg{
         position: absolute;
