@@ -266,7 +266,7 @@
         top: 8px;
       }
     }
-    #estadios #estadios_circulo, #aeroportos #aeroportos_circulo, #mobilidade #mobilidade_circulo, #desenvolvimento_turistico #desenvolvimento_turistico_circulo,  #seguranca #seguranca_circulo,  #portos #portos_circulo{
+    #estadio #estadio_circulo, #aeroporto #aeroporto_circulo, #mobilidade_urbana #mobilidade_urbana_circulo, #desenvolvimento_turistico #desenvolvimento_turistico_circulo,  #seguranca #seguranca_circulo,  #porto #porto_circulo{
       background: white;
       position: absolute;
       display: block;
@@ -282,11 +282,11 @@
         top: 0;
       }
     }
-    #estadios, #aeroportos, #mobilidade, #desenvolvimento_turistico, #seguranca, #portos{
+    #estadio, #aeroporto, #mobilidade_urbana, #desenvolvimento_turistico, #seguranca, #porto {
       width: 433px;
       height: 162px;
     }
-    #estadios .image-title{
+    #estadio .image-title{
       background: url(/images/estadio.png) no-repeat center;
       position: absolute;
       height: 142px;
@@ -294,11 +294,11 @@
       top: 14px;
       left: -4px;
     }
-    #quadro_interno #estadios .image-title{
+    #quadro_interno #estadio .image-title{
       top: 40px;
       left: 33px; 
     }
-    #aeroportos .image-title{
+    #aeroporto .image-title{
       background: url(/images/aeroporto.png) no-repeat center;
       position: absolute;
       height: 114px;
@@ -306,7 +306,7 @@
       top: 29px;
       left: 19px;
     }
-    #mobilidade .image-title{
+    #mobilidade_urbana .image-title{
       background: url(/images/mobilidade.png) no-repeat center;
       position: absolute;
       height: 114px;
@@ -330,7 +330,7 @@
       top: 24px;
       left: 12px;
     }
-    #portos .image-title{
+    #porto .image-title{
       background: url(/images/portos.png) no-repeat center;
       position: absolute;
       height: 114px;
@@ -408,9 +408,9 @@
       margin: 0 auto;
       @include border-radius(10px);
       position: relative;
-      #estadios #estadios_circulo{
-        top: -30px;
-        left: -39px;
+      .circulo {
+        top: -30px !important;
+        left: -39px !important;
       }
       a {
         display: inline;

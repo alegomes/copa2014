@@ -54,9 +54,9 @@ get "/" do
 end
 
 get "/:tema" do
-  tema = params[:tema]
-  if (Investimento.temas.include? tema)
-    @investimentos = Investimento.where(:tema => tema).order("created_at ASC")
+  @tema = params[:tema]
+  if (Investimento.temas.include? @tema)
+    @investimentos = Investimento.where(:tema => @tema).order("created_at ASC")
     erb :tema, layout: :layout
   end
 end

@@ -6,7 +6,7 @@ jQuery(function() {
 	jQuery("#porcentagem_estadio_contratado").text(formatPercent(estadio["valor_contratado"], estadio["valor_previsto"]));
 	jQuery("#porcentagem_estadio_executado").text(formatPercent(estadio["valor_executado"], estadio["valor_previsto"]));
 
-	geraCirculo("estadios_circulo", {
+	geraCirculo("estadio_circulo", {
 		previsto: estadio["valor_previsto"],
 		contratado: estadio["valor_contratado"],
 		executado: estadio["valor_executado"]
@@ -19,7 +19,7 @@ jQuery(function() {
 	jQuery("#porcentagem_aeroportos_contratado").text(formatPercent(aeroporto["valor_contratado"], aeroporto["valor_previsto"]));
 	jQuery("#porcentagem_aeroportos_executado").text(formatPercent(aeroporto["valor_executado"], aeroporto["valor_previsto"]));
 
-	geraCirculo("aeroportos_circulo", {
+	geraCirculo("aeroporto_circulo", {
 		previsto: aeroporto["valor_previsto"],
 		contratado: aeroporto["valor_contratado"],
 		executado: aeroporto["valor_executado"]
@@ -32,7 +32,7 @@ jQuery(function() {
 	jQuery("#porcentagem_mobilidade_contratado").text(formatPercent(mobilidade_urbana["valor_contratado"], mobilidade_urbana["valor_previsto"]));
 	jQuery("#porcentagem_mobilidade_executado").text(formatPercent(mobilidade_urbana["valor_executado"], mobilidade_urbana["valor_previsto"]));
 
-	geraCirculo("mobilidade_circulo", {
+	geraCirculo("mobilidade_urbana_circulo", {
 		previsto: mobilidade_urbana["valor_previsto"],
 		contratado: mobilidade_urbana["valor_contratado"],
 		executado: mobilidade_urbana["valor_executado"]
@@ -71,7 +71,7 @@ jQuery(function() {
 	jQuery("#porcentagem_portos_contratado").text(formatPercent(porto["valor_contratado"], porto["valor_previsto"]));
 	jQuery("#porcentagem_portos_executado").text(formatPercent(porto["valor_executado"], porto["valor_previsto"]));
 
-	geraCirculo("portos_circulo", {
+	geraCirculo("porto_circulo", {
 		previsto: porto["valor_previsto"],
 		contratado: porto["valor_contratado"],
 		executado: porto["valor_executado"]
