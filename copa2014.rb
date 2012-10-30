@@ -22,6 +22,10 @@ class Investimento < ActiveRecord::Base
     }
   end
 
+  def self.temas
+    ["estadio","aeroporto","mobilidade_urbana","desenvolvimento_turistico","seguranca","porto"]
+  end
+
 end
 
 
@@ -50,6 +54,9 @@ get "/" do
 end
 
 get "/:tema" do
-  puts params[:tema]
-  erb :tema, layout: :layout
+  tema = params[:tema]
+  if (Investimento.temas.include? tema)
+    @investimentos = Investimento.where(:tema => tema).order("created_at ASC")
+    erb :tema, layout: :layout
+  end
 end

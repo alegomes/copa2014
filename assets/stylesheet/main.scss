@@ -10,7 +10,7 @@
     font-family: Verdana,Arial,Serif;
   }
   .top{
-    background: url(../images/top_fundo_02_03.png) repeat-x 50% 100%;
+    background: url(/images/top_fundo_02_03.png) repeat-x 50% 100%;
     height: 212px;
   }
   .top_area{
@@ -19,7 +19,7 @@
     margin: 0 auto;
   }
   .bola{
-    background: url(../images/bola.png) no-repeat center;
+    background: url(/images/bola.png) no-repeat center;
     height: 114px;
     width: 123px;
     position: absolute;
@@ -57,7 +57,7 @@
       }
     }
     .legenda{
-      background-image: url(../images/legenda.png);
+      background-image: url(/images/legenda.png);
       background-repeat: no-repeat;
       background-position: 10px 50%;
       padding: 4px 0 0 25px;
@@ -95,7 +95,7 @@
       }
     }
     .investimentos{
-      background-image: url(../images/icon_investimento.png);
+      background-image: url(/images/icon_investimento.png);
       background-repeat: no-repeat;
       background-position: 10px 50%;
       padding: 28px 0 0 78px;
@@ -113,7 +113,7 @@
       }
     }
     .proporcao{
-      background-image: url(../images/icon_proporcao.png);
+      background-image: url(/images/icon_proporcao.png);
       background-repeat: no-repeat;
       background-position: 10px 50%;
       padding: 19px 0 0 62px;
@@ -131,7 +131,7 @@
       }
     }
     .download{
-      background-image: url(../images/download.png);
+      background-image: url(/images/download.png);
       background-repeat: no-repeat;
       background-position: 50% 50%;
       position: absolute;
@@ -287,7 +287,7 @@
       height: 162px;
     }
     #estadios .image-title{
-      background: url(../images/estadio.png) no-repeat center;
+      background: url(/images/estadio.png) no-repeat center;
       position: absolute;
       height: 142px;
       width: 142px;
@@ -299,7 +299,7 @@
       left: 33px; 
     }
     #aeroportos .image-title{
-      background: url(../images/aeroporto.png) no-repeat center;
+      background: url(/images/aeroporto.png) no-repeat center;
       position: absolute;
       height: 114px;
       width: 108px;
@@ -307,7 +307,7 @@
       left: 19px;
     }
     #mobilidade .image-title{
-      background: url(../images/mobilidade.png) no-repeat center;
+      background: url(/images/mobilidade.png) no-repeat center;
       position: absolute;
       height: 114px;
       width: 108px;
@@ -315,7 +315,7 @@
       left: 7px;
     }
     #desenvolvimento_turistico .image-title{
-      background: url(../images/hotelaria.png) no-repeat center;
+      background: url(/images/hotelaria.png) no-repeat center;
       position: absolute;
       height: 114px;
       width: 108px;
@@ -323,7 +323,7 @@
       left: 12px;
     }
     #seguranca .image-title{
-      background: url(../images/seguranca.png) no-repeat center;
+      background: url(/images/seguranca.png) no-repeat center;
       position: absolute;
       height: 114px;
       width: 108px;
@@ -331,7 +331,7 @@
       left: 12px;
     }
     #portos .image-title{
-      background: url(../images/portos.png) no-repeat center;
+      background: url(/images/portos.png) no-repeat center;
       position: absolute;
       height: 114px;
       width: 148px;
@@ -367,16 +367,16 @@
         padding: 5px 10px 0 0;
       }
       a#linkedin {
-        background: url(../images/icon_linkedin.png) no-repeat center;
+        background: url(/images/icon_linkedin.png) no-repeat center;
       }
       a#facebook{
-        background: url(../images/icon_face.png) no-repeat center;
+        background: url(/images/icon_face.png) no-repeat center;
       }
       a#twitter{
-        background: url(../images/icon_twitter.png) no-repeat center;
+        background: url(/images/icon_twitter.png) no-repeat center;
       }
       a#lattes{
-        background: url(../images/icon_lates.png) no-repeat center;
+        background: url(/images/icon_lates.png) no-repeat center;
       }
     }
     #colaboradores{
@@ -402,7 +402,7 @@
     background: white;
     position: relative;
     .quadro_interno{
-      background: #fff url("../images/mapa_brasil.jpg") no-repeat center center;
+      background: #fff url("/images/mapa_brasil.jpg") no-repeat center center;
       width: 950px;
       height: 700px;
       margin: 0 auto;

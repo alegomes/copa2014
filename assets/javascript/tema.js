@@ -1,9 +1,10 @@
 jQuery(function() {
 	
-    geraCirculo("estadios_circulo", {
-    previsto: 100,
-    contratado: 70,
-    executado: 20
+	var tema = json[json.length-1];
+	geraCirculo("estadios_circulo", {
+    previsto: tema["valor_previsto"],
+		contratado: tema["valor_contratado"],
+		executado: tema["valor_executado"]
   });
 
 });
