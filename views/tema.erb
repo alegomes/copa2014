@@ -1,9 +1,9 @@
 <% content_for :stylesheets do %>
-  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link rel="stylesheet" type="text/css" href="/main.css" />
 <% end %>
 
 <% content_for :javascripts do %>
-  <script type="text/javascript" src="javascript/tema.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/javascript/tema.js" charset="utf-8"></script>
 <% end %>
 
 <% content_for :title do %>
@@ -12,16 +12,18 @@
 
 <div class="quadro_moudura">
 	<div class="quadro_interno">
-		<div class="migalha"><a href="#">Principais Temas</a>&nbsp;::&nbsp;<span>Estádios e Arenas</span></div>
+		<div class="migalha"><a href="/">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span></div>
+		
 		<nav>
-			<a href="#">Aeroportos</a>
-			<a href="#">Mobilidade Urbana</a>
-			<a href="#">Desenvolvimento Turístico</a>
-			<a href="#">Segurança Pública</a>
-			<a href="#">Portos</a>
+			<% Empreendimento.temas.each do |tema| %>
+				<% unless @tema[:name] == tema[:name] %>
+					<a href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
+				<% end %>
+			<% end %>
 		</nav>
-		<div id="<%= @tema %>">
-			<div id="<%= @tema %>_circulo" class="circulo">
+
+		<div id="<%= @tema[:name] %>">
+			<div id="<%= @tema[:name] %>_circulo" class="circulo">
 				<div class="porcento_0">0%
 		          <div class="marcador"></div>
 		        </div>
@@ -31,85 +33,30 @@
 			</div>
 			<div class="image-title"></div>
 		</div>
-		<div class="cidades brasilia">
-			<div class="texto"><h2>Brasília</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
+
+		<% Empreendimento.cidades_sede.each do |cidade_sede| %>
+			<div id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>">
+				<div class="texto">
+					<h2><%= cidade_sede[:label] %></h2>
+				</div>
+				<div class="seta_posicao">
+					<div class="seta"></div>
+				</div>
 			</div>
-		</div>
-		<div class="cidades bh">
-			<div class="texto"><h2>Belo Horizonte</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades cuiaba">
-			<div class="texto"><h2>Cuiabá</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades curitiba">
-			<div class="texto"><h2>Curitiba</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades manaus">
-			<div class="texto"><h2>Manaus</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades fortaleza">
-			<div class="texto"><h2>Fortaleza</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades natal">
-			<div class="texto"><h2>Natal</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades recife">
-			<div class="texto"><h2>Recife</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades rio">
-			<div class="texto"><h2>Rio de Janeiro</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades sp">
-			<div class="texto"><h2>São Paulo</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades pa">
-			<div class="texto"><h2>Porto Alegre</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
-		<div class="cidades salvador">
-			<div class="texto"><h2>Salvador</h2></div>
-			<div class="seta_posicao">
-				<div class="seta"></div>
-			</div>
-		</div>
+		<% end %>
+
 	</div>
 </div>
 
 <script type="text/javascript">
-	<% 
-    qntd = @investimentos.size 
-    init = (qntd-4)
-  %>
-  var json = <%= @investimentos[init..qntd].map(&:to_hash).to_json %>;
+  var json_investimentos = <%= @investimentos.to_hash.to_json %>;
+
+  var cidades_sede = [];
+  <% @cidades_sede.each do |cidade_sede| %>
+  	cidades_sede.push({
+  		name: "<%= cidade_sede.first %>",
+  		json: <%= cidade_sede.second.to_hash.to_json %>
+  	});
+  <% end %>
 </script>
+
