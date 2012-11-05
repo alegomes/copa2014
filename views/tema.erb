@@ -17,7 +17,7 @@
 		<nav>
 			<% Empreendimento.temas.each do |tema| %>
 				<% unless @tema[:name] == tema[:name] %>
-					<a href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
+					<a id="but_<%= tema[:name] %>" href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
 				<% end %>
 			<% end %>
 		</nav>
