@@ -318,9 +318,9 @@
       background: url(/images/hotelaria.png) no-repeat center;
       position: absolute;
       height: 114px;
-      width: 108px;
+      width: 123px;
       top: 22px;
-      left: 12px;
+      left: 3px;
     }
     #seguranca .image-title{
       background: url(/images/seguranca.png) no-repeat center;
@@ -445,6 +445,54 @@
           height: 70px;
           width: 70px;
           display: inline-block;
+        }
+        #estadio{
+          background: url(/images/but_estadio.png) no-repeat center;
+          position: absolute;
+          height: 142px;
+          width: 142px;
+          top: 14px;
+          left: -4px;
+        }
+        #aeroporto{
+          background: url(/images/aeroporto.png) no-repeat center;
+          position: absolute;
+          height: 114px;
+          width: 108px;
+          top: 29px;
+          left: 19px;
+        }
+        #mobilidade_urbana{
+          background: url(/images/mobilidade.png) no-repeat center;
+          position: absolute;
+          height: 114px;
+          width: 108px;
+          top: 25px;
+          left: 7px;
+        }
+        #desenvolvimento_turistico{
+          background: url(/images/hotelaria.png) no-repeat center;
+          position: absolute;
+          height: 114px;
+          width: 123px;
+          top: 22px;
+          left: 3px;
+        }
+        #seguranca{
+          background: url(/images/seguranca.png) no-repeat center;
+          position: absolute;
+          height: 114px;
+          width: 108px;
+          top: 24px;
+          left: 12px;
+        }
+        #porto{
+          background: url(/images/portos.png) no-repeat center;
+          position: absolute;
+          height: 114px;
+          width: 148px;
+          top: 32px;
+          left: -7px;
         }
       }
       .porcento_0{
