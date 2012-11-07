@@ -106,7 +106,7 @@ class Empreendimento < ActiveRecord::Base
         :label => "Cuiabá"
       },
       {
-        :name => "bh",
+        :name => "belo_horizonte",
         :label => "Belo Horizonte"
       },
       {
@@ -126,20 +126,24 @@ class Empreendimento < ActiveRecord::Base
         :label => "Recife"
       },
       {
-        :name => "rio",
+        :name => "rio_de_janeiro",
         :label => "Rio de Janeiro"
       },
       {
-        :name => "sp",
+        :name => "sao_paulo",
         :label => "São Paulo"
       },
       {
-        :name => "pa",
+        :name => "porto_alegre",
         :label => "Porto Alegre"
       },
       {
         :name => "salvador",
         :label => "Salvador"
+      },
+      {
+        :name => "curitiba",
+        :label => "Curitiba"
       }
     ]
   end
@@ -184,7 +188,7 @@ get "/tema/:tema" do
     @empreendimentos = @empreendimentos.group_by(&:created_at)
     @empreendimentos = @empreendimentos[@empreendimentos.keys.last]
 
-    @investimentos = Investimento2.new
+    @investimento_tema = Investimento2.new
     @cidades_sede = {}
 
     @empreendimentos.each do |emp|
@@ -197,10 +201,10 @@ get "/tema/:tema" do
       @cidades_sede[emp.cidade_sede].data = emp.created_at
 
       #Investimentos gerais do tema selecionado
-      @investimentos.valor_previsto += emp.valor_previsto
-      @investimentos.valor_contratado += emp.valor_contratado
-      @investimentos.valor_executado += emp.valor_executado
-      @investimentos.data = emp.created_at
+      @investimento_tema.valor_previsto += emp.valor_previsto
+      @investimento_tema.valor_contratado += emp.valor_contratado
+      @investimento_tema.valor_executado += emp.valor_executado
+      @investimento_tema.data = emp.created_at
     end
 
     erb :tema, layout: :layout

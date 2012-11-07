@@ -547,21 +547,21 @@
           @include rotate(134deg);
         }
       }
-      .pa{
+      .porto_alegre{
         top: 574px;
         left: 448px;
         .seta_posicao {
           @include rotate(93deg);
         }
       }
-      .sp{
+      .sao_paulo{
         top: 398px;
         left: 551px;
         .seta_posicao {
           @include rotate(140deg);
         }
       }
-      .rio{
+      .rio_de_janeiro{
         top: 468px;
         left: 719px;
         .seta_posicao {
@@ -610,7 +610,7 @@
           @include rotate(31deg);
         }
       }
-      .bh{
+      .belo_horizonte{
         top: 345px;
         left: 698px;
         .seta_posicao {

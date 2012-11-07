@@ -1,6 +1,6 @@
 jQuery(function() {
 	
-	var tema = json_investimentos;
+	var tema = json_investimento_tema;
 	var id = jQuery(".circulo").attr("id");
 	geraCirculo(id, {
     previsto: tema["valor_previsto"],
