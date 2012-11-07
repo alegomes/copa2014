@@ -503,6 +503,7 @@
         border-radius: 50px;
         position: absolute;
         @include  box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
+
         .seta_posicao {
           height: 100px;
           width: 100px;
@@ -531,6 +532,10 @@
           h2{
             font-size: 12px;
           }
+        }
+
+        svg {
+          top: -1px;
         }
       }
       .brasilia{
