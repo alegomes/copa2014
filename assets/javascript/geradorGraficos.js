@@ -16,6 +16,10 @@ function geraCirculo(value, width, height, radius, position_variation, line_weig
             stroke: "#fff",
             "stroke-width": line_weight - 2*line_weight_delta
         },
+        param4 = {
+            stroke: "#fff",
+            "stroke-width": line_weight - line_weight_delta
+        },
         hash = document.location.hash;
 
     // Custom Attribute
@@ -36,9 +40,10 @@ function geraCirculo(value, width, height, radius, position_variation, line_weig
         return {path: path, stroke: color};
     };
 
-    var red = r.path().attr(param1).attr({arc: [0, 100, R, "rgba(255, 0, 0, 1)"]});
+    var gray = r.path().attr(param1).attr({arc: [0, 100, R, "rgba(200, 200, 200, 1)"]});
     var yellow = r.path().attr(param2).attr({arc: [0, 100, R, "rgba(0, 0, 255, 1)"]});
     var green = r.path().attr(param3).attr({arc: [0, 100, R, "rgba(0, 255, 0, 1)"]});
+    var red = r.path().attr(param1).attr({arc: [0, 100, R, "rgba(255, 0, 0, 1)"]});
 
     function updateVal(value, total, R, hand, color) {
         if (total == 31) {
@@ -66,13 +71,21 @@ function geraCirculo(value, width, height, radius, position_variation, line_weig
         }
     }
 
-    var contratado = json.contratado <= json.previsto ? json.contratado : json.previsto;
+    //Verifica Dados Extrapolados
+    var contratado = json.contratado;
+    var contratado_extrapolado = 0;
+    if (json.contratado > json.previsto) {
+        contratado = json.previsto;
+        contratado_extrapolado = json.contratado - json.previsto;
+    }
     var executado = json.executado <= json.previsto ? json.executado : json.previsto;
 
     (function () {
-        updateVal(json.previsto, json.previsto, R, red, "rgba(179, 42, 47, 1)");
+        updateVal(json.previsto, json.previsto, R, gray, "rgba(180, 180, 180, 1)");
         updateVal(contratado, json.previsto, R, yellow, "rgba(241, 190, 42, 1)");
         updateVal(executado, json.previsto, R, green, "rgba(57, 181, 74, 1)");
+
+        updateVal(contratado_extrapolado, json.previsto, R, red, "rgba(179, 42, 47, 1)");
         init = false;
     })();
 }
