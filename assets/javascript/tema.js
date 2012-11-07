@@ -12,8 +12,6 @@ jQuery(function() {
 		var id = cidades_sede[index].name+"_circulo";
 		var json = cidades_sede[index].json;
 
-		console.log(cidades_sede[index].name);
-		console.log(json);
 		geraCirculo(id, 100, 100, 40, 51, 12, 2, {
 			previsto: json["valor_previsto"],
 			contratado: json["valor_contratado"],

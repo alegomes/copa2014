@@ -104,7 +104,6 @@ function geraGrafico(id, json) {
         datas.push(i);
     }
 
-    console.log(datas);
     var lines = r.linechart(20, 10, 208, 100, 
         [datas,datas], // Eixo - X
         [valores_contratados,valores_executados], //Eixo - Y
@@ -126,13 +125,7 @@ function geraGrafico(id, json) {
     for (var i in items) {
         var achou = false;
         for (var j in json) {
-            if (id == "grafico_mobilidade") {
-                console.log(items[i].attr('text') + " - " +j);
-            }
             if (items[i].attr('text') == (j.toString())) {
-                if (id == "grafico_mobilidade") {
-                    console.log("achou");
-                }
                 items[i].attr('text', json[j]["data"]);
                 achou = true;
                 break;
