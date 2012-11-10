@@ -8,7 +8,7 @@ configure :development, :test do
   end
 
   ActiveRecord::Base.establish_connection(
-    adapter: "mysql", 
+    adapter: "mysql2", 
     host: settings.db_host,
     database: settings.db_name,
     username: settings.db_username,

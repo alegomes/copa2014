@@ -1,3 +1,7 @@
+# encoding: utf-8
+
+require_relative '../../extend_string'
+
 class AddEmpreendimentos20121107 < ActiveRecord::Migration
   def up
   	Empreendimento.create tema: 'aeroporto', cidade_sede: 'São Paulo'.urlize(:convert_spaces => true), descricao: 'Terraplenagem do Terminal de Passageiros 3', valor_previsto: 417000000, valor_contratado: 0, valor_executado: 17608756.26

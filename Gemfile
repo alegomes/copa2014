@@ -8,8 +8,8 @@ gem 'sass'
 gem 'compass'
 
 group :development, :test do
-  gem 'mysql'
-  gem 'sqlite3'
+  gem 'mysql2'
+  gem 'activerecord-mysql2-adapter'
 end
 
 group :production do
