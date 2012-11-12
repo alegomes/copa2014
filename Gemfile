@@ -2,7 +2,6 @@ source :rubygems
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-# gem 'sinatra-cache'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sass'
