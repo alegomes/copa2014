@@ -10,11 +10,11 @@ function geraCirculo(value, width, height, radius, extrapolation_radius_rate, po
         },
         param2 = {
             stroke: "#fff",
-            "stroke-width": line_weight - line_weight_delta
+            "stroke-width": line_weight
         },
         param3 = {
             stroke: "#fff",
-            "stroke-width": line_weight - 2*line_weight_delta
+            "stroke-width": line_weight - line_weight_delta
         },
         param4 = {
             stroke: "#fff",
