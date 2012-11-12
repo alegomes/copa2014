@@ -153,20 +153,20 @@ end
 
 get '/main.css' do
   content_type 'text/css', :charset => 'utf-8'
-  cache_control :public, max_age: 1800  # 30 mins.
+  cache_control :public, max_age: 43200  # 12 horas.
   scss :"../assets/stylesheet/main"
 end
 get '/javascript/*' do
   content_type 'text/javascript', :charset => 'utf-8'
   params[:splat].each do |js|
-    cache_control :public, max_age: 1800  # 30 mins.
+    cache_control :public, max_age: 43200  # 12 horas.
     send_file File.open(File.dirname(__FILE__)+"/assets/javascript/"+js)
   end
 end
 get '/images/*' do
   content_type 'image/png', :charset => 'utf-8'
   params[:splat].each do |image|
-    cache_control :public, max_age: 1800  # 30 mins.
+    cache_control :public, max_age: 43200  # 12 horas.
     send_file File.open(File.dirname(__FILE__)+"/assets/images/"+image)
   end
 end
@@ -202,7 +202,7 @@ get "/" do
     end
   end
 
-  cache_control :public, max_age: 1800  # 30 mins.
+  cache_control :public, max_age: 43200  # 12 horas.
 	erb :index, layout: :layout, :default_encoding => settings.default_encoding
 end
 
@@ -238,7 +238,7 @@ get "/tema/:tema" do
       @investimento_tema.data = emp.created_at
     end
 
-    cache_control :public, max_age: 1800  # 30 mins.
+    cache_control :public, max_age: 43200  # 12 horas.
     erb :tema, layout: :layout, :default_encoding => settings.default_encoding
   end
 end
