@@ -27,9 +27,9 @@ class Investimento
 
   def to_hash
     {
-      valor_previsto: @valor_previsto.to_f,
-      valor_contratado: @valor_contratado.to_f,
-      valor_executado: @valor_executado.to_f,
+      valor_previsto: format("%.2f", @valor_previsto).to_f,
+      valor_contratado: format("%.2f", @valor_contratado).to_f,
+      valor_executado: format("%.2f", @valor_executado).to_f,
       data: @data.strftime("%m/%Y")
     }
   end
@@ -40,9 +40,9 @@ class Empreendimento < ActiveRecord::Base
 
   def to_hash
     {
-      valor_previsto: valor_previsto.to_f,
-      valor_contratado: valor_contratado.to_f,
-      valor_executado: valor_executado.to_f,
+      valor_previsto: format("%.2f", valor_previsto).to_f,
+      valor_contratado: format("%.2f", valor_contratado).to_f,
+      valor_executado: format("%.2f", valor_executado).to_f,
       data: created_at.strftime("%m/%Y")
     }
   end
@@ -221,7 +221,7 @@ get "/tema/:tema" do
       @investimento_tema.data = emp.created_at
     end
 
-    puts @investimento_tema.data
+    puts @investimento_tema.valor_previsto
 
     erb :tema, layout: :layout
   end
