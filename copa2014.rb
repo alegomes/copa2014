@@ -15,20 +15,7 @@ require './config/environments'
 require_relative 'extend_string'
 
 
-class Investimento < ActiveRecord::Base  
-
-  def to_hash
-    {
-      valor_previsto: valor_previsto.to_f,
-      valor_contratado: valor_contratado.to_f,
-      valor_executado: valor_executado.to_f,
-      data: created_at.strftime("%m/%Y")
-    }
-  end
-
-end
-
-class Investimento2
+class Investimento
 
   attr_accessor :valor_previsto, :valor_contratado, :valor_executado, :data
 
@@ -170,7 +157,34 @@ end
 
 
 get "/" do
-  @investimentos = Investimento.order("created_at ASC").group_by(&:tema)
+  # @investimentos = Investimento.order("created_at ASC").group_by(&:tema)
+
+  @investimentos = {}
+
+  @empreendimentos = Empreendimento.order("created_at ASC").all
+  @empreendimentos = @empreendimentos.map do |emp|
+    emp.created_at = emp.created_at.strftime("%d/%m/%Y")
+    emp
+  end
+  @empreendimentos = @empreendimentos.group_by(&:tema)
+
+  @empreendimentos.each do |emp_tmp|
+    ordered_emp = emp_tmp.second.group_by(&:created_at)
+
+    @investimentos[emp_tmp.first.to_sym] = [] unless @investimentos[emp_tmp.first]
+    ordered_emp.each do |empreendimento|
+      
+      investimento_tema = Investimento.new
+      empreendimento.second.each do |e|
+        investimento_tema.valor_previsto += e.valor_previsto
+        investimento_tema.valor_contratado += e.valor_contratado
+        investimento_tema.valor_executado += e.valor_executado
+      end
+      investimento_tema.data = empreendimento.first
+
+      @investimentos[emp_tmp.first.to_sym].push investimento_tema
+    end
+  end
 
 	erb :index, layout: :layout
 end
@@ -182,17 +196,17 @@ get "/tema/:tema" do
     @empreendimentos = Empreendimento.where(:tema => @tema[:name]).order("created_at ASC")
 
     @empreendimentos = @empreendimentos.map do |emp|
-      emp.created_at = emp.created_at.strftime("%m/%Y")
+      emp.created_at = emp.created_at.strftime("%d/%m/%Y")
       emp
     end
     @empreendimentos = @empreendimentos.group_by(&:created_at)
     @empreendimentos = @empreendimentos[@empreendimentos.keys.last]
 
-    @investimento_tema = Investimento2.new
+    @investimento_tema = Investimento.new
     @cidades_sede = {}
 
     @empreendimentos.each do |emp|
-      @cidades_sede[emp.cidade_sede] = Investimento2.new() if @cidades_sede[emp.cidade_sede].nil?
+      @cidades_sede[emp.cidade_sede] = Investimento.new() if @cidades_sede[emp.cidade_sede].nil?
 
       #Investimentos de cada cidade sede sobre o tema selecionado
       @cidades_sede[emp.cidade_sede].valor_previsto += emp.valor_previsto
@@ -206,6 +220,8 @@ get "/tema/:tema" do
       @investimento_tema.valor_executado += emp.valor_executado
       @investimento_tema.data = emp.created_at
     end
+
+    puts @investimento_tema.data
 
     erb :tema, layout: :layout
   end
