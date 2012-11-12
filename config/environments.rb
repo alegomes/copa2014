@@ -1,5 +1,8 @@
+# encoding: utf-8
+
 require 'uri'
 require 'sinatra/activerecord'
+# require 'sinatra/cache'
 
 configure :development, :test do
   env = (ENV["RACK_ENV"] || "development")
@@ -38,3 +41,10 @@ configure do
   end
   set :scss, Compass.sass_engine_options
 end
+
+# NB! you need to set the root of the app first
+# set :root, File.dirname(__FILE__)+"/../"
+# set :cache_output_dir, File.dirname(__FILE__)+"/../public/system/cache"
+
+# set :cache_enabled, true  # turn it on
+# set :cache_environment, :development

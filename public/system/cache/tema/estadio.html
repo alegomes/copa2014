@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <title>  OpenCopa 2014 - Por debaixo dos gramados
+</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+    <meta name="author" content="Alexandre Gomes, Wesley Rocha, Célio Latorraca">
+    <link rel="icon" href="/images/opencopa.ico" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="/main.css" />
+    <script type="text/javascript" src="/javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/geradorGraficos.js" charset="utf-8"></script>
+      <script type="text/javascript" src="/javascript/tema.js" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35666605-1']);
+      _gaq.push(['_setDomainName', 'opencopa.com']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+</head>
+<body>
+    <div class="top">
+        <div class="top_area">
+            <div class="bola"></div>
+            <div class="menu">
+                <a href="/" title="Home" rel="home">
+                    <h1>
+                        <div>OpenCopa</div>
+                        <div class="subtitle">Por debaixo dos gramados</div>
+                    </h1>
+                </a>
+          
+                <ul class="legenda">
+                    <li class="vermelho"><span></span>Extrapolou o previsto</li>
+                    <li class="amarelo"><span></span>Contratado e não executado</li>
+                    <li class="verde"><span></span>Executado</li>
+                </ul>
+                
+                <a href="/" title="Mostrar todos os temas" rel="home" class="investimentos marcado">
+                    Mostrar principais temas
+                </a>
+                
+                <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="download" rel="nofollow"></a>
+            </div>
+        </div>
+    </div>
+    <div class="corpo">
+    	
+<div class="quadro_moudura">
+	<div class="quadro_interno">
+		<div class="migalha"><a href="/">Principais Temas</a>&nbsp;::&nbsp;<span>Estádios e Arenas</span></div>
+		
+		<nav>
+			
+				
+			
+				
+					<a id="but_aeroporto" href="/tema/aeroporto">Aeroportos</a>
+				
+			
+				
+					<a id="but_mobilidade_urbana" href="/tema/mobilidade_urbana">Mobilidade Urbana</a>
+				
+			
+				
+					<a id="but_desenvolvimento_turistico" href="/tema/desenvolvimento_turistico">Desenvolvimento Turístico</a>
+				
+			
+				
+					<a id="but_seguranca" href="/tema/seguranca">Segurança</a>
+				
+			
+				
+					<a id="but_porto" href="/tema/porto">Porto</a>
+				
+			
+		</nav>
+		<div id="estadio">
+			<div id="estadio_circulo" class="circulo">
+				<div class="porcento_0">0%
+		          <div class="marcador"></div>
+		        </div>
+		        <div class="porcento_50">50%
+		          <div class="marcador"></div>
+		        </div>
+			</div>
+			<div class="image-title"></div>
+		</div>
+		
+			
+				<div id="brasilia_circulo" class="cidades brasilia">
+					<div class="texto">
+						<h2>Brasília</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="cuiaba_circulo" class="cidades cuiaba">
+					<div class="texto">
+						<h2>Cuiabá</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="belo_horizonte_circulo" class="cidades belo_horizonte">
+					<div class="texto">
+						<h2>Belo Horizonte</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="manaus_circulo" class="cidades manaus">
+					<div class="texto">
+						<h2>Manaus</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="fortaleza_circulo" class="cidades fortaleza">
+					<div class="texto">
+						<h2>Fortaleza</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="natal_circulo" class="cidades natal">
+					<div class="texto">
+						<h2>Natal</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="recife_circulo" class="cidades recife">
+					<div class="texto">
+						<h2>Recife</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="rio_de_janeiro_circulo" class="cidades rio_de_janeiro">
+					<div class="texto">
+						<h2>Rio de Janeiro</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="sao_paulo_circulo" class="cidades sao_paulo">
+					<div class="texto">
+						<h2>São Paulo</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="porto_alegre_circulo" class="cidades porto_alegre">
+					<div class="texto">
+						<h2>Porto Alegre</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="salvador_circulo" class="cidades salvador">
+					<div class="texto">
+						<h2>Salvador</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+			
+				<div id="curitiba_circulo" class="cidades curitiba">
+					<div class="texto">
+						<h2>Curitiba</h2>
+					</div>
+					<div class="seta_posicao">
+						<div class="seta"></div>
+					</div>
+				</div>
+			
+		
+	</div>
+</div>
+<script type="text/javascript">
+  var json_investimento_tema = {"valor_previsto":6761006000.0,"valor_contratado":6359293000.0,"valor_executado":2639150000.0,"data":"11/2012"};
+  var cidades_sede = [];
+  
+  	cidades_sede.push({
+  		name: "rio_de_janeiro",
+  		json: {"valor_previsto":808400000.0,"valor_contratado":729108000.0,"valor_executado":228140000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "salvador",
+  		json: {"valor_previsto":591700000.0,"valor_contratado":591711000.0,"valor_executado":404760000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "curitiba",
+  		json: {"valor_previsto":234000000.0,"valor_contratado":0.0,"valor_executado":0.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "porto_alegre",
+  		json: {"valor_previsto":330000000.0,"valor_contratado":620000000.0,"valor_executado":24300000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "recife",
+  		json: {"valor_previsto":500200000.0,"valor_contratado":385308000.0,"valor_executado":211471000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "natal",
+  		json: {"valor_previsto":417000000.0,"valor_contratado":460877000.0,"valor_executado":0.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "manaus",
+  		json: {"valor_previsto":515000000.0,"valor_contratado":517621000.0,"valor_executado":265030000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "fortaleza",
+  		json: {"valor_previsto":518606000.0,"valor_contratado":518606000.0,"valor_executado":332000000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "cuiaba",
+  		json: {"valor_previsto":518900000.0,"valor_contratado":342060000.0,"valor_executado":319885000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "brasilia",
+  		json: {"valor_previsto":812200000.0,"valor_contratado":696649000.0,"valor_executado":528564000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "belo_horizonte",
+  		json: {"valor_previsto":695000000.0,"valor_contratado":677353000.0,"valor_executado":325000000.0,"data":"11/2012"}
+  	});
+  
+  	cidades_sede.push({
+  		name: "sao_paulo",
+  		json: {"valor_previsto":820000000.0,"valor_contratado":820000000.0,"valor_executado":0.0,"data":"11/2012"}
+  	});
+  
+</script>
+    </div>
+     <div id="rodape">
+        <div id="autor"><label>Autor:</label>Wesley Rocha - Designer de Interfaces</br>
+          E-mail: wesleyweb@gmail.com</br></br>
+          <a id="linkedin" title="Contato do linkdin" href="br.linkedin.com/in/wesleyrocha1" target="_blank" rel="nofollow">Contato do linkdin</a>
+          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/wesley.rocha.10048" target="_blank" rel="nofollow">Contato do facebook</a>
+          <a id="twitter" title="Contato do twitter" href="https://twitter.com/wesleyrocha" target="_blank" rel="nofollow">Contato do twitter</a>
+          <a id="lattes"  title="Currículo Lattes" href="http://lattes.cnpq.br/5660156278323141" target="_blank" rel="nofollow">Currículo Lattes</a>
+        </div>
+        <div id="colaboradores"><label>Colaboradores:</label>
+          <ul>
+            <li>Leonardo Antonialli - SEA Tecnologia e FAC SENAC</li>
+            <li>Alexandre Gomes - SEA Tecnologia</li>
+            <li>Célio Latorraca - SEA Tecnologia</li>
+          </ul>
+        </div>
+        <div id="patrocinador"><label>Patrocinador:</label><a href="http://www.seatecnologia.com.br" title="SEA Tecnologia" target="_blank" rel="nofollow"><img title="SEA Tecnologia" src="/images/logo_SEA.png"></a></div>
+        <div style="clear:both"></div>
+      </div>
+</body>
+</html>

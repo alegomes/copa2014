@@ -5,7 +5,10 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
 require 'sinatra/content_for'
+# require 'sinatra/cache'
 require 'uri'
+require "dalli"
+require "rack-cache"
 
 require 'sass'
 require 'compass'
@@ -14,6 +17,16 @@ require './config/environments'
 
 require_relative 'extend_string'
 
+
+# Defined in ENV on Heroku. To try locally, start memcached and uncomment:
+# ENV["MEMCACHE_SERVERS"] = "localhost"
+# puts ENV["MEMCACHE_SERVERS"]
+# if memcache_servers = ENV["MEMCACHE_SERVERS"]
+#   use Rack::Cache,
+#     verbose: true,
+#     metastore:   "memcached://#{memcache_servers}",
+#     entitystore: "memcached://#{memcache_servers}"
+# end
 
 class Investimento
 
@@ -186,7 +199,8 @@ get "/" do
     end
   end
 
-	erb :index, layout: :layout
+  cache_control :public, max_age: 1800  # 30 mins.
+	erb :index, layout: :layout, :default_encoding => settings.default_encoding
 end
 
 get "/tema/:tema" do
@@ -221,8 +235,6 @@ get "/tema/:tema" do
       @investimento_tema.data = emp.created_at
     end
 
-    puts @investimento_tema.valor_previsto
-
-    erb :tema, layout: :layout
+    erb :tema, layout: :layout, :default_encoding => settings.default_encoding
   end
 end

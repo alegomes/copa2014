@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <title>  OpenCopa 2014 - Por debaixo dos gramados
+</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+    <meta name="author" content="Alexandre Gomes, Wesley Rocha, Célio Latorraca">
+    <link rel="icon" href="/images/opencopa.ico" type="image/x-icon">
+      <link rel="stylesheet" type="text/css" href="main.css" />
+    <script type="text/javascript" src="/javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/geradorGraficos.js" charset="utf-8"></script>
+      <script type="text/javascript" src="javascript/main.js" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35666605-1']);
+      _gaq.push(['_setDomainName', 'opencopa.com']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+</head>
+<body>
+    <div class="top">
+        <div class="top_area">
+            <div class="bola"></div>
+            <div class="menu">
+                <a href="/" title="Home" rel="home">
+                    <h1>
+                        <div>OpenCopa</div>
+                        <div class="subtitle">Por debaixo dos gramados</div>
+                    </h1>
+                </a>
+          
+                <ul class="legenda">
+                    <li class="vermelho"><span></span>Extrapolou o previsto</li>
+                    <li class="amarelo"><span></span>Contratado e não executado</li>
+                    <li class="verde"><span></span>Executado</li>
+                </ul>
+                
+                <a href="/" title="Mostrar todos os temas" rel="home" class="investimentos marcado">
+                    Mostrar principais temas
+                </a>
+                
+                <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="download" rel="nofollow"></a>
+            </div>
+        </div>
+    </div>
+    <div class="corpo">
+    	
+<div class="quadro">
+  <a id="estadio" href="/tema/estadio">
+    <div id="estadio_circulo">
+      <div class="porcento_0">0%
+        <div class="marcador"></div>
+      </div>
+      <div class="porcento_50">50%
+        <div class="marcador"></div>
+      </div>
+    </div>
+    <h1>Estádios e Arenas</h1>
+    <p>Verba prevista: <span id="valor_previsto_estadio"></span></p>
+    <ul class="legenda">
+        <li class="amarelo">
+          <div class="square"></div>
+          <span id="porcentagem_estadio_contratado"></span>% contratado
+        </li>
+        <li class="verde">
+          <div class="square"></div>
+          <span id="porcentagem_estadio_executado"></span>% Executado
+        </li>
+    </ul>
+    <div class="image-title"></div>
+    <div id="grafico_estadios" class="grafico_yx"></div>
+  </a>
+</div>
+<div class="quadro">
+    <a id="aeroporto" href="/tema/aeroporto">
+      <div id="aeroporto_circulo">
+        <div class="porcento_0">0%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>
+      </div>
+      <h1>Aeroportos</h1>
+      <p>Verba prevista: <span id="valor_previsto_aeroportos"></span></p>
+      <ul class="legenda">
+          <li class="amarelo">
+            <div class="square"></div>
+            <span id="porcentagem_aeroportos_contratado"></span>% contratado
+          </li>
+          <li class="verde">
+            <div class="square"></div>
+            <span id="porcentagem_aeroportos_executado"></span>% Executado
+          </li>
+      </ul>                
+      <div class="image-title"></div>
+      <div id="grafico_aeroportos" class="grafico_yx"></div>
+    </a>
+</div>
+<div class="quadro">
+    <a id="mobilidade_urbana" href="/tema/mobilidade_urbana">
+      <div id="mobilidade_urbana_circulo">
+        <div class="porcento_0">0%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>                  
+      </div>
+      <h1>Mobilidade Urbana</h1>
+      <p>Verba prevista: <span id="valor_previsto_mobilidade"></span></p>
+      <ul class="legenda">
+          <li class="amarelo">
+            <div class="square"></div>
+            <span id="porcentagem_mobilidade_contratado"></span>% contratado
+          </li>
+          <li class="verde">
+            <div class="square"></div>
+            <span id="porcentagem_mobilidade_executado"></span>% Executado
+          </li>
+      </ul>                
+      <div class="image-title"></div>
+      <div id="grafico_mobilidade" class="grafico_yx"></div>
+    </a>
+</div>
+<div class="quadro">
+    <a id="desenvolvimento_turistico" href="/tema/desenvolvimento_turistico">
+      <div id="desenvolvimento_turistico_circulo">
+        <div class="porcento_0">0%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>                  
+      </div>
+      <h1>Desenvolvimento Turístico</h1>
+      <p>Verba prevista: <span id="valor_previsto_desenvolvimento_turistico"></span></p>
+      <ul class="legenda">
+          <li class="amarelo">
+            <div class="square"></div>
+            <span id="porcentagem_desenvolvimento_turistico_contratado"></span>% contratado
+          </li>
+          <li class="verde">
+            <div class="square"></div>
+            <span id="porcentagem_desenvolvimento_turistico_executado"></span>% Executado
+          </li>
+      </ul>                
+      <div class="image-title"></div>
+      <div id="grafico_desenvolvimento_turistico" class="grafico_yx"></div>
+    </a>
+</div>
+<div class="quadro">
+    <a id="seguranca" href="/tema/seguranca">
+      <div id="seguranca_circulo">
+        <div class="porcento_0">0%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>                  
+      </div>
+      <h1>Segurança Pública</h1>
+      <p>Verba prevista: <span id="valor_previsto_seguranca"></span></p>
+      <ul class="legenda">
+          <li class="amarelo">
+            <div class="square"></div>
+            <span id="porcentagem_seguranca_contratado"></span>% contratado
+          </li>
+          <li class="verde">
+            <div class="square"></div>
+            <span id="porcentagem_seguranca_executado"></span>% Executado
+          </li>
+      </ul>                
+      <div class="image-title">
+      </div>
+      <div id="grafico_seguranca" class="grafico_yx"></div>
+    </a>
+</div>
+<div class="quadro">
+    <a id="porto" href="/tema/porto">
+      <div id="porto_circulo">
+        <div class="porcento_0">0%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>
+      </div>
+      <h1>Portos</h1>
+      <p>Verba prevista: <span id="valor_previsto_portos"></span></p>
+      <ul class="legenda">
+          <li class="amarelo">
+            <div class="square"></div>
+            <span id="porcentagem_portos_contratado"></span>% contratado
+          </li>
+          <li class="verde">
+            <div class="square"></div>
+            <span id="porcentagem_portos_executado"></span>% Executado
+          </li>
+      </ul>                
+      <div class="image-title"></div>
+      <div id="grafico_portos" class="grafico_yx"></div>
+    </a>
+</div>
+<div style="clear:both"></div>
+<script type="text/javascript">
+  var json_estadios = [{"valor_previsto":6761006000.0,"valor_contratado":5209293000.0,"valor_executado":2639150000.0,"data":"11/2012"},{"valor_previsto":6761006000.0,"valor_contratado":6359293000.0,"valor_executado":2639150000.0,"data":"11/2012"}];
+  var json_aeroportos = [{"valor_previsto":11526006000.0,"valor_contratado":1130334098.0,"valor_executado":387770124.0,"data":"11/2012"},{"valor_previsto":11526006000.0,"valor_contratado":1130334098.0,"valor_executado":387770124.0,"data":"11/2012"}];
+  var json_desenvolvimento_turistico = [{"valor_previsto":122645326.0,"valor_contratado":0.0,"valor_executado":0.0,"data":"11/2012"},{"valor_previsto":122645326.0,"valor_contratado":0.0,"valor_executado":0.0,"data":"11/2012"}];
+  var json_mobilidade_urbana = [{"valor_previsto":12363044700.0,"valor_contratado":6823530150.0,"valor_executado":615195863.4,"data":"11/2012"},{"valor_previsto":12363044700.0,"valor_contratado":6823530150.0,"valor_executado":620573863.4,"data":"11/2012"}];
+  var json_portos = [{"valor_previsto":902800000.0,"valor_contratado":519961365.0,"valor_executado":109886370.0,"data":"11/2012"},{"valor_previsto":902800000.0,"valor_contratado":519961365.0,"valor_executado":111125350.0,"data":"11/2012"}];
+  var json_seguranca = [{"valor_previsto":84873093.9,"valor_contratado":0.0,"valor_executado":0.0,"data":"11/2012"},{"valor_previsto":84873093.9,"valor_contratado":0.0,"valor_executado":0.0,"data":"11/2012"}];
+</script>
+    </div>
+     <div id="rodape">
+        <div id="autor"><label>Autor:</label>Wesley Rocha - Designer de Interfaces</br>
+          E-mail: wesleyweb@gmail.com</br></br>
+          <a id="linkedin" title="Contato do linkdin" href="br.linkedin.com/in/wesleyrocha1" target="_blank" rel="nofollow">Contato do linkdin</a>
+          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/wesley.rocha.10048" target="_blank" rel="nofollow">Contato do facebook</a>
+          <a id="twitter" title="Contato do twitter" href="https://twitter.com/wesleyrocha" target="_blank" rel="nofollow">Contato do twitter</a>
+          <a id="lattes"  title="Currículo Lattes" href="http://lattes.cnpq.br/5660156278323141" target="_blank" rel="nofollow">Currículo Lattes</a>
+        </div>
+        <div id="colaboradores"><label>Colaboradores:</label>
+          <ul>
+            <li>Leonardo Antonialli - SEA Tecnologia e FAC SENAC</li>
+            <li>Alexandre Gomes - SEA Tecnologia</li>
+            <li>Célio Latorraca - SEA Tecnologia</li>
+          </ul>
+        </div>
+        <div id="patrocinador"><label>Patrocinador:</label><a href="http://www.seatecnologia.com.br" title="SEA Tecnologia" target="_blank" rel="nofollow"><img title="SEA Tecnologia" src="/images/logo_SEA.png"></a></div>
+        <div style="clear:both"></div>
+      </div>
+</body>
+</html>
