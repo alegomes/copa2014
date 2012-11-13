@@ -15,7 +15,7 @@
 		<div class="migalha"><a href="/">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span></div>
 		
 		<nav>
-			<% Empreendimento.temas.each do |tema| %>
+			<% Tema.all.each do |tema| %>
 				<% unless @tema[:name] == tema[:name] %>
 					<a id="but_<%= tema[:name] %>" href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
 				<% end %>
@@ -34,7 +34,7 @@
 			<div class="image-title"></div>
 		</div>
 
-		<% Empreendimento.cidades_sede.each do |cidade_sede| %>
+		<% Tema.cidades_sede.each do |cidade_sede| %>
 			<% if (@cidades_sede.keys.include? cidade_sede[:name]) %>
 				<div id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>">
 					<div class="texto">

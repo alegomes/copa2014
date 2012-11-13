@@ -5,7 +5,6 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
 require 'sinatra/content_for'
-# require 'sinatra/cache'
 require 'uri'
 require "dalli"
 require "rack-cache"
@@ -14,141 +13,11 @@ require 'sass'
 require 'compass'
 
 require './config/environments'
+require './extend_string'
+require './models/investimento'
+require './models/empreendimento'
+require './models/tema'
 
-require_relative 'extend_string'
-
-
-# Defined in ENV on Heroku. To try locally, start memcached and uncomment:
-# ENV["MEMCACHE_SERVERS"] = "localhost"
-# puts ENV["MEMCACHE_SERVERS"]
-# if memcache_servers = ENV["MEMCACHE_SERVERS"]
-#   use Rack::Cache,
-#     verbose: true,
-#     metastore:   "memcached://#{memcache_servers}",
-#     entitystore: "memcached://#{memcache_servers}"
-# end
-
-class Investimento
-
-  attr_accessor :valor_previsto, :valor_contratado, :valor_executado, :data
-
-  def initialize
-    @valor_previsto = 0.0
-    @valor_contratado = 0.0
-    @valor_executado = 0.0
-  end
-
-  def to_hash
-    {
-      valor_previsto: format("%.2f", @valor_previsto).to_f,
-      valor_contratado: format("%.2f", @valor_contratado).to_f,
-      valor_executado: format("%.2f", @valor_executado).to_f,
-      data: @data.strftime("%m/%Y")
-    }
-  end
-
-end
-
-class Empreendimento < ActiveRecord::Base
-
-  def to_hash
-    {
-      valor_previsto: format("%.2f", valor_previsto).to_f,
-      valor_contratado: format("%.2f", valor_contratado).to_f,
-      valor_executado: format("%.2f", valor_executado).to_f,
-      data: created_at.strftime("%m/%Y")
-    }
-  end
-
-  def self.temas
-    [
-      {
-        :name => "estadio",
-        :label => "Estádios e Arenas"
-      },
-      {
-        :name => "aeroporto",
-        :label => "Aeroportos"
-      },
-      {
-        :name => "mobilidade_urbana",
-        :label => "Mobilidade Urbana"
-      },
-      {
-        :name => "desenvolvimento_turistico",
-        :label => "Desenvolvimento Turístico"
-      },
-      {
-        :name => "seguranca",
-        :label => "Segurança"
-      },
-      {
-        :name => "porto",
-        :label => "Porto"
-      }
-    ]
-  end
-
-  def self.get_tema name
-    self.temas.select do |tema|
-      tema[:name] == name
-    end
-  end
-
-  def self.cidades_sede
-    [
-      {
-        :name => "brasilia",
-        :label => "Brasília"
-      },
-      {
-        :name => "cuiaba",
-        :label => "Cuiabá"
-      },
-      {
-        :name => "belo_horizonte",
-        :label => "Belo Horizonte"
-      },
-      {
-        :name => "manaus",
-        :label => "Manaus"
-      },
-      {
-        :name => "fortaleza",
-        :label => "Fortaleza"
-      },
-      {
-        :name => "natal",
-        :label => "Natal"
-      },
-      {
-        :name => "recife",
-        :label => "Recife"
-      },
-      {
-        :name => "rio_de_janeiro",
-        :label => "Rio de Janeiro"
-      },
-      {
-        :name => "sao_paulo",
-        :label => "São Paulo"
-      },
-      {
-        :name => "porto_alegre",
-        :label => "Porto Alegre"
-      },
-      {
-        :name => "salvador",
-        :label => "Salvador"
-      },
-      {
-        :name => "curitiba",
-        :label => "Curitiba"
-      }
-    ]
-  end
-
-end
 
 
 get '/main.css' do
@@ -207,7 +76,7 @@ get "/" do
 end
 
 get "/tema/:tema" do
-  @tema = Empreendimento.get_tema(params[:tema]).first
+  @tema = Tema.get(params[:tema]).first
 
   unless (@tema.nil?)
     @empreendimentos = Empreendimento.where(:tema => @tema[:name]).order("created_at ASC")
