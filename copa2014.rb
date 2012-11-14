@@ -45,8 +45,6 @@ end
 
 
 get "/" do
-  # @investimentos = Investimento.order("created_at ASC").group_by(&:tema)
-
   @investimentos = {}
 
   @empreendimentos = Empreendimento.order("created_at ASC").all
