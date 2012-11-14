@@ -21,8 +21,11 @@ require './models/tema'
 
 
 get '/main.css' do
+  puts "aa"
   content_type 'text/css', :charset => 'utf-8'
+  puts "bb"
   cache_control :public, max_age: 43200  # 12 horas.
+  puts "cc"
   scss :"../assets/stylesheet/main"
 end
 get '/javascript/*' do
