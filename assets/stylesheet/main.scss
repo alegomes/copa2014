@@ -63,7 +63,7 @@
       padding: 4px 0 0 25px;
       position: absolute;
       height: 69px;
-      width: 252px;
+      width: 422px;
       left: 239px;
       border-left: 1px solid #CAC7C7;
       border-right: 1px solid white;
@@ -76,6 +76,8 @@
       top: 0;
       li{
         padding: 5px 0 0 0;
+        float: left;
+        width: 210px;
         span{
           width: 11px;
           display: block;
@@ -85,13 +87,25 @@
         }
       }
       .vermelho span{
-        background: #b32a2f;
+        background: #DB0109;
       }
       .amarelo span{
         background: #f1be18;
       }
       .verde span{
         background: #39b54a;
+      }
+      .cinza span{
+        background: rgba(150, 150, 150, 1);
+      }
+      .laranja span{
+        background: #DB8401;
+      }
+      .problema span{
+        background: url(/images/important.png) no-repeat center;
+        width: 22px;
+        height: 19px;
+        margin: -2px 0px 0px -1px;
       }
     }
     .investimentos{
@@ -130,19 +144,25 @@
         background-color: $hover_menu;
       }
     }
-    .download{
-      background-image: url(/images/download.png);
+    .sobre{
+      background-image: url(/images/sobre.png);
       background-repeat: no-repeat;
-      background-position: 50% 50%;
+      background-position: 14px 50% ;
       position: absolute;
       height: 73px;
-      width: 91px;
+      width: 191px;
       top: 0;
-      left: 788px;
+      left: 688px;
       border-left: 1px solid #CAC7C7;
+      color: #777;
       @include  border-radius(0 10px 10px 0);
       &:hover{
         background-color: $hover_menu;
+      }
+      span{
+        display: block;
+        margin: 10px;
+        margin: 22px 10px 0 62px;
       }
     }
     .marcado{
@@ -157,23 +177,45 @@
     display: table;
     a{
       display: inline-block;
-      height:211px;
-      width:464px;
     }
     .quadro{
       float: left;
       width: 423px;
-      height: 162px;
+      height: 158px;
       background: white;
       margin: 32px 0px 32px 56px;
       padding: 10px 0;
       position: relative;
       @include  border-radius(40px 10px 10px 40px);
-      a,div{
+      div{
         margin: 0;
         position: relative;
         color: #444;
       }
+      .a_botao{
+        display: block;
+        position: absolute;
+        left: 63px;
+        bottom: -27px;
+        background: white;
+        padding: 6px 10px 6px 70px;
+        font-size: 13px;
+        text-decoration: none;
+        border-radius: 0 0 10px 0px;
+        width: 108px;
+        color: #888;
+        .a_spam{
+          font-family: helvetica;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+      a:hover .a_botao{
+          color:#0321FF;
+      }
+      a:hover .circulo{
+          @include  box-shadow(0px 0px 25px 0px rgba(64, 119, 200, 1));
+      }  
       h1 {
         display: block;
         font-size: 1.2em;
@@ -194,13 +236,13 @@
       .porcento_0{
         position: absolute;
         top: 34px;
-        left: 98px;
+        left: 91px;
         .marcador{
           display: block;
           position: absolute;
           height: 5px;
           width: 2px;
-          background: #B32A2F;
+          background: #858585;
           top: -4px;
           right: 50%;
         }
@@ -214,7 +256,7 @@
           position: absolute;
           height: 5px;
           width: 2px;
-          background: #B32A2F;
+          background: #858585;
           bottom: -4px;
           right: 49%;
         }
@@ -498,16 +540,16 @@
       }
       .cidades {
         background: white;
-        height: 100px;
-        width: 100px;
-        border-radius: 50px;
+        height: 106px;
+        width: 106px;
+        border-radius: 53px;
         position: absolute;
         @include  box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
 
         .seta_posicao {
-          height: 100px;
-          width: 100px;
-          border-radius: 50px;
+          height: 106px;
+          width: 106px;
+          border-radius: 53px;
           position: absolute;
           top: 0;
           left: 0;
@@ -519,23 +561,30 @@
             width: 0px;
             position: absolute;
             left: 43px;
-            top: -16px;
+            top: -17.5px;
           }
         }
         .texto{
-          text-align: center;
           display: table-cell;
           vertical-align: middle;
-          height: 100px;
-          width: 100px;
-          padding: 0 10px;
+          height: 106px;
+          width: 76px;
+          padding: 0 15px;
+          position: absolute;
+          top: 0;
+          left: 0;
           h2{
             font-size: 12px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            height: 106px;
+            width: 80px;
           }
         }
-
         svg {
-          top: -1px;
+          top: 0.5px;
+          margin-left: 1px;
         }
       }
       .brasilia{

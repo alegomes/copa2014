@@ -15,161 +15,178 @@
 <% end %>
 
 <div class="quadro">
-  <a id="estadio" href="/tema/estadio">
-    <div id="estadio_circulo">
-      <div class="porcento_0">0%
-        <div class="marcador"></div>
+  <div id="estadio">
+    <a href="/tema/estadio">
+      <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div>
+      <div id="estadio_circulo" class="circulo">
+        <div class="porcento_0">100%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>
       </div>
-      <div class="porcento_50">50%
-        <div class="marcador"></div>
-      </div>
-    </div>
+      <div class="image-title"></div>
+    </a>
     <h1>Estádios e Arenas</h1>
     <p>Verba prevista: <span id="valor_previsto_estadio"></span></p>
     <ul class="legenda">
+      <li class="amarelo">
+        <div class="square"></div>
+        <span id="porcentagem_estadio_contratado"></span>% contratado
+      </li>
+      <li class="verde">
+        <div class="square"></div>
+        <span id="porcentagem_estadio_executado"></span>% Executado
+      </li>
+    </ul>
+    <div id="grafico_estadios" class="grafico_yx"></div>
+  </div>
+</div>
+<div class="quadro"> 
+  <div id="aeroporto">  
+    <a href="/tema/aeroporto">
+      <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div> 
+      <div id="aeroporto_circulo" class="circulo">
+        <div class="porcento_0">100%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>
+      </div> 
+      <div class="image-title"></div>
+    </a>              
+    <h1>Aeroportos</h1>
+    <p>Verba prevista: <span id="valor_previsto_aeroportos"></span></p>
+    <ul class="legenda">
+      <li class="amarelo">
+        <div class="square"></div>
+        <span id="porcentagem_aeroportos_contratado"></span>% contratado
+      </li>
+      <li class="verde">
+        <div class="square"></div>
+        <span id="porcentagem_aeroportos_executado"></span>% Executado
+      </li>
+    </ul> 
+    <div id="grafico_aeroportos" class="grafico_yx"></div>
+  </div>
+</div>
+<div class="quadro">
+  <div id="mobilidade_urbana">
+    <a href="/tema/mobilidade_urbana">
+      <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div> 
+      <div id="mobilidade_urbana_circulo" class="circulo">
+        <div class="porcento_0">100%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>                  
+      </div>              
+      <div class="image-title"></div>
+    </a>
+    <h1>Mobilidade Urbana</h1>
+    <p>Verba prevista: <span id="valor_previsto_mobilidade"></span></p>
+    <ul class="legenda">
+      <li class="amarelo">
+        <div class="square"></div>
+        <span id="porcentagem_mobilidade_contratado"></span>% contratado
+      </li>
+      <li class="verde">
+        <div class="square"></div>
+        <span id="porcentagem_mobilidade_executado"></span>% Executado
+      </li>
+    </ul>  
+    <div id="grafico_mobilidade" class="grafico_yx"></div>
+  </div>
+</div>
+<div class="quadro">
+  <div id="desenvolvimento_turistico">
+    <a href="/tema/desenvolvimento_turistico">
+      <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div>
+      <div id="desenvolvimento_turistico_circulo" class="circulo">
+        <div class="porcento_0">100%
+          <div class="marcador"></div>
+        </div>
+        <div class="porcento_50">50%
+          <div class="marcador"></div>
+        </div>                  
+      </div>
+      <div class="image-title"></div>
+    </a>
+    <h1>Desenvolvimento Turístico</h1>
+    <p>Verba prevista: <span id="valor_previsto_desenvolvimento_turistico"></span></p>
+    <ul class="legenda">
         <li class="amarelo">
           <div class="square"></div>
-          <span id="porcentagem_estadio_contratado"></span>% contratado
+          <span id="porcentagem_desenvolvimento_turistico_contratado"></span>% contratado
         </li>
         <li class="verde">
           <div class="square"></div>
-          <span id="porcentagem_estadio_executado"></span>% Executado
+          <span id="porcentagem_desenvolvimento_turistico_executado"></span>% Executado
         </li>
-    </ul>
-    <div class="image-title"></div>
-    <div id="grafico_estadios" class="grafico_yx"></div>
-  </a>
+    </ul>                
+    <div id="grafico_desenvolvimento_turistico" class="grafico_yx"></div>
+  </div>
 </div>
 <div class="quadro">
-    <a id="aeroporto" href="/tema/aeroporto">
-      <div id="aeroporto_circulo">
-        <div class="porcento_0">0%
-          <div class="marcador"></div>
-        </div>
-        <div class="porcento_50">50%
-          <div class="marcador"></div>
-        </div>
-      </div>
-      <h1>Aeroportos</h1>
-      <p>Verba prevista: <span id="valor_previsto_aeroportos"></span></p>
-      <ul class="legenda">
-          <li class="amarelo">
-            <div class="square"></div>
-            <span id="porcentagem_aeroportos_contratado"></span>% contratado
-          </li>
-          <li class="verde">
-            <div class="square"></div>
-            <span id="porcentagem_aeroportos_executado"></span>% Executado
-          </li>
-      </ul>                
-      <div class="image-title"></div>
-      <div id="grafico_aeroportos" class="grafico_yx"></div>
-    </a>
-</div>
-<div class="quadro">
-    <a id="mobilidade_urbana" href="/tema/mobilidade_urbana">
-      <div id="mobilidade_urbana_circulo">
-        <div class="porcento_0">0%
+  <div id="seguranca">
+    <a href="/tema/seguranca">
+      <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div>
+      <div id="seguranca_circulo" class="circulo">
+        <div class="porcento_0">100%
           <div class="marcador"></div>
         </div>
         <div class="porcento_50">50%
           <div class="marcador"></div>
         </div>                  
       </div>
-      <h1>Mobilidade Urbana</h1>
-      <p>Verba prevista: <span id="valor_previsto_mobilidade"></span></p>
-      <ul class="legenda">
-          <li class="amarelo">
-            <div class="square"></div>
-            <span id="porcentagem_mobilidade_contratado"></span>% contratado
-          </li>
-          <li class="verde">
-            <div class="square"></div>
-            <span id="porcentagem_mobilidade_executado"></span>% Executado
-          </li>
-      </ul>                
       <div class="image-title"></div>
-      <div id="grafico_mobilidade" class="grafico_yx"></div>
     </a>
+    <h1>Segurança Pública</h1>
+    <p>Verba prevista: <span id="valor_previsto_seguranca"></span></p>
+    <ul class="legenda">
+        <li class="amarelo">
+          <div class="square"></div>
+          <span id="porcentagem_seguranca_contratado"></span>% contratado
+        </li>
+        <li class="verde">
+          <div class="square"></div>
+          <span id="porcentagem_seguranca_executado"></span>% Executado
+        </li>
+    </ul>                
+    <div id="grafico_seguranca" class="grafico_yx"></div>
+  </div>
 </div>
 <div class="quadro">
-    <a id="desenvolvimento_turistico" href="/tema/desenvolvimento_turistico">
-      <div id="desenvolvimento_turistico_circulo">
-        <div class="porcento_0">0%
-          <div class="marcador"></div>
-        </div>
-        <div class="porcento_50">50%
-          <div class="marcador"></div>
-        </div>                  
-      </div>
-      <h1>Desenvolvimento Turístico</h1>
-      <p>Verba prevista: <span id="valor_previsto_desenvolvimento_turistico"></span></p>
-      <ul class="legenda">
-          <li class="amarelo">
-            <div class="square"></div>
-            <span id="porcentagem_desenvolvimento_turistico_contratado"></span>% contratado
-          </li>
-          <li class="verde">
-            <div class="square"></div>
-            <span id="porcentagem_desenvolvimento_turistico_executado"></span>% Executado
-          </li>
-      </ul>                
-      <div class="image-title"></div>
-      <div id="grafico_desenvolvimento_turistico" class="grafico_yx"></div>
-    </a>
-</div>
-<div class="quadro">
-    <a id="seguranca" href="/tema/seguranca">
-      <div id="seguranca_circulo">
-        <div class="porcento_0">0%
-          <div class="marcador"></div>
-        </div>
-        <div class="porcento_50">50%
-          <div class="marcador"></div>
-        </div>                  
-      </div>
-      <h1>Segurança Pública</h1>
-      <p>Verba prevista: <span id="valor_previsto_seguranca"></span></p>
-      <ul class="legenda">
-          <li class="amarelo">
-            <div class="square"></div>
-            <span id="porcentagem_seguranca_contratado"></span>% contratado
-          </li>
-          <li class="verde">
-            <div class="square"></div>
-            <span id="porcentagem_seguranca_executado"></span>% Executado
-          </li>
-      </ul>                
-      <div class="image-title">
-      </div>
-      <div id="grafico_seguranca" class="grafico_yx"></div>
-    </a>
-</div>
-<div class="quadro">
-    <a id="porto" href="/tema/porto">
-      <div id="porto_circulo">
-        <div class="porcento_0">0%
+  <div id="porto">
+    <a href="/tema/porto">
+      <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div>
+      <div id="porto_circulo" class="circulo">
+        <div class="porcento_0">100%
           <div class="marcador"></div>
         </div>
         <div class="porcento_50">50%
           <div class="marcador"></div>
         </div>
       </div>
-      <h1>Portos</h1>
-      <p>Verba prevista: <span id="valor_previsto_portos"></span></p>
-      <ul class="legenda">
-          <li class="amarelo">
-            <div class="square"></div>
-            <span id="porcentagem_portos_contratado"></span>% contratado
-          </li>
-          <li class="verde">
-            <div class="square"></div>
-            <span id="porcentagem_portos_executado"></span>% Executado
-          </li>
-      </ul>                
       <div class="image-title"></div>
-      <div id="grafico_portos" class="grafico_yx"></div>
     </a>
+    <h1>Portos</h1>
+    <p>Verba prevista: <span id="valor_previsto_portos"></span></p>
+    <ul class="legenda">
+        <li class="amarelo">
+          <div class="square"></div>
+          <span id="porcentagem_portos_contratado"></span>% contratado
+        </li>
+        <li class="verde">
+          <div class="square"></div>
+          <span id="porcentagem_portos_executado"></span>% Executado
+        </li>
+    </ul>                
+    <div id="grafico_portos" class="grafico_yx"></div>
+  </div>
 </div>
 <div style="clear:both"></div>
 

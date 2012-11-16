@@ -40,10 +40,11 @@ function geraCirculo(value, width, height, radius, extrapolation_radius_rate, po
         return {path: path, stroke: color};
     };
 
+    var orange = r.path().attr(param4).attr({arc: [0, 100, R, "rgba(219, 132, 1, 1)"]});
     var gray = r.path().attr(param1).attr({arc: [0, 100, R, "rgba(200, 200, 200, 1)"]});
     var yellow = r.path().attr(param2).attr({arc: [0, 100, R, "rgba(0, 0, 255, 1)"]});
     var green = r.path().attr(param3).attr({arc: [0, 100, R, "rgba(0, 255, 0, 1)"]});
-    var red = r.path().attr(param4).attr({arc: [0, 100, R, "rgba(255, 0, 0, 1)"]});
+    
 
     function updateVal(value, total, R, hand, color) {
         if (total == 31) {
@@ -81,11 +82,12 @@ function geraCirculo(value, width, height, radius, extrapolation_radius_rate, po
     var executado = json.executado <= json.previsto ? json.executado : json.previsto;
 
     (function () {
+        updateVal(contratado_extrapolado, json.previsto, R+extrapolation_radius_rate, orange, "rgba(219, 132, 1, 1)");
         updateVal(json.previsto, json.previsto, R, gray, "rgba(180, 180, 180, 1)");
         updateVal(contratado, json.previsto, R, yellow, "rgba(241, 190, 42, 1)");
         updateVal(executado, json.previsto, R, green, "rgba(57, 181, 74, 1)");
 
-        updateVal(contratado_extrapolado, json.previsto, R+extrapolation_radius_rate, red, "rgba(179, 42, 47, 1)");
+        
         init = false;
     })();
 }
@@ -104,15 +106,15 @@ function geraGrafico(id, json) {
         datas.push(i);
     }
 
-    var lines = r.linechart(20, 10, 208, 100, 
+    var lines = r.linechart(20, 15, 196, 96, 
         [datas,datas], // Eixo - X
         [valores_contratados,valores_executados], //Eixo - Y
-        {axisxstep: datas.length-1, axis: "0 0 1 1", symbol: "circle", smooth: true, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
+        {axisxstep: datas.length-1, axis: "0 0 1 1", symbol: "circle", smooth: false, colors: ['rgba(241, 190, 42, 1)','rgba(57, 181, 74, 1)']}
     ).hoverColumn(function () {
         this.tags = r.set();
 
         for (var i = 0, ii = this.y.length; i < ii; i++) {
-            this.tags.push(r.tag(this.x, this.y[i], this.values[i]+"%", 165, 10).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
+            this.tags.push(r.tag(this.x, this.y[i], this.values[i]+"%", 0, 4).insertBefore(this).attr([{ fill: "#fff" }, { fill: this.symbols[i].attr("fill") }]));
         }
     }, function () {
         this.tags && this.tags.remove();

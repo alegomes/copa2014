@@ -12,7 +12,7 @@ jQuery(function() {
 		var id = cidades_sede[index].name+"_circulo";
 		var json = cidades_sede[index].json;
 
-		geraCirculo(id, 102, 102, 40, 2, 51, 14, 4, 2, {
+		geraCirculo(id, 110, 110, 40, 5, 53, 14, 4, 2, {
 			previsto: json["valor_previsto"],
 			contratado: json["valor_contratado"],
 			executado: json["valor_executado"]

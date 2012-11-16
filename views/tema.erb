@@ -37,11 +37,11 @@
 		<% Tema.cidades_sede.each do |cidade_sede| %>
 			<% if (@cidades_sede.keys.include? cidade_sede[:name]) %>
 				<div id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>">
-					<div class="texto">
-						<h2><%= cidade_sede[:label] %></h2>
-					</div>
 					<div class="seta_posicao">
 						<div class="seta"></div>
+					</div>
+					<div class="texto">
+						<h2><%= cidade_sede[:label] %></h2>
 					</div>
 				</div>
 			<% end %>
