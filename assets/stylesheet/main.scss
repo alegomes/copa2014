@@ -540,13 +540,14 @@
         }
       }
       .cidades {
+        @include box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
+        @include transition(300ms);
+
         background: white;
         height: 106px;
         width: 106px;
         border-radius: 53px;
         position: absolute;
-        @include box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
-        @include transition(300ms);
 
         .seta_posicao {
           height: 106px;
@@ -599,16 +600,21 @@
           width: 0px;
           float: left;
           font-size: 10px;
+
+          span {
+            display: block;
+          }
         }
 
         &:hover {
-          width: 300px;
+          width: 305px;
           z-index: 10;
 
           .tema-info {
             @include transition-delay(100ms);
             @include transition-duration(300ms);
-            width: 125px;
+
+            width: 185px;
           }
         }
       }

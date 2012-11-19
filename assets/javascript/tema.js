@@ -17,14 +17,30 @@ jQuery(function() {
 			contratado: json["valor_contratado"],
 			executado: json["valor_executado"]
 		});
-	}
 
-	// jQuery(".cidades").mouseout(function() {
-	// 	var self = this;
-	// 	jQuery(".tema-info", self).css("display", "none");
-	// 	setTimeout(function() {
-	// 		jQuery(".tema-info", self).css("display", "block");
-	// 	}, 300);
-	// });
+		//Aplica tooltip em cada box de cidade sede
+		var tema_info = jQuery("."+cidades_sede[index].name+" .tema-info");
+
+		var previsto = json["valor_previsto"];
+		var contratado = json["valor_contratado"];
+		var executado = json["valor_executado"];
+		
+		if (contratado > previsto) {
+			var extrapolado = contratado - previsto;
+			contratado = previsto;
+			jQuery(".contratado-extrapolado", tema_info).prepend(formatPercent(extrapolado, previsto));
+    } else {
+    	jQuery(".contratado-extrapolado", tema_info).hide();
+    }
+    if (executado > previsto) {
+    	executado = previsto;
+			var extrapolado = executado - previsto;
+			jQuery(".executado-extrapolado", tema_info).prepend(formatPercent(extrapolado, previsto));
+    } else {
+    	jQuery(".executado-extrapolado", tema_info).hide();
+    }
+    jQuery(".contratado", tema_info).prepend(formatPercent(contratado, previsto));
+		jQuery(".executado", tema_info).prepend(formatPercent(executado, previsto));
+	}
 
 });
