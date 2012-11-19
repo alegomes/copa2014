@@ -210,12 +210,14 @@
           font-weight: bold;
         }
       }
-      a:hover .a_botao{
+      a:hover {
+        .a_botao{
           color:#0321FF;
-      }
-      a:hover .circulo{
+        }
+        .circulo{
           @include  box-shadow(0px 0px 25px 0px rgba(64, 119, 200, 1));
-      }  
+        }  
+      }
       h1 {
         display: block;
         font-size: 1.2em;
