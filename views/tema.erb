@@ -24,26 +24,34 @@
 
 		<div id="<%= @tema[:name] %>">
 			<div id="<%= @tema[:name] %>_circulo" class="circulo">
-				<div class="porcento_0">0%
-		          <div class="marcador"></div>
-		        </div>
-		        <div class="porcento_50">50%
-		          <div class="marcador"></div>
-		        </div>
+				<div class="porcento_0">
+					0%
+					<div class="marcador"></div>
+				</div>
+				<div class="porcento_50">
+					50%
+					<div class="marcador"></div>
+				</div>
 			</div>
 			<div class="image-title"></div>
 		</div>
 
 		<% Tema.cidades_sede.each do |cidade_sede| %>
 			<% if (@cidades_sede.keys.include? cidade_sede[:name]) %>
-				<div id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>">
+				<a id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>" href="/cidade-sede/<%= cidade_sede[:name] %>">
 					<div class="seta_posicao">
 						<div class="seta"></div>
 					</div>
 					<div class="texto">
 						<h2><%= cidade_sede[:label] %></h2>
 					</div>
-				</div>
+					<div class="tema-info">
+						<span class="contratado">% Contratado</span>
+						<span class="executado">% Executado</span>
+						<span class="contratado-extrapolado">% Contratado acima do previsto</span>
+						<span class="executado-extrapolado">% Executado acima do previsto</span>
+					</div>
+				</a>
 			<% end %>
 		<% end %>
 
@@ -61,4 +69,3 @@
   	});
   <% end %>
 </script>
-

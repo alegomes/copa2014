@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="/javascript/geradorGraficos.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/common.js" charset="utf-8"></script>
 
     <%= yield_content :javascripts %>
     
@@ -53,15 +54,10 @@
                     <li class="amarelo"><span></span>Contratado e não executado</li>
                     <li class="vermelho"><span></span>Executado acima do previsto</li>
                     <li class="cinza"><span></span>Não contratado</li>
-                    <li class="problema"><span></span>Ultrapasso 100% do previsto</li>
+                    <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
                 </ul>
 
-<!--                 <% menu = (yield_content(:menu) || "investimentos").strip %>
-                <a href="/" title="Mostrar todos os temas" rel="home" class="investimentos <%= menu == 'investimentos' ? 'marcado' : '' %>">
-                    Mostrar principais temas
-                </a>
-                 -->
-                <a href="http://transparencia.gov.br/copa2014/dados/home.seam" title="Baixe os dados" target="_blank" class="sobre" rel="nofollow"><span>Saiba mais sobre o projeto.</span></a>
+                <a href="/about" title="Baixe os dados" class="sobre"><span>Saiba mais sobre o projeto.</span></a>
             </div>
         </div>
     </div>

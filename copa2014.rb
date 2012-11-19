@@ -112,3 +112,13 @@ get "/tema/:tema" do
     erb :tema, layout: :layout, :default_encoding => settings.default_encoding
   end
 end
+
+get "/cidade-sede/:cidade_sede" do
+  cache_control :public, max_age: 43200  # 12 horas.
+  erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
+end
+
+get "/about" do
+  cache_control :public, max_age: 43200  # 12 horas.
+  erb :about, layout: :layout, :default_encoding => settings.default_encoding
+end
