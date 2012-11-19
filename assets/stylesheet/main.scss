@@ -1,6 +1,7 @@
   @import "compass/css3/border-radius";
   @import "compass/css3/transform";
   @import "compass/css3/box-shadow";
+  @import "compass/css3/transition";
 
 
   $hover_menu: #fff;
@@ -544,7 +545,8 @@
         width: 106px;
         border-radius: 53px;
         position: absolute;
-        @include  box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
+        @include box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
+        @include transition(300ms);
 
         .seta_posicao {
           height: 106px;
@@ -585,6 +587,29 @@
         svg {
           top: 0.5px;
           margin-left: 1px;
+          float: left;
+        }
+        .tema-info {
+          @include transition-property(width);
+          @include transition-delay(0ms);
+          @include transition-duration(100ms);
+
+          overflow: hidden;
+          white-space:nowrap;
+          width: 0px;
+          float: left;
+          font-size: 10px;
+        }
+
+        &:hover {
+          width: 300px;
+          z-index: 10;
+
+          .tema-info {
+            @include transition-delay(100ms);
+            @include transition-duration(300ms);
+            width: 125px;
+          }
         }
       }
       .brasilia{

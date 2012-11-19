@@ -19,4 +19,12 @@ jQuery(function() {
 		});
 	}
 
+	// jQuery(".cidades").mouseout(function() {
+	// 	var self = this;
+	// 	jQuery(".tema-info", self).css("display", "none");
+	// 	setTimeout(function() {
+	// 		jQuery(".tema-info", self).css("display", "block");
+	// 	}, 300);
+	// });
+
 });

@@ -24,12 +24,14 @@
 
 		<div id="<%= @tema[:name] %>">
 			<div id="<%= @tema[:name] %>_circulo" class="circulo">
-				<div class="porcento_0">0%
-		          <div class="marcador"></div>
-		        </div>
-		        <div class="porcento_50">50%
-		          <div class="marcador"></div>
-		        </div>
+				<div class="porcento_0">
+					0%
+					<div class="marcador"></div>
+				</div>
+				<div class="porcento_50">
+					50%
+					<div class="marcador"></div>
+				</div>
 			</div>
 			<div class="image-title"></div>
 		</div>
@@ -42,6 +44,13 @@
 					</div>
 					<div class="texto">
 						<h2><%= cidade_sede[:label] %></h2>
+					</div>
+					<div class="tema-info">
+						39% de alguma coisa
+						<br/>
+						70% de outra coisa
+						<br/>
+						99% de mais coisa legal
 					</div>
 				</div>
 			<% end %>
