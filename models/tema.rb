@@ -90,4 +90,10 @@ class Tema
     ]
   end
 
+  def self.get_cidade_sede name
+    self.cidades_sede.select do |cidade_sede|
+      cidade_sede[:name] == name
+    end
+  end
+
 end

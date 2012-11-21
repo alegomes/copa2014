@@ -38,7 +38,7 @@
 
 		<% Tema.cidades_sede.each do |cidade_sede| %>
 			<% if (@cidades_sede.keys.include? cidade_sede[:name]) %>
-				<a id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>" href="/cidade-sede/<%= cidade_sede[:name] %>">
+				<a id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>" href="/tema/<%= @tema[:name] %>/cidade-sede/<%= cidade_sede[:name] %>">
 					<div class="seta_posicao">
 						<div class="seta"></div>
 					</div>

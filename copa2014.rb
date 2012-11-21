@@ -21,24 +21,21 @@ require './models/tema'
 
 
 get '/main.css' do
-  puts "aa"
   content_type 'text/css', :charset => 'utf-8'
-  puts "bb"
-  cache_control :public, max_age: 43200  # 12 horas.
-  puts "cc"
+  #cache_control :public, max_age: 43200  # 12 horas.
   scss :"../assets/stylesheet/main"
 end
 get '/javascript/*' do
   content_type 'text/javascript', :charset => 'utf-8'
   params[:splat].each do |js|
-    cache_control :public, max_age: 43200  # 12 horas.
+    #cache_control :public, max_age: 43200  # 12 horas.
     send_file File.open(File.dirname(__FILE__)+"/assets/javascript/"+js)
   end
 end
 get '/images/*' do
   content_type 'image/png', :charset => 'utf-8'
   params[:splat].each do |image|
-    cache_control :public, max_age: 43200  # 12 horas.
+    #cache_control :public, max_age: 43200  # 12 horas.
     send_file File.open(File.dirname(__FILE__)+"/assets/images/"+image)
   end
 end
@@ -49,7 +46,7 @@ get "/" do
 
   @empreendimentos = Empreendimento.order("created_at ASC").all
   @empreendimentos = @empreendimentos.map do |emp|
-    emp.created_at = emp.created_at.strftime("%d/%m/%Y")
+    emp.created_at = emp.created_at.strftime("%y-%m-%d")
     emp
   end
   @empreendimentos = @empreendimentos.group_by(&:tema)
@@ -72,7 +69,7 @@ get "/" do
     end
   end
 
-  cache_control :public, max_age: 43200  # 12 horas.
+  #cache_control :public, max_age: 43200  # 12 horas.
 	erb :index, layout: :layout, :default_encoding => settings.default_encoding
 end
 
@@ -83,7 +80,7 @@ get "/tema/:tema" do
     @empreendimentos = Empreendimento.where(:tema => @tema[:name]).order("created_at ASC")
 
     @empreendimentos = @empreendimentos.map do |emp|
-      emp.created_at = emp.created_at.strftime("%d/%m/%Y")
+      emp.created_at = emp.created_at.strftime("%y-%m-%d")
       emp
     end
     @empreendimentos = @empreendimentos.group_by(&:created_at)
@@ -108,17 +105,31 @@ get "/tema/:tema" do
       @investimento_tema.data = emp.created_at
     end
 
-    cache_control :public, max_age: 43200  # 12 horas.
+    #cache_control :public, max_age: 43200  # 12 horas.
     erb :tema, layout: :layout, :default_encoding => settings.default_encoding
   end
 end
 
-get "/cidade-sede/:cidade_sede" do
-  cache_control :public, max_age: 43200  # 12 horas.
+get "/tema/:tema/cidade-sede/:cidade_sede" do
+  @tema = Tema.get(params[:tema]).first
+  @cidade_sede = Tema.get_cidade_sede(params[:cidade_sede]).first
+
+  unless (@tema.nil? or @cidade_sede.nil?)
+    @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name]).order("created_at ASC")
+
+    @empreendimentos = @empreendimentos.map do |emp|
+      emp.created_at = emp.created_at.strftime("%y-%m-%d")
+      emp
+    end
+    @empreendimentos = @empreendimentos.group_by(&:created_at)
+    @empreendimentos = @empreendimentos[@empreendimentos.keys.last]
+  end
+
+  #cache_control :public, max_age: 43200  # 12 horas.
   erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
 end
 
 get "/about" do
-  cache_control :public, max_age: 43200  # 12 horas.
+  #cache_control :public, max_age: 43200  # 12 horas.
   erb :about, layout: :layout, :default_encoding => settings.default_encoding
 end

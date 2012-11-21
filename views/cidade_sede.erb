@@ -10,4 +10,15 @@
   OpenCopa 2014 - Por debaixo dos gramados
 <% end %>
 
-<span style="color: white;">Alguma coisa!</span>
+<div style="color: white;">
+	<% @empreendimentos.each do |empreendimento| %>
+		<%= empreendimento.descricao %>
+		<br/>
+		<%= empreendimento.valor_previsto %>
+		<br/>
+		<%= empreendimento.valor_contratado %>
+		<br/>
+		<%= empreendimento.valor_executado %>
+		<br/><br/>
+	<% end %>
+</div>

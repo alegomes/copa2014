@@ -7,7 +7,7 @@ class Empreendimento < ActiveRecord::Base
       valor_previsto: format("%.2f", valor_previsto).to_f,
       valor_contratado: format("%.2f", valor_contratado).to_f,
       valor_executado: format("%.2f", valor_executado).to_f,
-      data: created_at.strftime("%m/%Y")
+      data: created_at.strftime("%d/%m/%y")
     }
   end
 
