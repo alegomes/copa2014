@@ -10,6 +10,10 @@
   OpenCopa 2014 - Por debaixo dos gramados
 <% end %>
 
+<% content_for :following_header do %>
+  theme
+<% end %>
+
 <div class="quadro_moudura">
 	<div class="quadro_interno mapa">
 		<div class="migalha">
@@ -48,10 +52,12 @@
 						<h2><%= cidade_sede[:label] %></h2>
 					</div>
 					<div class="tema-info">
-						<span class="amarelo"></span><p class="contratado">% Contratado</p>
-						<span class="verde"></span><p class="executado">% Executado</p>
-						<span class="laranja"></span><p class="contratado-extrapolado">% Contratado acima do previsto</p>
-						<span class="vermelho"></span><p class="executado-extrapolado">% Executado acima do previsto</p>
+						<div style="width:133px">
+							<p class="contratado"><span class="amarelo"></span>% Contratado</p>
+							<p class="executado"><span class="verde"></span>% Executado</p>
+							<p class="contratado-extrapolado"><span class="laranja"></span>% Contratado acima do previsto</p>
+							<p class="executado-extrapolado"><span class="vermelho"></span>% Executado acima do previsto</p>
+						</div>
 					</div>
 				</a>
 			<% end %>

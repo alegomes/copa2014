@@ -2,6 +2,8 @@
   @import "compass/css3/transform";
   @import "compass/css3/box-shadow";
   @import "compass/css3/transition";
+  @import "compass/css3/opacity";
+
 
 
   $hover_menu: #fff;
@@ -558,7 +560,7 @@
 
         background: white;
         height: 106px;
-        width: 310px;
+        width: 106px;
         border-radius: 53px;
         position: absolute;
         text-decoration: none;
@@ -608,18 +610,22 @@
           @include transition-property(width);
           @include transition-delay(0ms);
           @include transition-duration(100ms);
-
           overflow: hidden;
-          white-space:nowrap;
-          width: 185px;
+          width: 0px;
           float: left;
           font-size: 10px;
+          position: absolute;
+          top: 0;
+          left: 106px;
+          p{
+            margin: 7px 0;
+          }
           span{
             width: 11px;
             display: block;
             height: 11px;
             float: left;
-            margin: 2px 4px;
+            margin: 1px 4px;
           }
           .vermelho{
             background: #DB0109;
@@ -641,17 +647,18 @@
           }
         }
 
-        // &:hover {
-        //   width: 305px;
-        //   z-index: 10;
+        &:hover {
+          width: 255px;
+          z-index: 10;
 
-        //   .tema-info {
-        //     @include transition-delay(100ms);
-        //     @include transition-duration(300ms);
+          .tema-info {
+            @include transition-delay(50ms);
+            @include transition-duration(300ms);
+            width: 133px;
+            overflow: hidden;
 
-        //     width: 185px;
-        //   }
-        // }
+          }
+        }
       }
       .brasilia{
         top: 261px;
