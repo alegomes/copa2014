@@ -27,3 +27,20 @@ function formatFloatToString(number) {
 function formatPercent(value, base) {
 	return Math.floor(((value / base) * 100));
 }
+
+$(function() {
+
+	var $following_bar	= $(".following-header"),
+			$header_body		= $(".following-header-body"),
+      $window					= $(window),
+      offset					= $(".corpo").offset();
+
+  $window.scroll(function() {
+    if ($window.scrollTop() > offset.top) {
+      $following_bar.css("height", $header_body.height());
+    } else {
+      $following_bar.css("height", 0);
+    }
+  });
+    
+});

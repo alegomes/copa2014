@@ -719,3 +719,21 @@
       }
     }
   }
+
+.following-header {
+  @include transition-property(height);
+  @include transition-duration(300ms);
+
+  position: fixed;
+  top: 0px;
+  width: 960px;
+  margin-left: -480px;
+  left: 50%;
+
+  overflow: hidden;
+  height: 0;
+
+  background-color: red;
+  z-index: 100;
+  color: white;
+}
