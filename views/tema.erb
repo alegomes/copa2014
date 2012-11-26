@@ -11,8 +11,10 @@
 <% end %>
 
 <div class="quadro_moudura">
-	<div class="quadro_interno">
-		<div class="migalha"><a href="/">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span></div>
+	<div class="quadro_interno mapa">
+		<div class="migalha">
+			<a href="/">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span>
+		</div>
 		
 		<nav>
 			<% Tema.all.each do |tema| %>

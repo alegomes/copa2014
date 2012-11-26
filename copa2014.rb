@@ -123,6 +123,16 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
     end
     @empreendimentos = @empreendimentos.group_by(&:created_at)
     @empreendimentos = @empreendimentos[@empreendimentos.keys.last]
+
+    @investimento_cidade_sede = Investimento.new
+
+    @empreendimentos.each do |emp|
+      #Investimentos gerais da cidade sede selecionada
+      @investimento_cidade_sede.valor_previsto += emp.valor_previsto
+      @investimento_cidade_sede.valor_contratado += emp.valor_contratado
+      @investimento_cidade_sede.valor_executado += emp.valor_executado
+      @investimento_cidade_sede.data = emp.created_at
+    end
   end
 
   #cache_control :public, max_age: 43200  # 12 horas.
