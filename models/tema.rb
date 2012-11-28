@@ -32,9 +32,7 @@ class Tema
   end
 
   def self.get name
-    self.all.select do |tema|
-      tema[:name] == name
-    end
+    self.all.select { |tema| tema[:name] == name }
   end
 
   def self.cidades_sede
@@ -91,9 +89,7 @@ class Tema
   end
 
   def self.get_cidade_sede name
-    self.cidades_sede.select do |cidade_sede|
-      cidade_sede[:name] == name
-    end
+    self.cidades_sede.select { |cidade_sede| cidade_sede[:name] == name }
   end
 
 end

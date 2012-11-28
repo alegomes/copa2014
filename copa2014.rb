@@ -85,14 +85,7 @@ get "/tema/:tema" do
   @tema = Tema.get(params[:tema]).first
 
   unless (@tema.nil?)
-    @empreendimentos = Empreendimento.where(:tema => @tema[:name]).order("created_at ASC")
-
-    @empreendimentos = @empreendimentos.map do |emp|
-      emp.created_at = emp.created_at.strftime("%y-%m-%d")
-      emp
-    end
-    @empreendimentos = @empreendimentos.group_by(&:created_at)
-    @empreendimentos = @empreendimentos[@empreendimentos.keys.last]
+    @empreendimentos = Empreendimento.where(:tema => @tema[:name], :created_at => Empreendimento.maximum(:created_at))
 
     @investimento_tema = Investimento.new
     @cidades_sede = {}
@@ -123,14 +116,8 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
   @cidade_sede = Tema.get_cidade_sede(params[:cidade_sede]).first
 
   unless (@tema.nil? or @cidade_sede.nil?)
-    @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name]).order("created_at ASC")
-
-    @empreendimentos = @empreendimentos.map do |emp|
-      emp.created_at = emp.created_at.strftime("%y-%m-%d")
-      emp
-    end
-    @empreendimentos = @empreendimentos.group_by(&:created_at)
-    @empreendimentos = @empreendimentos[@empreendimentos.keys.last]
+    @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name], 
+      :created_at => Empreendimento.maximum(:created_at))
 
     @investimento_cidade_sede = Investimento.new
 
