@@ -59,58 +59,6 @@
         }
       }
     }
-    .legenda{
-      background-image: url(/images/legenda.png);
-      background-repeat: no-repeat;
-      background-position: 10px 50%;
-      padding: 4px 0 0 25px;
-      position: absolute;
-      height: 69px;
-      width: 422px;
-      left: 239px;
-      border-left: 1px solid #CAC7C7;
-      border-right: 1px solid white;
-      text-decoration: none;
-      color: #838282;
-      margin: 0;
-      font-size: 12px;
-      list-style: none;
-      font-weight: normal;
-      top: 0;
-      li{
-        padding: 5px 0 0 0;
-        float: left;
-        width: 210px;
-        span{
-          width: 11px;
-          display: block;
-          height: 11px;
-          float: left;
-          margin: 2px 4px;
-        }
-      }
-      .vermelho span{
-        background: #DB0109;
-      }
-      .amarelo span{
-        background: #f1be18;
-      }
-      .verde span{
-        background: #39b54a;
-      }
-      .cinza span{
-        background: rgba(150, 150, 150, 1);
-      }
-      .laranja span{
-        background: #DB8401;
-      }
-      .problema span{
-        background: url(/images/important.png) no-repeat center;
-        width: 22px;
-        height: 19px;
-        margin: -2px 0px 0px -1px;
-      }
-    }
     .investimentos{
       background-image: url(/images/icon_investimento.png);
       background-repeat: no-repeat;
@@ -170,6 +118,74 @@
     }
     .marcado{
       background-color: #fff;
+    }
+  }
+
+  .floating-menu {
+    @include border-radius(0 0 10px 10px);
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0 auto;
+
+    height: 73px;
+    width: 480px;
+
+    .legenda {
+      @include border-radius(0 0 10px 10px);
+    }
+  }
+
+  .menu, .floating-menu {
+    .legenda{
+      background-image: url(/images/legenda.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 4px 0 0 25px;
+      position: absolute;
+      height: 69px;
+      width: 422px;
+      left: 239px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
+      text-decoration: none;
+      color: #838282;
+      margin: 0;
+      font-size: 12px;
+      list-style: none;
+      font-weight: normal;
+      top: 0;
+      li{
+        padding: 5px 0 0 0;
+        float: left;
+        width: 210px;
+        span{
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+      }
+      .vermelho span{
+        background: #DB0109;
+      }
+      .amarelo span{
+        background: #f1be18;
+      }
+      .verde span{
+        background: #39b54a;
+      }
+      .cinza span{
+        background: rgba(150, 150, 150, 1);
+      }
+      .laranja span{
+        background: #DB8401;
+      }
+      .problema span{
+        background: url(/images/important.png) no-repeat center;
+        width: 22px;
+        height: 19px;
+        margin: -2px 0px 0px -1px;
+      }
     }
   }
 
@@ -760,7 +776,5 @@
   overflow: hidden;
   height: 0;
 
-  background-color: red;
   z-index: 100;
-  color: white;
 }

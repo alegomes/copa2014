@@ -11,7 +11,16 @@
 <% end %>
 
 <% content_for :following_header do %>
-  theme
+  <div class="floating-menu">
+    <ul class="legenda">
+      <li class="verde"><span></span>Contratado e executado</li>
+      <li class="laranja"><span></span>Contratado acima do previsto</li>
+      <li class="amarelo"><span></span>Contratado e nao executado</li>
+      <li class="vermelho"><span></span>Executado acima do previsto</li>
+      <li class="cinza"><span></span>Nao contratado</li>
+      <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
+    </ul>
+  </div>
 <% end %>
 
 <div class="quadro_moudura">

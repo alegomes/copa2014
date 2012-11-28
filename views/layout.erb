@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
-<head>
+  <head>
     <title><%= yield_content :title %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
     <meta name="author" content="Alexandre Gomes, Wesley Rocha, Célio Latorraca">
@@ -33,33 +33,33 @@
       })();
 
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="top">
-        <div class="top_area">
-            <div class="bola"></div>
+      <div class="top_area">
+        <div class="bola"></div>
 
-            <div class="menu">
-                <a href="/" title="Home" rel="home">
-                    <h1>
-                        <div>OpenCopa</div>
-                        <div class="subtitle">Por debaixo dos gramados</div>
-                    </h1>
-                </a>
-          
-                <ul class="legenda">
-                    <li class="verde"><span></span>Contratado e executado</li>
-                    <li class="laranja"><span></span>Contratado acima do previsto</li>
-                    <li class="amarelo"><span></span>Contratado e não executado</li>
-                    <li class="vermelho"><span></span>Executado acima do previsto</li>
-                    <li class="cinza"><span></span>Não contratado</li>
-                    <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
-                </ul>
+        <div class="menu">
+          <a href="/" title="Home" rel="home">
+              <h1>
+                  <div>OpenCopa</div>
+                  <div class="subtitle">Por debaixo dos gramados</div>
+              </h1>
+          </a>
+    
+          <ul class="legenda">
+            <li class="verde"><span></span>Contratado e executado</li>
+            <li class="laranja"><span></span>Contratado acima do previsto</li>
+            <li class="amarelo"><span></span>Contratado e não executado</li>
+            <li class="vermelho"><span></span>Executado acima do previsto</li>
+            <li class="cinza"><span></span>Não contratado</li>
+            <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
+          </ul>
 
-                <a href="/about" title="Baixe os dados" class="sobre"><span>Saiba mais sobre o projeto.</span></a>
-            </div>
+          <a href="/about" title="Baixe os dados" class="sobre"><span>Saiba mais sobre o projeto.</span></a>
         </div>
+      </div>
     </div>
 
     <div class="following-header">
@@ -72,23 +72,29 @@
     	<%= yield %>
     </div>
 
-     <div id="rodape">
-        <div id="autor"><label>Autor:</label>Wesley Rocha - Designer de Interfaces</br>
-          E-mail: wesleyweb@gmail.com</br></br>
-          <a id="linkedin" title="Contato do linkdin" href="br.linkedin.com/in/wesleyrocha1" target="_blank" rel="nofollow">Contato do linkdin</a>
-          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/wesley.rocha.10048" target="_blank" rel="nofollow">Contato do facebook</a>
-          <a id="twitter" title="Contato do twitter" href="https://twitter.com/wesleyrocha" target="_blank" rel="nofollow">Contato do twitter</a>
-          <a id="lattes"  title="Currículo Lattes" href="http://lattes.cnpq.br/5660156278323141" target="_blank" rel="nofollow">Currículo Lattes</a>
-        </div>
-        <div id="colaboradores"><label>Colaboradores:</label>
-          <ul>
-            <li>Leonardo Antonialli - SEA Tecnologia e FAC SENAC</li>
-            <li>Alexandre Gomes - SEA Tecnologia</li>
-            <li>Célio Latorraca - SEA Tecnologia</li>
-          </ul>
-        </div>
-        <div id="patrocinador"><label>Patrocinador:</label><a href="http://www.seatecnologia.com.br" title="SEA Tecnologia" target="_blank" rel="nofollow"><img title="SEA Tecnologia" src="/images/logo_SEA.png"></a></div>
-        <div style="clear:both"></div>
+    <div id="rodape">
+      <div id="autor">
+        <label>Autor:</label>Wesley Rocha - Designer de Interfaces
+        <br/>
+        E-mail: wesleyweb@gmail.com
+        <br/><br/>
+        <a id="linkedin" title="Contato do linkdin" href="br.linkedin.com/in/wesleyrocha1" target="_blank" rel="nofollow">Contato do linkdin</a>
+        <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/wesley.rocha.10048" target="_blank" rel="nofollow">Contato do facebook</a>
+        <a id="twitter" title="Contato do twitter" href="https://twitter.com/wesleyrocha" target="_blank" rel="nofollow">Contato do twitter</a>
+        <a id="lattes"  title="Currículo Lattes" href="http://lattes.cnpq.br/5660156278323141" target="_blank" rel="nofollow">Currículo Lattes</a>
       </div>
-</body>
+      <div id="colaboradores"><label>Colaboradores:</label>
+        <ul>
+          <li>Leonardo Antonialli - SEA Tecnologia e FAC SENAC</li>
+          <li>Alexandre Gomes - SEA Tecnologia</li>
+          <li>Célio Latorraca - SEA Tecnologia</li>
+        </ul>
+      </div>
+      <div id="patrocinador">
+        <label>Patrocinador:</label>
+        <a href="http://www.seatecnologia.com.br" title="SEA Tecnologia" target="_blank" rel="nofollow"><img title="SEA Tecnologia" src="/images/logo_SEA.png"></a>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  </body>
 </html>
