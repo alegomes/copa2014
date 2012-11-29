@@ -36,7 +36,7 @@ $(function() {
       offset					= $(".corpo").offset();
 
   $window.scroll(function() {
-    if ($window.scrollTop() > offset.top) {
+    if ($window.scrollTop() > offset.top - 70) {
       $following_bar.css("height", $header_body.height());
     } else {
       $following_bar.css("height", 0);

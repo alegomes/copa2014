@@ -32,7 +32,7 @@
 		<nav>
 			<% Tema.all.each do |tema| %>
 				<% unless tema[:name] == 'seguranca' %>
-					<a id="but_<%= tema[:name] %>" href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
+					<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name]==tema[:name]%>' href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
 				<% end %>
 			<% end %>
 		</nav>
@@ -62,7 +62,7 @@
 						<h2><%= cidade_sede[:label] %></h2>
 					</div>
 					<div class="tema-info">
-						<div style="width:133px">
+						<div class="cell-middle">
 							<p class="contratado"><span class="amarelo"></span>% Contratado</p>
 							<p class="executado"><span class="verde"></span>% Executado</p>
 							<p class="contratado-extrapolado"><span class="laranja"></span>% Contratado acima do previsto</p>

@@ -11,7 +11,7 @@
 <% end %>
 
 <div class="quadro_moudura">
-	<div class="quadro_interno">
+	<div class="quadro_interno livre">
 		<div class="migalha">
 			<a href="/">Principais Temas</a>
 			::
@@ -34,15 +34,19 @@
 			<div class="image-title"></div>
 		</div>
 
-		<div>
+		<div class="container_empreendimentos">
 			<% @empreendimentos.each do |empreendimento| %>
-				<%= empreendimento.descricao %>
-				<br/>
-				<%= empreendimento.valor_previsto %>
-				<br/>
-				<%= empreendimento.valor_contratado %>
-				<br/>
-				<%= empreendimento.valor_executado %>
+				<h2><%= empreendimento.descricao %></h2>
+				Contratado: <%= empreendimento.valor_contratado %>
+				<div class="trilha">
+					<div class="amarelo"></div>
+					<div class="laranja"></div>
+				</div>
+				Presvisto: <%= empreendimento.valor_previsto %> Executado:<%= empreendimento.valor_executado %>
+				<div class="trilha">
+					<div class="verde"></div>
+					<div class="vermelho"></div>
+				</div>
 				<br/><br/>
 			<% end %>
 		</div>
