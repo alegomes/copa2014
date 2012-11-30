@@ -13,6 +13,27 @@
     background: #000;
     font-family: Verdana,Arial,Serif;
   }
+  .beta {
+    @include background-image(linear-gradient(top, #FF6600, #DB0109));
+    @include rotate(36deg);
+    @include box-shadow(0px 3px 10px black);
+    color: white;
+    padding: 4px 56px;
+    font-size: 13px;
+    position: absolute;
+    width: 188px;
+    top: 23px;
+    right: -84px; 
+    z-index: 2;
+    text-align: center;
+    font-weight: bold;
+    span{
+      display: block;
+      font-size: 10px;
+      width: 175px;
+      font-weight: normal;
+    }
+  }
   .top{
     background: url(/images/top_fundo_02_03.png) repeat-x 50% 100%;
     height: 212px;
