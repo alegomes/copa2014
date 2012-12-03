@@ -10,15 +10,39 @@
   OpenCopa 2014 - Por debaixo dos gramados
 <% end %>
 
+<% content_for :header_legenda do %>
+  <div class="floating-menu">
+    <ul class="legenda">
+      <li class="verde"><span></span>Executado</li>
+      <li class="laranja"><span></span>Contratado acima do previsto</li>
+      <li class="amarelo"><span></span>Contratado</li>
+      <li class="vermelho"><span></span>Executado acima do previsto</li>
+      <li class="cinza"><span></span>N&atilde;o contratado</li>
+      <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
+    </ul>
+  </div>
+<% end %>
+
 <div class="quadro_moudura">
 	<div class="quadro_interno livre">
 		<div class="migalha">
-			<a href="/">Principais Temas</a>
+			<a href="/" title="Home" rel="home">Principais Temas</a>
 			::
 			<a href="/tema/<%= @tema[:name] %>"><%= @tema[:label] %></a>
 			::
 			<span><%= @cidade_sede[:label] %></span>
 		</div>
+
+		<nav>
+			<% Tema.all.each do |tema| %>
+				<% unless tema[:name] == 'seguranca' %>
+					<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name] == tema[:name]%>' 
+							href="/tema/<%= tema[:name] %>/cidade-sede/<%= @cidade_sede[:name] %>" title="<%= tema[:label] %>">
+						<%= tema[:label] %>
+					</a>
+				<% end %>
+			<% end %>
+		</nav>
 
 		<div id="<%= @tema[:name] %>">
 			<div id="<%= @tema[:name] %>_circulo" class="circulo">
@@ -35,19 +59,36 @@
 		</div>
 
 		<div class="container_empreendimentos">
+			<div class="investimentos_cidade_sede">
+				Previsto: <span class="previsto"></span>
+				<br/>
+				Contratado: <span class="contratado"></span>
+				<br/>
+				Executado: <span class="executado"></span>
+			</div>
+
 			<% @empreendimentos.each do |empreendimento| %>
-				<h2><%= empreendimento.descricao %></h2>
-				Contratado: <%= empreendimento.valor_contratado %>
-				<div class="trilha">
-					<div class="amarelo"></div>
-					<div class="laranja"></div>
+				<div id="<%= empreendimento.id %>" class="empreendimento_wrapper">
+					<h2><%= empreendimento.descricao %></h2>
+					
+					Presvisto: <span class="previsto"></span>
+					<br/>
+					Contratado: <span class="contratado"></span>
+					<br/>
+					Executado: <span class="executado"></span>
+					<br/><br/>
+
+					<div class="trilha">
+						<div class="amarelo barra_contratado"></div>
+						<div class="laranja barra_contratado_excedido"></div>
+					</div>
+					<br/>
+					<div class="trilha">
+						<div class="verde barra_executado"></div>
+						<div class="vermelho barra_executado_excedido"></div>
+					</div>
+					<br/><br/>
 				</div>
-				Presvisto: <%= empreendimento.valor_previsto %> Executado:<%= empreendimento.valor_executado %>
-				<div class="trilha">
-					<div class="verde"></div>
-					<div class="vermelho"></div>
-				</div>
-				<br/><br/>
 			<% end %>
 		</div>
 	</div>
@@ -55,4 +96,12 @@
 
 <script type="text/javascript">
   var json_investimento_cidade_sede = <%= @investimento_cidade_sede.to_hash.to_json %>;
+
+  var empreendimentos = [];
+  <% @empreendimentos.each do |empreendimento| %>
+  	empreendimentos.push({
+  		id: "<%= empreendimento.id %>",
+  		json: <%= empreendimento.to_hash.to_json %>
+  	});
+  <% end %>
 </script>

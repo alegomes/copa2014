@@ -49,14 +49,7 @@
               </h1>
           </a>
     
-          <ul class="legenda">
-            <li class="verde"><span></span>Contratado e executado</li>
-            <li class="laranja"><span></span>Contratado acima do previsto</li>
-            <li class="amarelo"><span></span>Contratado e não executado</li>
-            <li class="vermelho"><span></span>Executado acima do previsto</li>
-            <li class="cinza"><span></span>Não contratado</li>
-            <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
-          </ul>
+          <%= yield_content :header_legenda %>
 
           <a href="/about" title="Baixe os dados" class="sobre"><span>Saiba mais sobre o projeto.</span></a>
         </div>
@@ -65,7 +58,7 @@
 
     <div class="following-header">
       <div class="following-header-body">
-        <%= yield_content :following_header %>
+        <%= yield_content :header_legenda %>
       </div>
     </div>
 
