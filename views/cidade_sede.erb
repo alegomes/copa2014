@@ -58,39 +58,49 @@
 			<div class="image-title"></div>
 		</div>
 
-		<div class="container_empreendimentos">
-			<div class="investimentos_cidade_sede">
-				Previsto: <span class="previsto"></span>
-				<br/>
-				Contratado: <span class="contratado"></span>
-				<br/>
-				Executado: <span class="executado"></span>
-			</div>
-
-			<% @empreendimentos.each do |empreendimento| %>
-				<div id="<%= empreendimento.id %>" class="empreendimento_wrapper">
-					<h2><%= empreendimento.descricao %></h2>
-					
-					Presvisto: <span class="previsto"></span>
+		<% if @empreendimentos.size > 0 %>
+			<div class="container_empreendimentos">
+				<div class="investimentos_cidade_sede">
+					Previsto: <span class="previsto"></span>
 					<br/>
 					Contratado: <span class="contratado"></span>
 					<br/>
 					Executado: <span class="executado"></span>
-					<br/><br/>
-
-					<div class="trilha">
-						<div class="amarelo barra_contratado"></div>
-						<div class="laranja barra_contratado_excedido"></div>
-					</div>
-					<br/>
-					<div class="trilha">
-						<div class="verde barra_executado"></div>
-						<div class="vermelho barra_executado_excedido"></div>
-					</div>
-					<br/><br/>
 				</div>
-			<% end %>
-		</div>
+
+				<% @empreendimentos.each do |empreendimento| %>
+					<div id="<%= empreendimento.id %>" class="empreendimento_wrapper">
+						<h2><%= empreendimento.descricao %></h2>
+						
+						Presvisto: <span class="previsto"></span>
+						<br/>
+						Contratado: <span class="contratado"></span>
+						<br/>
+						Executado: <span class="executado"></span>
+						<br/><br/>
+
+						<div class="trilha">
+							<div class="amarelo barra_contratado"></div>
+							<div class="laranja barra_contratado_excedido"></div>
+						</div>
+						<br/>
+						<div class="trilha">
+							<div class="verde barra_executado"></div>
+							<div class="vermelho barra_executado_excedido"></div>
+						</div>
+						<br/><br/>
+					</div>
+				<% end %>
+			</div>
+
+		<% else %>
+			
+			<div class="sem_empreendimentos">
+				N&atilde;o h&aacute; empreedimentos previstos do tema <b><%= @tema[:label] %></b> para a cidade de <b><%= @cidade_sede[:label] %></b>.
+			</div>
+
+		<% end %>
+
 	</div>
 </div>
 
