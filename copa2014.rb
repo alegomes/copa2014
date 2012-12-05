@@ -116,6 +116,10 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
   @cidade_sede = Tema.get_cidade_sede(params[:cidade_sede]).first
 
   unless (@tema.nil? or @cidade_sede.nil?)
+    #Recupera os temas possíveis
+    @temas_cidade_sede = Empreendimento.where(:cidade_sede => @cidade_sede[:name]).select(:tema).uniq
+    @temas_cidade_sede.map!{ |e| e.tema }
+
     @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name], 
       :created_at => Empreendimento.maximum(:created_at))
 

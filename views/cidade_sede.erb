@@ -34,9 +34,10 @@
 		</div>
 
 		<nav>
-			<% Tema.all.each do |tema| %>
+			<% @temas_cidade_sede.each do |name| %>
+				<% tema = Tema.get(name).first %>
 				<% unless tema[:name] == 'seguranca' %>
-					<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name] == tema[:name]%>' 
+					<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name] == tema[:name] %>' 
 							href="/tema/<%= tema[:name] %>/cidade-sede/<%= @cidade_sede[:name] %>" title="<%= tema[:label] %>">
 						<%= tema[:label] %>
 					</a>
