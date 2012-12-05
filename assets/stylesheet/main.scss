@@ -12,6 +12,7 @@
   body{
     background: #000;
     font-family: Verdana,Arial,Serif;
+    overflow-x: hidden;
   }
   .beta {
     @include background-image(linear-gradient(top, #FF6600, #DB0109));
