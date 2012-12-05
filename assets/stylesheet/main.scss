@@ -368,11 +368,11 @@
       display: block;
       top: -25px;
       left: -42px;
-      padding: 5px;
-      height: 204px;
+      padding: 0px;
+      height: 216px;
       font-size: 11px;
-      @include  border-radius(107px);
-      min-width: 204px;
+      @include  border-radius(109px);
+      min-width: 216px;
       svg{
         position: absolute;
         top: 0;
@@ -431,7 +431,7 @@
       position: absolute;
       height: 114px;
       width: 148px;
-      top: 32px;
+      top: 22px;
       left: -7px;
     }
   } 
@@ -511,7 +511,7 @@
 
       .circulo {
         top: -30px !important;
-        left: -39px !important;
+        left: -42px !important;
       }
       a {
         display: inline;
