@@ -10,14 +10,14 @@
   OpenCopa 2014 - Por debaixo dos gramados
 <% end %>
 
-<% content_for :following_header do %>
+<% content_for :header_legenda do %>
   <div class="floating-menu">
     <ul class="legenda">
       <li class="verde"><span></span>Contratado e executado</li>
       <li class="laranja"><span></span>Contratado acima do previsto</li>
-      <li class="amarelo"><span></span>Contratado e nao executado</li>
+      <li class="amarelo"><span></span>Contratado e n&atilde;o executado</li>
       <li class="vermelho"><span></span>Executado acima do previsto</li>
-      <li class="cinza"><span></span>Nao contratado</li>
+      <li class="cinza"><span></span>N&atilde;o contratado</li>
       <li class="problema"><span></span>Ultrapassou 100% do previsto</li>
     </ul>
   </div>
@@ -26,13 +26,16 @@
 <div class="quadro_moudura">
 	<div class="quadro_interno mapa">
 		<div class="migalha">
-			<a href="/">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span>
+			<a href="/" title="Home" rel="home">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span>
 		</div>
 		
 		<nav>
 			<% Tema.all.each do |tema| %>
 				<% unless tema[:name] == 'seguranca' %>
-					<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name]==tema[:name]%>' href="/tema/<%= tema[:name] %>"><%= tema[:label] %></a>
+					<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name] == tema[:name]%>' 
+							href="/tema/<%= tema[:name] %>" title="<%= tema[:label] %>">
+						<%= tema[:label] %>
+					</a>
 				<% end %>
 			<% end %>
 		</nav>

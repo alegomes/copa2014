@@ -8,6 +8,7 @@ class Investimento
     @valor_previsto = 0.0
     @valor_contratado = 0.0
     @valor_executado = 0.0
+    @data = Time.now
   end
 
   def to_hash

@@ -817,7 +817,7 @@
           @include border-radius(10px 0 0 10px);
           height: 26px;
           box-shadow: 0px 0px 8px #444, inset 0 -4px 10px #18BB19;
-          width: 50%;
+          width: 0%;
           @include background-image(linear-gradient(top, #7CDA06, #39b54a));
         }
         .vermelho {
@@ -825,14 +825,14 @@
           margin-top: -26px;
           height: 26px;
           box-shadow: inset 0px -2px 8px #B10101;
-          width: 25%;
+          width: 0%;
           @include background-image(linear-gradient(top, #FF6600, #DB0109));
         }
         .amarelo{
           @include border-radius(10px 0 0 10px);
           height: 26px;
           box-shadow: 0px 0px 8px #444, inset 0 -4px 10px #C49B16;
-          width: 50%;
+          width: 0%;
           @include background-image(linear-gradient(top, #f1be18, #CCA217));
         }
         .laranja{
@@ -840,7 +840,7 @@
           margin-top: -26px;
           height: 26px;
           box-shadow: inset 0px -2px 8px #B15E04;
-          width: 25%;
+          width: 0%;
           @include background-image(linear-gradient(top, #DB8401, #C26501));
         }
       }
@@ -864,4 +864,10 @@
   height: 0;
 
   z-index: 100;
+}
+
+.sem_empreendimentos {
+  padding: 50px;
+  color: red;
+  text-align: center;
 }
