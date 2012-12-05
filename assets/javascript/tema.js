@@ -2,7 +2,7 @@ jQuery(function() {
 	
 	var tema = json_investimento_tema;
 	var id = jQuery(".circulo").attr("id");
-	geraCirculo(id, 204, 204, 89, 0, 102, 24, 4, 4, {
+	geraCirculo(id, 219, 219, 89, 6, 108, 24, 4, 4, {
     previsto: tema["valor_previsto"],
 		contratado: tema["valor_contratado"],
 		executado: tema["valor_executado"]
