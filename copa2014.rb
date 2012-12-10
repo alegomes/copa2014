@@ -53,10 +53,13 @@ get "/" do
 
   @empreendimentos.each do |emp_tmp|
     ordered_emp = emp_tmp.second.group_by(&:created_at)
-    
+
     # Pega apenas os 4 últimos
     keys = ordered_emp.keys
-    keys = keys.slice keys.size-4, keys.size
+    if keys.size > 4
+      keys = keys.slice keys.size-4, keys.size
+    end
+    
     ordered_emp_filtered = {}
     ordered_emp.each do |e|
       ordered_emp_filtered[e.first] = e.second if keys.include? e.first

@@ -11,7 +11,9 @@ jQuery(function() {
 		contratado: estadio["valor_contratado"],
 		executado: estadio["valor_executado"]
 	});
-  geraGrafico("grafico_estadios", json_estadios);
+	if (json_estadios.length > 1) {
+  	geraGrafico("grafico_estadios", json_estadios);
+	}
 
   //Aeroportos
 	var aeroporto = json_aeroportos[json_aeroportos.length-1];
@@ -24,7 +26,9 @@ jQuery(function() {
 		contratado: aeroporto["valor_contratado"],
 		executado: aeroporto["valor_executado"]
 	});
-  geraGrafico("grafico_aeroportos", json_aeroportos);
+	if (json_aeroportos.length > 1) {
+  	geraGrafico("grafico_aeroportos", json_aeroportos);
+  }
 
 	//Mobilidade Hurbana
 	var mobilidade_urbana = json_mobilidade_urbana[json_mobilidade_urbana.length-1];
@@ -37,7 +41,9 @@ jQuery(function() {
 		contratado: mobilidade_urbana["valor_contratado"],
 		executado: mobilidade_urbana["valor_executado"]
 	});
-  geraGrafico("grafico_mobilidade", json_mobilidade_urbana);
+	if (json_mobilidade_urbana.length > 1) {
+  	geraGrafico("grafico_mobilidade", json_mobilidade_urbana);
+  }
 
   //Desenvolvimento Turistico
 	var desenvolvimento_turistico = json_desenvolvimento_turistico[json_desenvolvimento_turistico.length-1];
@@ -50,7 +56,9 @@ jQuery(function() {
 		contratado: desenvolvimento_turistico["valor_contratado"],
 		executado: desenvolvimento_turistico["valor_executado"]
 	});
-  geraGrafico("grafico_desenvolvimento_turistico", json_desenvolvimento_turistico);
+	if (json_desenvolvimento_turistico.length > 1) {
+  	geraGrafico("grafico_desenvolvimento_turistico", json_desenvolvimento_turistico);
+  }
 
 	//Segurança
 	var seguranca = json_seguranca[json_seguranca.length-1];
@@ -63,7 +71,9 @@ jQuery(function() {
 		contratado: seguranca["valor_contratado"],
 		executado: seguranca["valor_executado"]
 	});
-  geraGrafico("grafico_seguranca", json_seguranca);
+	if (json_seguranca.length > 1) {
+  	geraGrafico("grafico_seguranca", json_seguranca);
+  }
 
   //Portos
 	var porto = json_portos[json_portos.length-1];
@@ -76,6 +86,8 @@ jQuery(function() {
 		contratado: porto["valor_contratado"],
 		executado: porto["valor_executado"]
 	});
-  geraGrafico("grafico_portos", json_portos);
+	if (json_portos.length > 1) {
+  	geraGrafico("grafico_portos", json_portos);
+  }
 
 });
