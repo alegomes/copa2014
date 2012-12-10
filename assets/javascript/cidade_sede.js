@@ -36,10 +36,10 @@ jQuery(function() {
     jQuery(".contratado", empreendimento).text("R$ "+formatFloatToString(json["valor_contratado"]));
     jQuery(".executado", empreendimento).text("R$ "+formatFloatToString(json["valor_executado"]));
 
-  	jQuery(".barra_contratado", empreendimento).css("width", formatPercent(contratado, previsto)+"%").attr("title", formatPercent(contratado, previsto)+"%");
-  	jQuery(".barra_contratado_excedido", empreendimento).css("width", formatPercent(contratado_excedido, previsto)+"%").attr("title", formatPercent(contratado_excedido, previsto)+"%");  	
-  	jQuery(".barra_executado", empreendimento).css("width", formatPercent(executado, previsto)+"%").attr("title", formatPercent(executado, previsto)+"%");
-  	jQuery(".barra_executado_excedido", empreendimento).css("width", formatPercent(executado_excedido, previsto)+"%").attr("title", formatPercent(executado_excedido, previsto)+"%");
+  	jQuery(".barra_contratado", empreendimento).css("width", formatPercent(contratado, previsto)+"%").attr("title", formatPercent(contratado, previsto)+"%").html("<span>"+formatPercent(contratado, previsto)+"%</span>");
+  	jQuery(".barra_contratado_excedido", empreendimento).css("width", formatPercent(contratado_excedido, previsto)+"%").attr("title", formatPercent(contratado_excedido, previsto)+"%").html("<span>"+formatPercent(contratado_excedido, previsto)+"%</span>");
+  	jQuery(".barra_executado", empreendimento).css("width", formatPercent(executado, previsto)+"%").attr("title", formatPercent(executado, previsto)+"%").html("<span>"+formatPercent(executado, previsto)+"%</span>");
+  	jQuery(".barra_executado_excedido", empreendimento).css("width", formatPercent(executado_excedido, previsto)+"%").attr("title", formatPercent(executado_excedido, previsto)+"%").html("<span>"+formatPercent(executado_excedido, previsto)+"%</span>");
   }
 
 });

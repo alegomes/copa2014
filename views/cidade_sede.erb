@@ -70,28 +70,27 @@
 					<br/>
 					<span class="linha">Executado: <span class="executado"></span></span>
 				</div>
-
+				<h2 style="text-align:center;">Relatório dos empreendimentos de <%=@cidade_sede[:label]%></h2>
 				<% @empreendimentos.each do |empreendimento| %>
 					<div id="<%= empreendimento.id %>" class="empreendimento_wrapper">
 						<h2><%= empreendimento.descricao %></h2>
 						
-						Presvisto: <span class="previsto"></span>
+						<span class="linha">Presvisto: <span class="previsto"></span></span>
 						<br/>
-						Contratado: <span class="contratado"></span>
+						<span class="linha">Contratado: <span class="contratado"></span></span>
 						<br/>
-						Executado: <span class="executado"></span>
-						<br/><br/>
-
+						<span class="linha">Executado: <span class="executado"></span></span>
+						<br/>
+						Progresso da contratação:
 						<div class="trilha">
 							<div class="amarelo barra_contratado"></div>
 							<div class="laranja barra_contratado_excedido"></div>
 						</div>
-						<br/>
+						Progresso da execução:
 						<div class="trilha">
 							<div class="verde barra_executado"></div>
 							<div class="vermelho barra_executado_excedido"></div>
 						</div>
-						<br/><br/>
 					</div>
 				<% end %>
 			</div>
