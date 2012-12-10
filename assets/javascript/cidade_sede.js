@@ -9,9 +9,9 @@ jQuery(function() {
 	});
 
   var investimentos_sede = jQuery(".investimentos_cidade_sede");
-  jQuery(".previsto", investimentos_sede).text(formatFloatToString(cidade_sede["valor_previsto"]));
-  jQuery(".contratado", investimentos_sede).text(formatFloatToString(cidade_sede["valor_contratado"]));
-  jQuery(".executado", investimentos_sede).text(formatFloatToString(cidade_sede["valor_executado"]));
+  jQuery(".previsto", investimentos_sede).text("R$ "+formatFloatToString(cidade_sede["valor_previsto"]));
+  jQuery(".contratado", investimentos_sede).text("R$ "+formatFloatToString(cidade_sede["valor_contratado"]));
+  jQuery(".executado", investimentos_sede).text("R$ "+formatFloatToString(cidade_sede["valor_executado"]));
 
 	for (var index in empreendimentos) {
   	var json = empreendimentos[index].json;
@@ -32,9 +32,9 @@ jQuery(function() {
       executado = previsto;
   	}
 
-    jQuery(".previsto", empreendimento).text(formatFloatToString(previsto));
-    jQuery(".contratado", empreendimento).text(formatFloatToString(json["valor_contratado"]));
-    jQuery(".executado", empreendimento).text(formatFloatToString(json["valor_executado"]));
+    jQuery(".previsto", empreendimento).text("R$ "+formatFloatToString(previsto));
+    jQuery(".contratado", empreendimento).text("R$ "+formatFloatToString(json["valor_contratado"]));
+    jQuery(".executado", empreendimento).text("R$ "+formatFloatToString(json["valor_executado"]));
 
   	jQuery(".barra_contratado", empreendimento).css("width", formatPercent(contratado, previsto)+"%").attr("title", formatPercent(contratado, previsto)+"%");
   	jQuery(".barra_contratado_excedido", empreendimento).css("width", formatPercent(contratado_excedido, previsto)+"%").attr("title", formatPercent(contratado_excedido, previsto)+"%");  	

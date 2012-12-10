@@ -806,8 +806,34 @@
     }
     .quadro_interno .container_empreendimentos{
       color:#5C5B5B;
-      margin: -107px 0 0 194px;
+      margin: -124px 0 0 194px;
       padding-right: 10px;
+      .investimentos_cidade_sede{
+        border: 1px solid #888;
+        padding: 10px;
+        position: relative;
+        @include border-radius(10px);
+        background: #F7F3D7;
+        h2{
+          margin: 0 0 10px;
+        }
+        .linha{
+          display: block;
+          border-bottom: 1px dashed #888;
+          span{
+            position: absolute;
+            right: 10px;
+          }
+        }
+        .linha_link{
+          background: #888;
+          width: 26px;
+          height: 1px;
+          position: absolute;
+          left: -27px;
+          top: 37px;
+        }
+      }
       .trilha{
         height: 26px;
         background: #EFEFEF;
