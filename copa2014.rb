@@ -39,9 +39,6 @@ get '/images/*' do
     send_file File.open(File.dirname(__FILE__)+"/assets/images/"+image)
   end
 end
-get "/channel.html" do
-  send_file File.open(File.dirname(__FILE__)+"/public/channel.html")
-end
 
 
 get "/" do

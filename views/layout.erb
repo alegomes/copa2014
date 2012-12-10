@@ -5,32 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
     <meta name="author" content="Alexandre Gomes, Wesley Rocha, Célio Latorraca">
 
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="<%= yield_content :title %>" /> 
+    <meta property="og:type" content="sport" />
+    <meta property="og:image" content="/images/face-image.png" />
+    <meta property="og:url" content="<%= request.url %>" />
+    <meta property="og:site_name" content="Open Copa 2014" />
+    <meta property="fb:admins" content="100002975055570,839090006" />
+
     <link rel="icon" href="/images/opencopa.ico" type="image/x-icon">
 
-    <script>
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=172725276185077";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-
-    <%= yield_content :stylesheets %>
-
-    <script type="text/javascript" src="/javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/javascript/raphael.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/javascript/g.raphael.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
-
-    <script type="text/javascript" src="/javascript/geradorGraficos.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/javascript/common.js" charset="utf-8"></script>
-
-    <%= yield_content :javascripts %>
-    
-    <script type="text/javascript">
+     <script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-35666605-1']);
@@ -43,7 +28,27 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=172725276185077";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
     </script>
+
+    <%= yield_content :stylesheets %>
+
+    <script type="text/javascript" src="/javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="/javascript/geradorGraficos.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/common.js" charset="utf-8"></script>
+
+    <%= yield_content :javascripts %>
   </head>
 
   <body>

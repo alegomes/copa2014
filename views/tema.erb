@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :title do %>
-  OpenCopa 2014 - Por debaixo dos gramados
+  OpenCopa 2014 - Por debaixo dos gramados - Tema: <%= @tema[:label_html] %>
 <% end %>
 
 <% content_for :header_legenda do %>
@@ -22,7 +22,7 @@
     </ul>
   </div>
 <% end %>
-
+<%= @tema %>
 <div class="quadro_moudura">
 	<div class="quadro_interno mapa">
 		<div class="migalha">
