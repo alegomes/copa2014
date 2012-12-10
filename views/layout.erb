@@ -69,10 +69,8 @@
   </head>
 
   <body>
-    <div id="fb-root"></div>
-
-    <div class="beta">Versão Beta.<span>Dados e estrutura de apresentação em validação com órgão fornecedor dos dados.</span>
-    </div>
+    <!-- <div class="beta">Versão Beta.<span>Dados e estrutura de apresentação em validação com órgão fornecedor dos dados.</span>
+    </div> -->
     <div class="top">
       <div class="top_area">
         <div class="bola"></div>
@@ -101,11 +99,11 @@
     <div class="corpo">
       <div class="social-buttons">
         <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-        <div class="g-plusone" data-href="<%= request.url %>" data-size="medium"></div>
         <a href="https://twitter.com/share" data-url="<%= request.url %>" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
+        <div class="g-plusone" data-href="<%= request.url %>" data-size="medium"></div>
       </div>
 
-    	<%= yield %>
+      <%= yield %>
     </div>
 
     <div id="rodape">
@@ -132,5 +130,7 @@
       </div>
       <div style="clear:both"></div>
     </div>
+    
+    <div id="fb-root"></div>
   </body>
 </html>
