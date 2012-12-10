@@ -62,11 +62,13 @@
 		<% if @empreendimentos.size > 0 %>
 			<div class="container_empreendimentos">
 				<div class="investimentos_cidade_sede">
-					Previsto: <span class="previsto"></span>
+					<div class="linha_link"></div>
+					<h2> Totais do tema "<%=@tema[:label]%>" da cidade de <%=@cidade_sede[:label]%>.</h2>
+					<span class="linha">Previsto: <span class="previsto"></span></span>
 					<br/>
-					Contratado: <span class="contratado"></span>
+					<span class="linha">Contratado: <span class="contratado"></span></span>
 					<br/>
-					Executado: <span class="executado"></span>
+					<span class="linha">Executado: <span class="executado"></span></span>
 				</div>
 
 				<% @empreendimentos.each do |empreendimento| %>
