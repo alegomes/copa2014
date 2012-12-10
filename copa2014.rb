@@ -39,6 +39,9 @@ get '/images/*' do
     send_file File.open(File.dirname(__FILE__)+"/assets/images/"+image)
   end
 end
+get "/channel.html" do
+  send_file File.open(File.dirname(__FILE__)+"/public/channel.html")
+end
 
 
 get "/" do
@@ -59,7 +62,7 @@ get "/" do
     if keys.size > 4
       keys = keys.slice keys.size-4, keys.size
     end
-    
+
     ordered_emp_filtered = {}
     ordered_emp.each do |e|
       ordered_emp_filtered[e.first] = e.second if keys.include? e.first
