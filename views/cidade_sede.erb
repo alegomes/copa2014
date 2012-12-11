@@ -63,14 +63,14 @@
 			<div class="container_empreendimentos">
 				<div class="investimentos_cidade_sede">
 					<div class="linha_link"></div>
-					<h2> Totais do tema "<%=@tema[:label]%>" da cidade de <%=@cidade_sede[:label]%>.</h2>
+					<h2> Totais do tema "<%= @tema[:label] %>" da cidade de <%= @cidade_sede[:label] %>.</h2>
 					<span class="linha">Previsto: <span class="previsto"></span></span>
 					<br/>
 					<span class="linha">Contratado: <span class="contratado"></span></span>
 					<br/>
 					<span class="linha">Executado: <span class="executado"></span></span>
 				</div>
-				<h2 style="text-align:center;">Relatório dos empreendimentos de <%=@cidade_sede[:label]%></h2>
+				<h2 style="text-align:center;">Relatório dos empreendimentos de <%= @cidade_sede[:label] %></h2>
 				<% @empreendimentos.each do |empreendimento| %>
 					<div id="<%= empreendimento.id %>" class="empreendimento_wrapper">
 						<h2><%= empreendimento.descricao %></h2>
