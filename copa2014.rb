@@ -20,10 +20,15 @@ require './models/tema'
 
 
 
-get '/main.css' do
+get '/stylesheet/common.css' do
   content_type 'text/css', :charset => 'utf-8'
   cache_control :public, max_age: 43200  # 12 horas.
-  scss :"../assets/stylesheet/main"
+  scss :"../assets/stylesheet/common"
+end
+get '/stylesheet/bootstrap.min.css' do
+  content_type 'text/css', :charset => 'utf-8'
+  cache_control :public, max_age: 43200  # 12 horas.
+  scss :"../assets/stylesheet/bootstrap.min"
 end
 get '/javascript/*' do
   content_type 'text/javascript', :charset => 'utf-8'
@@ -144,4 +149,10 @@ end
 get "/about" do
   cache_control :public, max_age: 43200  # 12 horas.
   erb :about, layout: :layout, :default_encoding => settings.default_encoding
+end
+
+post '/receive-updates' do
+  puts params[:email]
+
+  redirect back
 end

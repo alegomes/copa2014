@@ -217,10 +217,25 @@
       }
     }
   }
-  .corpo{
+  .barra-superior {
     width: 960px;
     position: relative;
     margin: -80px auto 0;
+
+    .social-buttons {
+      float: left;
+      max-width: 400px;
+      max-height: 23px;
+    }
+
+    .receive-updatings {
+      float: right;
+    }
+  }
+  .corpo{
+    width: 960px;
+    position: relative;
+    margin: 0 auto;
     display: table;
     a{
       display: inline-block;
@@ -893,7 +908,7 @@
   }
 
 .following-header {
-  @include transition-property(height);
+  @include transition(height);
   @include transition-duration(300ms);
 
   position: fixed;

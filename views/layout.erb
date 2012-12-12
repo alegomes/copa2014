@@ -55,9 +55,14 @@
 
     </script>
 
+    <link rel="stylesheet" type="text/css" href="/stylesheet/common.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheet/bootstrap.min.css" />
+
+
     <%= yield_content :stylesheets %>
 
     <script type="text/javascript" src="/javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/bootstrap.js" charset="utf-8"></script>
     <script type="text/javascript" src="/javascript/raphael.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/javascript/g.raphael.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
@@ -69,8 +74,6 @@
   </head>
 
   <body>
-    <!-- <div class="beta">Versão Beta.<span>Dados e estrutura de apresentação em validação com órgão fornecedor dos dados.</span>
-    </div> -->
     <div class="top">
       <div class="top_area">
         <div class="bola"></div>
@@ -85,7 +88,7 @@
     
           <%= yield_content :header_legenda %>
 
-          <a href="/about" title="Baixe os dados" class="sobre"><span>Saiba mais sobre o projeto.</span></a>
+          <a href="/about" rel="about" title="Saiba mais sobre o projeto." class="sobre"><span>Saiba mais sobre o projeto.</span></a>
         </div>
       </div>
     </div>
@@ -96,13 +99,21 @@
       </div>
     </div>
 
-    <div class="corpo">
+    <div class="barra-superior">
       <div class="social-buttons">
         <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
         <a href="https://twitter.com/share" data-url="<%= request.url %>" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
         <div class="g-plusone" data-href="<%= request.url %>" data-size="medium"></div>
       </div>
 
+      <div class="receive-updatings">
+        <button type="button" data-toggle="modal" data-target="#receiveUpdatesModal" class="receive-updatings-button btn" role="button">
+          Receber atualizações
+        </button>
+      </div>
+    </div>
+
+    <div class="corpo">
       <%= yield %>
     </div>
 
@@ -130,7 +141,24 @@
       </div>
       <div style="clear:both"></div>
     </div>
-    
-    <div id="fb-root"></div>
+
+    <!-- Modal -->
+    <div id="receiveUpdatesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Receber atualizações</h3>
+      </div>
+      <div class="modal-body">
+        <form id="receiveUpdatesForm" class="form-inline" action="/receive-updates" method="post">
+          <label>E-mail:</label>
+          <input name="email" id="email" type="text" placeholder="seu@email.com" value="" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+        <button class="btn btn-success submit">Enviar</button>
+      </div>
+    </div>
+
   </body>
 </html>

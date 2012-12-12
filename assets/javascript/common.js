@@ -42,5 +42,24 @@ $(function() {
       $following_bar.css("height", 0);
     }
   });
+
+  $(".receive-updatings-button").click(function(e) {
+  	e.preventDefault();
+
+  	var modal = $("#receiveUpdatesModal");
+  	modal.removeClass("hide");
+  	modal.addClass("in");
+  });
+
+  $("#receiveUpdatesModal .submit").click(function(e) {
+  	e.preventDefault();
+
+  	var value = $("#email").val();
+  	if ($.trim(value).length > 0) {
+  		$("#receiveUpdatesForm").submit();
+  	} else {
+  		alert("Informe um e-mail para receber as atualizações do OpenCopa.");
+  	}
+  });
     
 });
