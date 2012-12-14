@@ -104,16 +104,16 @@
     </div>
 
     <div class="barra-superior">
-      <div class="social-buttons">
-        <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-        <a href="https://twitter.com/share" data-url="<%= request.url %>" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
-        <div class="g-plusone" data-href="<%= request.url %>" data-size="medium"></div>
-      </div>
-
       <div class="receive-updatings">
         <button type="button" data-toggle="modal" data-target="#receiveUpdatesModal" class="receive-updatings-button btn" role="button">
           Receber atualizações
         </button>
+      </div>
+
+      <div class="social-buttons">
+        <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+        <a href="https://twitter.com/share" data-url="<%= request.url %>" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
+        <div class="g-plusone" data-href="<%= request.url %>" data-size="medium"></div>
       </div>
     </div>
       
@@ -140,11 +140,12 @@
       <div style="clear:both"></div>
     </div>
 
+
     <!-- Modal -->
     <div id="receiveUpdatesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Receber atualizações</h3>
+        <h3 id="myModalLabel">Receber atualizações do OpenCopa 2014</h3>
       </div>
       <div class="modal-body">
         <form id="receiveUpdatesForm" class="form-inline" action="/receive-update" method="post">
@@ -153,6 +154,7 @@
         </form>
       </div>
       <div class="modal-footer">
+        <span class="email-notify">Seu e-mail não será divulgado.<br/>Enviaremos apenas mensagens com atualizações sobre a Copa de 2014.</span>
         <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
         <button class="btn btn-success submit">Enviar</button>
       </div>

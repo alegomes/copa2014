@@ -231,15 +231,16 @@
     .social-buttons {
       @include background-image(linear-gradient(top, white, #E6E6E6));
       @include border-radius(4px);
-      float: left;
-      max-width: 400px;
+      float: right;
+      max-width: 420px;
       padding: 4px 5px 0;
       height: 26px;
-      margin-left: 403px;
       margin-top: 2px;
+      margin-right: 7px;
       border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
       .fb-like{
         top: -3px;
+        width: 180px;
       }
       iframe{
         padding-top: 1px;
@@ -974,4 +975,12 @@
   padding: 50px;
   color: red;
   text-align: center;
+}
+
+.email-notify {
+  float: left;
+  text-align: left;
+  font-size: 10px;
+  padding: 3px 0;
+  color: rgba(185, 0, 0, 1);
 }
