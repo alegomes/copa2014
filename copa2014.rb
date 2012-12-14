@@ -5,6 +5,8 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
 require 'sinatra/content_for'
+require 'sinatra/flash'
+require 'sinatra/redirect_with_flash'
 require 'uri'
 require "dalli"
 require "rack-cache"
@@ -17,6 +19,7 @@ require './extend_string'
 require './models/investimento'
 require './models/empreendimento'
 require './models/tema'
+require './models/receive_update'
 
 
 
@@ -151,8 +154,13 @@ get "/about" do
   erb :about, layout: :layout, :default_encoding => settings.default_encoding
 end
 
-post '/receive-updates' do
-  puts params[:email]
+post '/receive-update' do
+  email = params[:email]
+
+  unless (ReceiveUpdate.find_by_email(email))
+    ReceiveUpdate.new({:email => email}).save
+    flash[:notice] = 'E-mail cadastrado com sucesso!'
+  end
 
   redirect back
 end

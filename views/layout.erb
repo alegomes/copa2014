@@ -73,6 +73,10 @@
     <%= yield_content :javascripts %>
   </head>
 
+  <div class="aew">
+    <%= flash[:notice] %>
+  </div>
+
   <body>
     <div class="top">
       <div class="top_area">
@@ -149,7 +153,7 @@
         <h3 id="myModalLabel">Receber atualizações</h3>
       </div>
       <div class="modal-body">
-        <form id="receiveUpdatesForm" class="form-inline" action="/receive-updates" method="post">
+        <form id="receiveUpdatesForm" class="form-inline" action="/receive-update" method="post">
           <label>E-mail:</label>
           <input name="email" id="email" type="text" placeholder="seu@email.com" value="" />
         </form>
