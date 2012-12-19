@@ -22,6 +22,8 @@ require './models/tema'
 require './models/receive_update'
 
 
+enable :sessions
+
 
 get '/stylesheet/common.css' do
   content_type 'text/css', :charset => 'utf-8'
@@ -159,7 +161,9 @@ post '/receive-update' do
 
   unless (ReceiveUpdate.find_by_email(email))
     ReceiveUpdate.new({:email => email}).save
-    flash[:notice] = 'E-mail cadastrado com sucesso!'
+    flash[:success] = 'E-mail cadastrado com sucesso!'
+  else
+    flash[:error] = 'E-mail já cadastrado!'
   end
 
   redirect back

@@ -73,8 +73,11 @@
     <%= yield_content :javascripts %>
   </head>
 
-  <div class="aew">
-    <%= flash[:notice] %>
+  <div class="message success">
+    <span><%= flash[:success] %></span>
+  </div>
+  <div class="message error">
+    <span><%= flash[:error] %></span>
   </div>
 
   <body>

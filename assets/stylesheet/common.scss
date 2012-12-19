@@ -984,3 +984,32 @@
   padding: 3px 0;
   color: rgba(185, 0, 0, 1);
 }
+
+.message {
+  @include transition-property(height);
+  @include transition-duration(600ms);
+  @include border-radius(0 0 15px 15px);
+  @include box-shadow(0 0 10px 0px black);
+  
+  width: 720px;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 25%;
+  text-align: center;
+  height: 0;
+  overflow: hidden;
+  color: white;
+
+  &.error{
+    background: rgba(219, 1, 9, 1);
+  }
+  &.success{
+    background: rgba(57, 181, 74, 1);
+  }
+
+  span {
+    display: block;
+    margin: 5px 0;
+  }
+}

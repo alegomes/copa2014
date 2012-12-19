@@ -61,5 +61,16 @@ $(function() {
   		alert("Informe um e-mail para receber as atualizações do OpenCopa.");
   	}
   });
+
+  $(".message").each(function() {
+    var self = $(this);
+    if ($.trim($("span", self).html()).length > 0) {
+      self.css("height", 30);
+    }
+
+    setTimeout(function() {
+      self.css("height", 0);
+    }, 5000);
+  });
     
 });
