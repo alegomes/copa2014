@@ -62,15 +62,43 @@ $(function() {
   	}
   });
 
-  $(".message").each(function() {
-    var self = $(this);
-    if ($.trim($("span", self).html()).length > 0) {
-      self.css("height", 30);
+  $("#receiveUpdatesForm").submit(function(e) {
+    e.preventDefault();
+    
+    var submit_button = $("#receiveUpdatesModal .submit");
+
+    if (!submit_button.hasClass("disabled")) {
+      var value = $("#email").val();
+      if ($.trim(value).length <= 0) {
+        alert("Informe um e-mail para receber as atualizações do OpenCopa.");
+
+      } else {
+        submit_button.addClass("disabled");
+
+        var form = $(this);
+        var data = form.serialize();
+        $.post(form.attr('action'), data, function(response) {
+          $('#receiveUpdatesModal').modal('hide');
+          submit_button.removeClass("disabled");
+
+          var container = $("#message-container");
+          container.removeClass('success').removeClass('error');
+          
+          container.addClass(response.type);
+          $("span", container).text(response.message);
+          showMessage(container);
+
+        }, 'json');
+      }
     }
+  });
+
+  function showMessage(container) {
+    container.css("height", 30);
 
     setTimeout(function() {
-      self.css("height", 0);
+      container.css("height", 0);
     }, 5000);
-  });
+  };
     
 });

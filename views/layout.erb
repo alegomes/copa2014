@@ -73,11 +73,8 @@
     <%= yield_content :javascripts %>
   </head>
 
-  <div class="message success">
-    <span><%= flash[:success] %></span>
-  </div>
-  <div class="message error">
-    <span><%= flash[:error] %></span>
+  <div id="message-container" class="message">
+    <span></span>
   </div>
 
   <body>

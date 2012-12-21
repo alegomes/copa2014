@@ -43,8 +43,8 @@ configure do
 
   use Rack::Deflater
 
-  enable :sessions
-  set :session_secret, ENV['SESSION_SECRET'] ||= '#534_C0P42014$'
+  # enable :sessions
+  # set :session_secret, ENV['SESSION_SECRET'] ||= '#534_C0P42014$'
 end
 
 # NB! you need to set the root of the app first

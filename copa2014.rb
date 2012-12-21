@@ -5,11 +5,10 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/activerecord'
 require 'sinatra/content_for'
-require 'sinatra/flash'
-require 'sinatra/redirect_with_flash'
 require 'uri'
 require "dalli"
 require "rack-cache"
+require 'json'
 
 require 'sass'
 require 'compass'
@@ -159,14 +158,13 @@ get "/about" do
 end
 
 post '/receive-update' do
+  content_type 'application/json', :charset => 'utf-8'
+  
   email = params[:email]
-
   unless (ReceiveUpdate.find_by_email(email))
     ReceiveUpdate.new({:email => email}).save
-    flash[:success] = 'E-mail cadastrado com sucesso!'
+    { :type => :success, :message => 'E-mail cadastrado com sucesso!' }.to_json
   else
-    flash[:error] = 'E-mail já cadastrado!'
+    { :type => :error, :message => 'E-mail já cadastrado!' }.to_json
   end
-
-  redirect back
 end
