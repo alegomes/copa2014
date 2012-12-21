@@ -1,1 +1,0 @@
-console: bundle exec irb -r ./copa2014 --app opencopa
