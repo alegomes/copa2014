@@ -1,0 +1,1 @@
+console: console -r ./copa2014 --app opencopa
