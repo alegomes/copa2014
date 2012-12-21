@@ -22,8 +22,6 @@ require './models/tema'
 require './models/receive_update'
 
 
-enable :sessions
-
 # Constantes
 HTML_EXPIRE_TIME = 43200      # 12 horas
 STATIC_EXPIRE_TIME = 604800   # 1 semana
