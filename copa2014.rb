@@ -24,28 +24,32 @@ require './models/receive_update'
 
 enable :sessions
 
+# Constantes
+HTML_EXPIRE_TIME = 43200      # 12 horas
+STATIC_EXPIRE_TIME = 604800   # 1 semana
+
 
 get '/stylesheet/common.css' do
   content_type 'text/css', :charset => 'utf-8'
-  cache_control :public, max_age: 43200  # 12 horas.
+  cache_control :public, max_age: STATIC_EXPIRE_TIME
   scss :"../assets/stylesheet/common"
 end
 get '/stylesheet/bootstrap.min.css' do
   content_type 'text/css', :charset => 'utf-8'
-  cache_control :public, max_age: 43200  # 12 horas.
+  cache_control :public, max_age: STATIC_EXPIRE_TIME
   scss :"../assets/stylesheet/bootstrap.min"
 end
 get '/javascript/*' do
   content_type 'text/javascript', :charset => 'utf-8'
   params[:splat].each do |js|
-    cache_control :public, max_age: 43200  # 12 horas.
+    cache_control :public, max_age: STATIC_EXPIRE_TIME
     send_file File.open(File.dirname(__FILE__)+"/assets/javascript/"+js)
   end
 end
 get '/images/*' do
   content_type 'image/png', :charset => 'utf-8'
   params[:splat].each do |image|
-    cache_control :public, max_age: 43200  # 12 horas.
+    cache_control :public, max_age: STATIC_EXPIRE_TIME
     send_file File.open(File.dirname(__FILE__)+"/assets/images/"+image)
   end
 end
@@ -90,7 +94,7 @@ get "/" do
     end
   end
 
-  cache_control :public, max_age: 43200  # 12 horas.
+  cache_control :public, max_age: HTML_EXPIRE_TIME
 	erb :index, layout: :layout, :default_encoding => settings.default_encoding
 end
 
@@ -119,7 +123,7 @@ get "/tema/:tema" do
       @investimento_tema.data = emp.created_at
     end
 
-    cache_control :public, max_age: 43200  # 12 horas.
+    cache_control :public, max_age: HTML_EXPIRE_TIME
     erb :tema, layout: :layout, :default_encoding => settings.default_encoding
   end
 end
@@ -147,12 +151,12 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
     end
   end
 
-  cache_control :public, max_age: 43200  # 12 horas.
+  cache_control :public, max_age: HTML_EXPIRE_TIME
   erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
 end
 
 get "/about" do
-  cache_control :public, max_age: 43200  # 12 horas.
+  cache_control :public, max_age: HTML_EXPIRE_TIME
   erb :about, layout: :layout, :default_encoding => settings.default_encoding
 end
 

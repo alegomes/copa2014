@@ -40,6 +40,8 @@ configure do
     config.sass_dir = 'assets'
   end
   set :scss, Compass.sass_engine_options
+
+  use Rack::Deflater
 end
 
 # NB! you need to set the root of the app first
