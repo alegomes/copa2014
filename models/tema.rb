@@ -25,14 +25,14 @@ class Tema
         :label_html => "Desenvolvimento Tur&iacute;stico"
       },
       {
-        :name => "seguranca",
-        :label => "Segurança",
-        :label_html => "Seguran&ccedil;a"
-      },
-      {
         :name => "porto",
         :label => "Porto",
         :label_html => "Porto"
+      },
+      {
+        :name => "seguranca",
+        :label => "Segurança",
+        :label_html => "Seguran&ccedil;a"
       }
     ]
   end

@@ -54,44 +54,6 @@ end
 
 
 get "/" do
-  @investimentos = {}
-
-  @empreendimentos = Empreendimento.order("created_at ASC").all
-  @empreendimentos = @empreendimentos.map do |emp|
-    emp.created_at = emp.created_at.strftime("%y-%m-%d")
-    emp
-  end
-  @empreendimentos = @empreendimentos.group_by(&:tema)
-
-  @empreendimentos.each do |emp_tmp|
-    ordered_emp = emp_tmp.second.group_by(&:created_at)
-
-    # Pega apenas os 4 últimos
-    keys = ordered_emp.keys
-    if keys.size > 4
-      keys = keys.slice keys.size-4, keys.size
-    end
-
-    ordered_emp_filtered = {}
-    ordered_emp.each do |e|
-      ordered_emp_filtered[e.first] = e.second if keys.include? e.first
-    end
-
-    @investimentos[emp_tmp.first.to_sym] = [] unless @investimentos[emp_tmp.first]
-    ordered_emp_filtered.each do |empreendimento|
-      
-      investimento_tema = Investimento.new
-      empreendimento.second.each do |e|
-        investimento_tema.valor_previsto += e.valor_previsto
-        investimento_tema.valor_contratado += e.valor_contratado
-        investimento_tema.valor_executado += e.valor_executado
-      end
-      investimento_tema.data = empreendimento.first
-
-      @investimentos[emp_tmp.first.to_sym].push investimento_tema
-    end
-  end
-
   cache_control :public, max_age: HTML_EXPIRE_TIME
 	erb :index, layout: :layout, :default_encoding => settings.default_encoding
 end
@@ -120,16 +82,6 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
     @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name], 
       :created_at => Empreendimento.maximum(:created_at))
 
-    @investimento_cidade_sede = Investimento.new
-
-    @empreendimentos.each do |emp|
-      #Investimentos gerais da cidade sede selecionada
-      @investimento_cidade_sede.valor_previsto += emp.valor_previsto
-      @investimento_cidade_sede.valor_contratado += emp.valor_contratado
-      @investimento_cidade_sede.valor_executado += emp.valor_executado
-      @investimento_cidade_sede.data = emp.created_at
-    end
-
     cache_control :public, max_age: HTML_EXPIRE_TIME
     erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
   end
@@ -150,6 +102,50 @@ post '/receive-update' do
   else
     { :type => :error, :message => 'E-mail já cadastrado!' }.to_json
   end
+end
+
+get "/api/geral" do
+  investimentos = {}
+
+  empreendimentos = Empreendimento.order("created_at ASC").all
+  empreendimentos = empreendimentos.map do |emp|
+    emp.created_at = emp.created_at.strftime("%y-%m-%d")
+    emp
+  end
+  empreendimentos = empreendimentos.group_by(&:tema)
+
+  empreendimentos.each do |emp_tmp|
+    ordered_emp = emp_tmp.second.group_by(&:created_at)
+
+    # Pega apenas os 4 últimos
+    keys = ordered_emp.keys
+    if keys.size > 4
+      keys = keys.slice keys.size-4, keys.size
+    end
+
+    ordered_emp_filtered = {}
+    ordered_emp.each do |e|
+      ordered_emp_filtered[e.first] = e.second if keys.include? e.first
+    end
+
+    investimentos[emp_tmp.first.to_sym] = [] unless investimentos[emp_tmp.first]
+    ordered_emp_filtered.each do |empreendimento|
+      
+      investimento_tema = Investimento.new
+      empreendimento.second.each do |e|
+        investimento_tema.valor_previsto += e.valor_previsto
+        investimento_tema.valor_contratado += e.valor_contratado
+        investimento_tema.valor_executado += e.valor_executado
+      end
+      investimento_tema.data = empreendimento.first
+
+      investimentos[emp_tmp.first.to_sym].push investimento_tema
+    end
+  end
+
+  content_type 'application/json', :charset => 'utf-8'
+  # cache_control :public, max_age: JSON_EXPIRE_TIME
+  investimentos.to_json
 end
 
 get "/api/tema/:tema" do
