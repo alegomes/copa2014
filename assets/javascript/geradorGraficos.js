@@ -86,7 +86,6 @@ function geraCirculo(value, width, height, radius, extrapolation_radius_rate, po
         updateVal(json.previsto, json.previsto, R, gray, "rgba(180, 180, 180, 1)");
         updateVal(contratado, json.previsto, R, yellow, "rgba(241, 190, 42, 1)");
         updateVal(executado, json.previsto, R, green, "rgba(57, 181, 74, 1)");
-
         
         init = false;
     })();

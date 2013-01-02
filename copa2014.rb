@@ -22,7 +22,8 @@ require './models/receive_update'
 
 
 # Constantes
-HTML_EXPIRE_TIME = 43200      # 12 horas
+JSON_EXPIRE_TIME = 43200      # 12 horas
+HTML_EXPIRE_TIME = 604800     # 1 semana
 STATIC_EXPIRE_TIME = 604800   # 1 semana
 
 
@@ -99,26 +100,8 @@ get "/tema/:tema" do
   @tema = Tema.get(params[:tema]).first
 
   unless (@tema.nil?)
-    @empreendimentos = Empreendimento.where(:tema => @tema[:name], :created_at => Empreendimento.maximum(:created_at))
-
-    @investimento_tema = Investimento.new
-    @cidades_sede = {}
-
-    @empreendimentos.each do |emp|
-      @cidades_sede[emp.cidade_sede] = Investimento.new() if @cidades_sede[emp.cidade_sede].nil?
-
-      #Investimentos de cada cidade sede sobre o tema selecionado
-      @cidades_sede[emp.cidade_sede].valor_previsto += emp.valor_previsto
-      @cidades_sede[emp.cidade_sede].valor_contratado += emp.valor_contratado
-      @cidades_sede[emp.cidade_sede].valor_executado += emp.valor_executado
-      @cidades_sede[emp.cidade_sede].data = emp.created_at
-
-      #Investimentos gerais do tema selecionado
-      @investimento_tema.valor_previsto += emp.valor_previsto
-      @investimento_tema.valor_contratado += emp.valor_contratado
-      @investimento_tema.valor_executado += emp.valor_executado
-      @investimento_tema.data = emp.created_at
-    end
+    @cidades_sede = Empreendimento.select(:cidade_sede).uniq.where(:tema => @tema[:name])
+    @cidades_sede.map!{ |emp| emp.cidade_sede }
 
     cache_control :public, max_age: HTML_EXPIRE_TIME
     erb :tema, layout: :layout, :default_encoding => settings.default_encoding
@@ -131,7 +114,7 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
 
   unless (@tema.nil? or @cidade_sede.nil?)
     #Recupera os temas possíveis
-    @temas_cidade_sede = Empreendimento.where(:cidade_sede => @cidade_sede[:name]).select(:tema).uniq
+    @temas_cidade_sede = Empreendimento.select(:tema).uniq.where(:cidade_sede => @cidade_sede[:name])
     @temas_cidade_sede.map!{ |e| e.tema }
 
     @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name], 
@@ -146,10 +129,10 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
       @investimento_cidade_sede.valor_executado += emp.valor_executado
       @investimento_cidade_sede.data = emp.created_at
     end
-  end
 
-  cache_control :public, max_age: HTML_EXPIRE_TIME
-  erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
+    cache_control :public, max_age: HTML_EXPIRE_TIME
+    erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
+  end
 end
 
 get "/about" do
@@ -167,4 +150,63 @@ post '/receive-update' do
   else
     { :type => :error, :message => 'E-mail já cadastrado!' }.to_json
   end
+end
+
+get "/api/tema/:tema" do
+  tema = Tema.get(params[:tema]).first
+
+  unless (tema.nil?)
+    empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => Empreendimento.maximum(:created_at))
+
+    investimento_tema = Investimento.new
+    cidades_sede = {}
+
+    empreendimentos.each do |emp|
+      cidades_sede[emp.cidade_sede] = Investimento.new() if cidades_sede[emp.cidade_sede].nil?
+
+      #Investimentos de cada cidade sede sobre o tema selecionado
+      cidades_sede[emp.cidade_sede].valor_previsto += emp.valor_previsto
+      cidades_sede[emp.cidade_sede].valor_contratado += emp.valor_contratado
+      cidades_sede[emp.cidade_sede].valor_executado += emp.valor_executado
+      cidades_sede[emp.cidade_sede].data = emp.created_at
+
+      #Investimentos gerais do tema selecionado
+      investimento_tema.valor_previsto += emp.valor_previsto
+      investimento_tema.valor_contratado += emp.valor_contratado
+      investimento_tema.valor_executado += emp.valor_executado
+      investimento_tema.data = emp.created_at
+    end
+
+    content_type 'application/json', :charset => 'utf-8'
+    cache_control :public, max_age: JSON_EXPIRE_TIME
+    { :cidades_sede => cidades_sede, :investimento_tema => investimento_tema.to_hash }.to_json
+  end
+end
+
+get "/api/tema/:tema/cidade-sede/:cidade_sede" do
+  tema = Tema.get(params[:tema]).first
+  cidade_sede = Tema.get_cidade_sede(params[:cidade_sede]).first
+
+  unless (tema.nil? or cidade_sede.nil?)
+    #Recupera os temas possíveis
+    temas_cidade_sede = Empreendimento.select(:tema).uniq.where(:cidade_sede => cidade_sede[:name])
+    temas_cidade_sede.map!{ |e| e.tema }
+
+    empreendimentos = Empreendimento.where(:tema => tema[:name], :cidade_sede => cidade_sede[:name], 
+      :created_at => Empreendimento.maximum(:created_at))
+
+    investimento_cidade_sede = Investimento.new
+
+    empreendimentos.each do |emp|
+      #Investimentos gerais da cidade sede selecionada
+      investimento_cidade_sede.valor_previsto += emp.valor_previsto
+      investimento_cidade_sede.valor_contratado += emp.valor_contratado
+      investimento_cidade_sede.valor_executado += emp.valor_executado
+      investimento_cidade_sede.data = emp.created_at
+    end
+  end
+
+  content_type 'application/json', :charset => 'utf-8'
+  # cache_control :public, max_age: JSON_EXPIRE_TIME
+  { :empreendimentos => empreendimentos.map!(&:to_hash), :investimento_cidade_sede => investimento_cidade_sede }.to_json
 end

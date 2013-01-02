@@ -18,7 +18,7 @@
     </ul>
   </div>
 <% end %>
-<div class="corpo">
+<div class="corpo" data-tema="<%= @tema[:name] %>">
 	<div class="quadro_moudura">
 		<div class="quadro_interno mapa">
 			<div class="migalha">
@@ -51,7 +51,7 @@
 			</div>
 
 			<% Tema.cidades_sede.each do |cidade_sede| %>
-				<% if (@cidades_sede.keys.include? cidade_sede[:name]) %>
+				<% if (@cidades_sede.include? cidade_sede[:name]) %>
 					<a id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>" 
 							href="/tema/<%= @tema[:name] %>/cidade-sede/<%= cidade_sede[:name] %>">
 						<div class="seta_posicao">
@@ -75,15 +75,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-  var json_investimento_tema = <%= @investimento_tema.to_hash.to_json %>;
-
-  var cidades_sede = [];
-  <% @cidades_sede.each do |cidade_sede| %>
-  	cidades_sede.push({
-  		name: "<%= cidade_sede.first %>",
-  		json: <%= cidade_sede.second.to_hash.to_json %>
-  	});
-  <% end %>
-</script>

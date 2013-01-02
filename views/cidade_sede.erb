@@ -19,7 +19,7 @@
   </div>
 <% end %>
 
-<div class="corpo">
+<div class="corpo" data-tema="<%= @tema[:name] %>" data-cidade-sede="<%= @cidade_sede[:name] %>">
 	<div class="quadro_moudura">
 		<div class="quadro_interno livre">
 			<div class="migalha">
@@ -103,15 +103,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-  var json_investimento_cidade_sede = <%= @investimento_cidade_sede.to_hash.to_json %>;
-
-  var empreendimentos = [];
-  <% @empreendimentos.each do |empreendimento| %>
-  	empreendimentos.push({
-  		id: "<%= empreendimento.id %>",
-  		json: <%= empreendimento.to_hash.to_json %>
-  	});
-  <% end %>
-</script>
