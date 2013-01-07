@@ -24,10 +24,12 @@
     <div class="quadro">
       <div id="<%= tema[:name] %>">
         
-        <% unless tema[:name] == 'seguranca' %>
-          <a href="/tema/<%= tema[:name] %>">
+        <a href="/tema/<%= tema[:name] %>">
+          <% if tema[:name] == 'seguranca' %>
+            <div class="a_botao botao_empreendimentos">Ver Empreendimentos <span class="a_seta">>></span></div>
+          <% else %>
             <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div>
-        <% end %>
+          <% end %>
 
           <div id="<%= tema[:name] %>_circulo" class="circulo">
             <div class="porcento_0">100%
@@ -38,10 +40,7 @@
             </div>
           </div>
           <div class="image-title"></div>
-
-        <% unless tema[:name] == 'seguranca' %>
-          </a>
-        <% end %>
+        </a>
 
         <h1><%= tema[:label] %></h1>
         <p>Verba prevista: <span id="valor_previsto_<%= tema[:name] %>"></span></p>

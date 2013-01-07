@@ -26,8 +26,10 @@
 				<a href="/" title="Home" rel="home">Principais Temas</a>
 				::
 				<a href="/tema/<%= @tema[:name] %>"><%= @tema[:label] %></a>
-				::
-				<span><%= @cidade_sede[:label] %></span>
+				<% unless @cidade_sede[:label] == "" %>
+					::
+					<span><%= @cidade_sede[:label] %></span>
+				<% end %>
 			</div>
 
 			<nav>

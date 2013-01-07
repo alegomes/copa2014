@@ -62,11 +62,22 @@ get "/tema/:tema" do
   @tema = Tema.get(params[:tema]).first
 
   unless (@tema.nil?)
-    @cidades_sede = Empreendimento.select(:cidade_sede).uniq.where(:tema => @tema[:name])
-    @cidades_sede.map!{ |emp| emp.cidade_sede }
+    if (@tema[:name] == "seguranca")
+      @cidade_sede = {:name => "nacional", :label => "", :label_html => ""}
+      @temas_cidade_sede = []
 
-    cache_control :public, max_age: HTML_EXPIRE_TIME
-    erb :tema, layout: :layout, :default_encoding => settings.default_encoding
+      @empreendimentos = Empreendimento.where(:tema => @tema[:name], :created_at => Empreendimento.maximum(:created_at))
+        .where('valor_previsto > 0')
+
+      cache_control :public, max_age: HTML_EXPIRE_TIME
+      erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
+    else
+      @cidades_sede = Empreendimento.select(:cidade_sede).uniq.where(:tema => @tema[:name])
+      @cidades_sede.map!{ |emp| emp.cidade_sede }
+
+      cache_control :public, max_age: HTML_EXPIRE_TIME
+      erb :tema, layout: :layout, :default_encoding => settings.default_encoding
+    end
   end
 end
 
@@ -80,7 +91,7 @@ get "/tema/:tema/cidade-sede/:cidade_sede" do
     @temas_cidade_sede.map!{ |e| e.tema }
 
     @empreendimentos = Empreendimento.where(:tema => @tema[:name], :cidade_sede => @cidade_sede[:name], 
-      :created_at => Empreendimento.maximum(:created_at))
+      :created_at => Empreendimento.maximum(:created_at)).where('valor_previsto > 0')
 
     cache_control :public, max_age: HTML_EXPIRE_TIME
     erb :cidade_sede, layout: :layout, :default_encoding => settings.default_encoding
@@ -153,6 +164,7 @@ get "/api/tema/:tema" do
 
   unless (tema.nil?)
     empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => Empreendimento.maximum(:created_at))
+      .where('valor_previsto > 0')
 
     investimento_tema = Investimento.new
     cidades_sede = {}
@@ -183,13 +195,18 @@ get "/api/tema/:tema/cidade-sede/:cidade_sede" do
   tema = Tema.get(params[:tema]).first
   cidade_sede = Tema.get_cidade_sede(params[:cidade_sede]).first
 
-  unless (tema.nil? or cidade_sede.nil?)
-    #Recupera os temas possíveis
-    temas_cidade_sede = Empreendimento.select(:tema).uniq.where(:cidade_sede => cidade_sede[:name])
-    temas_cidade_sede.map!{ |e| e.tema }
+  if params[:cidade_sede] == "nacional"
+    cidade_sede = { :name => "nacional", :label => "", :label_html => "" }
+  end
 
-    empreendimentos = Empreendimento.where(:tema => tema[:name], :cidade_sede => cidade_sede[:name], 
-      :created_at => Empreendimento.maximum(:created_at))
+  unless (tema.nil? or cidade_sede.nil?)
+    unless cidade_sede[:name] == "nacional"
+      empreendimentos = Empreendimento.where(:tema => tema[:name], :cidade_sede => cidade_sede[:name], 
+        :created_at => Empreendimento.maximum(:created_at)).where('valor_previsto > 0')
+    else
+      empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => Empreendimento.maximum(:created_at))
+        .where('valor_previsto > 0')
+    end
 
     investimento_cidade_sede = Investimento.new
 
@@ -200,9 +217,9 @@ get "/api/tema/:tema/cidade-sede/:cidade_sede" do
       investimento_cidade_sede.valor_executado += emp.valor_executado
       investimento_cidade_sede.data = emp.created_at
     end
-  end
 
-  content_type 'application/json', :charset => 'utf-8'
-  # cache_control :public, max_age: JSON_EXPIRE_TIME
-  { :empreendimentos => empreendimentos.map!(&:to_hash), :investimento_cidade_sede => investimento_cidade_sede }.to_json
+    content_type 'application/json', :charset => 'utf-8'
+    cache_control :public, max_age: JSON_EXPIRE_TIME
+    { :empreendimentos => empreendimentos.map!(&:to_hash), :investimento_cidade_sede => investimento_cidade_sede }.to_json
+  end
 end
