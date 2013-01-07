@@ -8,6 +8,8 @@ gem 'sass'
 gem 'compass'
 gem 'dalli'
 gem 'rack-cache'
+gem 'rmagick'
+gem 'sprite'
 
 group :development, :test do
   gem 'mysql2'
