@@ -26,9 +26,9 @@
         
         <a href="/tema/<%= tema[:name] %>">
           <% if tema[:name] == 'seguranca' %>
-            <div class="a_botao botao_empreendimentos">Ver Empreendimentos <span class="a_seta">>></span></div>
+            <div class="a_botao botao_empreendimentos"><div class="btn btn-mini">Ver Empreendimentos</div></div>
           <% else %>
-            <div class="a_botao">Ver Cidades <span class="a_seta">>></span></div>
+            <div class="a_botao"><div class="btn btn-mini">Ver Cidades</div></div>
           <% end %>
 
           <div id="<%= tema[:name] %>_circulo" class="circulo">
