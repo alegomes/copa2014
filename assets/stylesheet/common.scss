@@ -240,11 +240,20 @@
       border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
       .fb-like{
         top: -3px;
-        width: 180px;
+        width: 170px;
       }
       iframe{
         padding-top: 1px;
       }
+    }
+    .ultima-atualizacao{
+      font-size: 14px;
+      padding: 7px 6px 0;
+      height: 23px;
+      margin-right: 4px;
+      color: #523E01;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      @include background-image(linear-gradient(top, #FFF502, #BB8B0F));
     }
 
     .receive-updatings {
@@ -253,7 +262,7 @@
         position: relative;
         padding-left: 30px;
         span{
-          background: url(/images/atualizacao.png) no-repeat center center;
+          background: url(/images/e-mail.png) no-repeat center center;
           position: absolute;
           display: block;
           height: 20px;
@@ -507,7 +516,19 @@
         margin-bottom: 15px;
       }
     }
-    #redess{ 
+    .quadro-pe {
+      border: 1px dotted #888;
+      border-radius: 10px;
+      height: 70px;
+      width: 165px;
+      padding: 10px;
+      height: 69px;
+
+    }
+    #redess{
+      .quadro-pe {
+        width: 165px;
+      } 
       a{
         display: block;
         height: 40px;
@@ -530,7 +551,10 @@
       }
     }
     #colaboradores{
-      width: 455px;
+      .quadro-pe {
+        width: 285px;
+      }
+      width: 330px;
       ul {
         margin: 0;
         padding: 0 0 0 17px;
@@ -540,10 +564,21 @@
       }
     }
     #patrocinador{
-      width: 112px;
+      width: 133px;
     }
     #redess{
-      width: 372px;
+      width: 209px;
+    }
+    #download{
+      width: 272px;
+      .quadro-pe {
+        width: 248px;
+        .btn{
+          padding: 18px 16px 12px;
+          float: left;
+          margin-right: 12px;
+        }
+      }
     }
   }
   .quadro_moudura {

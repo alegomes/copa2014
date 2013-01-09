@@ -106,10 +106,12 @@
     <div class="barra-superior">
       <div class="receive-updatings">
         <button type="button" data-toggle="modal" data-target="#receiveUpdatesModal" class="receive-updatings-button btn btn-primary" role="button"><span>&nbsp;</span>
-          Receba as atualizações do site
+          Receba as novidades do site
         </button>
       </div>
-
+      <div  class="social-buttons ultima-atualizacao">
+        Dados atualizado em 26/12/12
+      </div>
       <div class="social-buttons">
         <!-- <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
         <a href="https://twitter.com/share" data-url="<%= request.url %>" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
@@ -127,19 +129,30 @@
     <div id="rodape">
       <div id="redess">
         <label>Redes sociais:</label>
-        <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/pages/Opencopa/430359663684881?fref=ts" target="_blank" rel="nofollow">Contato do facebook</a>
-        <a id="twitter" title="Contato do twitter" href="https://twitter.com/opencopa" target="_blank" rel="nofollow">Contato do twitter</a>
+        <div class="quadro-pe">
+          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/pages/Opencopa/430359663684881?fref=ts" target="_blank" rel="nofollow">Contato do facebook</a>
+          <a id="twitter" title="Contato do twitter" href="https://twitter.com/opencopa" target="_blank" rel="nofollow">Contato do twitter</a>
+        </div>
       </div>
       <div id="colaboradores">
         <label>Idealizador:</label>
-        <ul>
-          <li>Wesley Rocha - Designer de Interfaces</li>
-        </ul>
-        E-mail: opencopa@seatecnologia.com.br
+        <div class="quadro-pe">
+          <ul>
+            <li>Wesley Rocha - Designer de Interfaces</li>
+          </ul>
+          E-mail: opencopa@seatecnologia.com.br
+        </div>
       </div>
       <div id="patrocinador">
         <label>Realização:</label>
         <a href="http://opengov.seatecnologia.com.br" title="SEA Tecnologia" target="_blank" rel="nofollow"><img title="SEA Tecnologia" src="/images/logo_SEA.png"></a>
+      </div>
+      <div id="download">
+        <label>Download dos dados</label>
+        <div class="quadro-pe">
+        <a href="http://www.portaltransparencia.gov.br/copa2014/dados/download.seam" title="Dados da CGU" target="_blank" rel="nofollow" class="btn"><img title="Dados da CGU" src="/images/download.png"></a>
+        Base de dados extraída da CGU. Site Copa 2014 Transparência em 1º lugar.
+      </div>
       </div>
       <div style="clear:both"></div>
     </div>
@@ -149,7 +162,8 @@
     <div id="receiveUpdatesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Receber atualizações do OpenCopa 2014</h3>
+        <h3 id="myModalLabel">Receba as atualizações e novidades do OpenCopa 2014</h3>
+        <p>Esta ferramenta avisará quando os dados forem atualizados, projetos atingirem 100% de contratação, execução ou ultrapassarem o orçamento previsto. Vamos informar qual o tema, cidade e empreendimento envolvido nesses marcos.</p>
       </div>
       <div class="modal-body">
         <form id="receiveUpdatesForm" class="form-inline" action="/receive-update" method="post">
