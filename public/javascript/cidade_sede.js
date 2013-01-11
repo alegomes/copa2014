@@ -5,6 +5,8 @@ jQuery(function() {
     dataType: "json",
 
     success: function(data) {
+      jQuery(".ultima-atualizacao .data").text(data.ultima_atualizacao);
+      
       var investimento_cidade_sede = data.investimento_cidade_sede;
       var empreendimentos = data.empreendimentos;
       
