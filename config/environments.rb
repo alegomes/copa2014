@@ -43,8 +43,12 @@ configure do
 
   use Rack::Deflater
 
-  # enable :sessions
-  # set :session_secret, ENV['SESSION_SECRET'] ||= '#534_C0P42014$'
+  # Constantes
+  JSON_EXPIRE_TIME = 43200      # 12 horas
+  HTML_EXPIRE_TIME = 604800     # 1 semana
+  STATIC_EXPIRE_TIME = 604800   # 1 semana
+
+  set :static_cache_control, [:public, :max_age => STATIC_EXPIRE_TIME]
 end
 
 # NB! you need to set the root of the app first

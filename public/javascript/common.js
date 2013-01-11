@@ -43,12 +43,12 @@ $(function() {
     }
   });
 
-  $(".receive-updatings-button").click(function(e) {
-  	e.preventDefault();
+  $('#receiveUpdatesModal').on('hidden', function () {
+    $('#receiveUpdatesModal').css("display", "none");
+  });
 
-  	var modal = $("#receiveUpdatesModal");
-  	modal.removeClass("hide");
-  	modal.addClass("in");
+  $('#receiveUpdatesModal').on('show', function () {
+    $('#receiveUpdatesModal').removeClass("hide");
   });
 
   $("#receiveUpdatesModal .submit").click(function(e) {

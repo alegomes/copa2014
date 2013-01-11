@@ -21,12 +21,6 @@ require './models/tema'
 require './models/receive_update'
 
 
-# Constantes
-JSON_EXPIRE_TIME = 43200      # 12 horas
-HTML_EXPIRE_TIME = 604800     # 1 semana
-STATIC_EXPIRE_TIME = 604800   # 1 semana
-
-
 get '/stylesheet/common.css' do
   content_type 'text/css', :charset => 'utf-8'
   cache_control :public, max_age: STATIC_EXPIRE_TIME
@@ -36,20 +30,6 @@ get '/stylesheet/bootstrap.min.css' do
   content_type 'text/css', :charset => 'utf-8'
   cache_control :public, max_age: STATIC_EXPIRE_TIME
   scss :"../assets/stylesheet/bootstrap.min"
-end
-get '/javascript/*' do
-  content_type 'text/javascript', :charset => 'utf-8'
-  params[:splat].each do |js|
-    cache_control :public, max_age: STATIC_EXPIRE_TIME
-    send_file File.open(File.dirname(__FILE__)+"/assets/javascript/"+js)
-  end
-end
-get '/images/*' do
-  content_type 'image/png', :charset => 'utf-8'
-  params[:splat].each do |image|
-    cache_control :public, max_age: STATIC_EXPIRE_TIME
-    send_file File.open(File.dirname(__FILE__)+"/assets/images/"+image)
-  end
 end
 
 
@@ -118,6 +98,8 @@ end
 get "/api/geral" do
   investimentos = {}
 
+  ultima_atualizacao = Empreendimento.maximum(:created_at)
+
   empreendimentos = Empreendimento.order("created_at ASC").all
   empreendimentos = empreendimentos.map do |emp|
     emp.created_at = emp.created_at.strftime("%y-%m-%d")
@@ -155,15 +137,20 @@ get "/api/geral" do
   end
 
   content_type 'application/json', :charset => 'utf-8'
-  # cache_control :public, max_age: JSON_EXPIRE_TIME
-  investimentos.to_json
+  cache_control :public, max_age: JSON_EXPIRE_TIME
+  { 
+    :ultima_atualizacao => ultima_atualizacao.strftime("%d/%m/%y"), 
+    :investimentos => investimentos 
+  }.to_json
 end
 
 get "/api/tema/:tema" do
   tema = Tema.get(params[:tema]).first
 
   unless (tema.nil?)
-    empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => Empreendimento.maximum(:created_at))
+    ultima_atualizacao = Empreendimento.maximum(:created_at)
+
+    empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => ultima_atualizacao)
       .where('valor_previsto > 0')
 
     investimento_tema = Investimento.new
@@ -187,7 +174,11 @@ get "/api/tema/:tema" do
 
     content_type 'application/json', :charset => 'utf-8'
     cache_control :public, max_age: JSON_EXPIRE_TIME
-    { :cidades_sede => cidades_sede, :investimento_tema => investimento_tema.to_hash }.to_json
+    { 
+      :ultima_atualizacao => ultima_atualizacao.strftime("%d/%m/%y"), 
+      :cidades_sede => cidades_sede, 
+      :investimento_tema => investimento_tema.to_hash 
+    }.to_json
   end
 end
 
@@ -200,11 +191,13 @@ get "/api/tema/:tema/cidade-sede/:cidade_sede" do
   end
 
   unless (tema.nil? or cidade_sede.nil?)
+    ultima_atualizacao = Empreendimento.maximum(:created_at)
+
     unless cidade_sede[:name] == "nacional"
       empreendimentos = Empreendimento.where(:tema => tema[:name], :cidade_sede => cidade_sede[:name], 
-        :created_at => Empreendimento.maximum(:created_at)).where('valor_previsto > 0')
+        :created_at => ultima_atualizacao).where('valor_previsto > 0')
     else
-      empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => Empreendimento.maximum(:created_at))
+      empreendimentos = Empreendimento.where(:tema => tema[:name], :created_at => ultima_atualizacao)
         .where('valor_previsto > 0')
     end
 
@@ -220,6 +213,10 @@ get "/api/tema/:tema/cidade-sede/:cidade_sede" do
 
     content_type 'application/json', :charset => 'utf-8'
     cache_control :public, max_age: JSON_EXPIRE_TIME
-    { :empreendimentos => empreendimentos.map!(&:to_hash), :investimento_cidade_sede => investimento_cidade_sede }.to_json
+    { 
+      :ultima_atualizacao => ultima_atualizacao.strftime("%d/%m/%y"), 
+      :empreendimentos => empreendimentos.map!(&:to_hash), 
+      :investimento_cidade_sede => investimento_cidade_sede 
+    }.to_json
   end
 end

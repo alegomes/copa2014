@@ -5,8 +5,11 @@ jQuery(function() {
 		dataType: "json",
 
 		success: function(data) {
-			for (index in data) {
-				var json = data[index];
+			jQuery(".ultima-atualizacao .data").text(data.ultima_atualizacao);
+
+			var investimentos = data.investimentos;
+			for (index in investimentos) {
+				var json = investimentos[index];
 				var last = json[json.length-1];
 
 				jQuery("#valor_previsto_"+index).text(formatFloatToString(last.valor_previsto));
