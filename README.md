@@ -1,3 +1,1 @@
-require "dalli"
-dc = Dalli::Client.new
-dc.flush
+require "dalli";dc = Dalli::Client.new;dc.flush
