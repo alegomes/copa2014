@@ -8,10 +8,13 @@ gem 'sass'
 gem 'compass'
 gem 'dalli'
 gem 'rack-cache'
+gem 'httparty'
 
 group :development, :test do
   gem 'mysql2'
   gem 'activerecord-mysql2-adapter'
+  gem 'debugger'
+  gem 'rspec'
 end
 
 group :production do
