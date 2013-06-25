@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require_relative '../lib/cgu_ws'
 
 describe CguWS do
@@ -29,7 +31,6 @@ describe CguWS do
       response = ws.aditivos(execucao_financeira_id)
       response.each do |aditivo|
         tem_execucao = aditivo.keys.include?("execucaoFinanceira")
-        #tem_execucao.should == true
         if tem_execucao
           aditivo["execucaoFinanceira"]["id"].should == execucao_financeira_id
         end

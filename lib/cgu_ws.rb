@@ -46,7 +46,18 @@ class CguWS
   end
 
   def aditivos(execucao_financeira_id)
-    [self.class.get("/aditivo?execucaofinanceira=#{execucao_financeira_id}")["collection"]["aditivo"]].flatten
+    collection = [self.class.get("/aditivo?execucaofinanceira=#{execucao_financeira_id}")["collection"]["aditivo"]].flatten
+
+    #TODO Remover quando resolver o problema de não filtrar por execucaoFinanceira
+    collection.select! do |aditivo|
+      if (aditivo.keys.include?("execucaoFinanceira"))
+        aditivo["execucaoFinanceira"]["id"] == execucao_financeira_id
+      else
+        false
+      end
+    end
+
+    collection
   end
 
   def desembolsos(execucao_financeira_id)
@@ -84,7 +95,7 @@ class CguWS
           contratado_empreendimento += execucao["valorContrato"].to_f
 
           # Aditivos
-          #contratado_empreendimento += self.aditivo(execucao["id"]).map("valorCedido")
+          contratado_empreendimento += self.aditivo(execucao["id"]).map("valorCedido")
 
           # Executado
           desembolsos = self.desembolsos(execucao["id"])
