@@ -46,18 +46,7 @@ class CguWS
   end
 
   def aditivos(execucao_financeira_id)
-    collection = [self.class.get("/aditivo?execucaofinanceira=#{execucao_financeira_id}")["collection"]["aditivo"]].flatten
-
-    #TODO Remover quando resolver o problema de não filtrar por execucaoFinanceira
-    collection.select! do |aditivo|
-      if (aditivo.keys.include?("execucaoFinanceira"))
-        aditivo["execucaoFinanceira"]["id"] == execucao_financeira_id
-      else
-        false
-      end
-    end
-
-    collection
+    [self.class.get("/aditivo?execucaofinanceira=#{execucao_financeira_id}")["collection"]["aditivo"]].flatten
   end
 
   def desembolsos(execucao_financeira_id)
@@ -116,8 +105,7 @@ class CguWS
           created_at: Date.today
         }
 
-        #Usar o hash acima no active record pra salvar! =)
-
+        Empreendimento.create(emp)
       end
     end
   end

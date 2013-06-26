@@ -95,6 +95,10 @@ post '/receive-update' do
   end
 end
 
+get '/atualizar' do
+  CguWS.new.atualizar_dados
+end
+
 get "/api/geral" do
   investimentos = {}
 
