@@ -19,6 +19,7 @@ require './models/investimento'
 require './models/empreendimento'
 require './models/tema'
 require './models/receive_update'
+require './lib/cgu_ws'
 
 
 get '/stylesheet/common.css' do
@@ -96,7 +97,16 @@ post '/receive-update' do
 end
 
 get '/atualizar' do
-  CguWS.new.atualizar_dados
+  erb :atualizar, layout: :layout, :default_encoding => settings.default_encoding
+end
+
+post '/atualizar' do
+  if params[:password] == SENHA_ADMIN
+    CguWS.new.atualizar_dados
+    erb :index, layout: :layout, :default_encoding => settings.default_encoding
+  else
+    erb :atualizar, layout: :layout, :default_encoding => settings.default_encoding
+  end
 end
 
 get "/api/geral" do

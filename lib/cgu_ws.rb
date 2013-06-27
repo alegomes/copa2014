@@ -46,7 +46,12 @@ class CguWS
   end
 
   def aditivos(execucao_financeira_id)
-    [self.class.get("/aditivo?execucaofinanceira=#{execucao_financeira_id}")["collection"]["aditivo"]].flatten
+    collection = self.class.get("/aditivo?execucaofinanceira=#{execucao_financeira_id}")["collection"]
+    if collection.nil?
+      []
+    else
+      [collection["aditivo"]].flatten
+    end
   end
 
   def desembolsos(execucao_financeira_id)
@@ -60,52 +65,66 @@ class CguWS
 
   def atualizar_dados
     self.temas.each do |tema|
-      puts "Tema: #{tema['descricao']}"
-      total_previsto = 0
-      total_contratado = 0
-      total_executado = 0
+      begin
+        puts "Tema: #{tema['descricao']}"
+        total_previsto = 0
+        total_contratado = 0
+        total_executado = 0
 
-      self.empreendimentos(tema["id"]).each do |empreendimento|
-        puts "Empreendimento: #{empreendimento["id"]} - #{empreendimento["descricao"]}"
-        previsto_empreendimento = 0
-        contratado_empreendimento = 0
-        executado_empreendimento = 0
+        self.empreendimentos(tema["id"]).each do |empreendimento|
+          begin
+            puts "Empreendimento: #{empreendimento["id"]} - #{empreendimento["descricao"]}"
+            previsto_empreendimento = 0
+            contratado_empreendimento = 0
+            executado_empreendimento = 0
 
-        # Valor previsto
-        self.recursos_previstos(empreendimento["id"]).each do |recurso|
-          previsto_empreendimento += recurso["valorRecurso"].to_f
-          previsto_empreendimento += recurso["valorRecursoContrapartida"].to_f
-        end
-
-        # Valor Contratado e Executado
-        self.execucao_financeira(empreendimento["id"]).each do |execucao|
-
-          # Valor contratado
-          contratado_empreendimento += execucao["valorContrato"].to_f
-
-          # Aditivos
-          contratado_empreendimento += self.aditivo(execucao["id"]).map("valorCedido")
-
-          # Executado
-          desembolsos = self.desembolsos(execucao["id"])
-          desembolsos.each do |desembolso|
-            if desembolso["tipoDesembolso"]["id"] == 1 || desembolso["tipoDesembolso"]["descricao"] == 1
-              executado_empreendimento += desembolso["valorDesembolso"]
+            # Valor previsto
+            self.recursos_previstos(empreendimento["id"]).each do |recurso|
+              previsto_empreendimento += recurso["valorRecurso"].to_f
+              previsto_empreendimento += recurso["valorRecursoContrapartida"].to_f
             end
+
+            # Valor Contratado e Executado
+            self.execucao_financeira(empreendimento["id"]).each do |execucao|
+
+              # Valor contratado
+              contratado_empreendimento += execucao["valorContrato"].to_f
+
+              # Aditivos
+              self.aditivos(execucao["id"]).each do |aditivo| 
+                contratado_empreendimento += aditivo["valorCedido"].to_f
+              end
+
+              # Executado
+              desembolsos = self.desembolsos(execucao["id"])
+              desembolsos.each do |desembolso|
+                if desembolso["tipoDesembolso"]["id"] == "1" || desembolso["tipoDesembolso"]["descricao"] == "1"
+                  executado_empreendimento += desembolso["valorDesembolso"].to_f
+                end
+              end
+            end
+
+            emp = {
+              tema: tema["descricao"],
+              cidade_sede: empreendimento["cidadeSede"]["descricao"].urlize(:convert_spaces => true),
+              descricao: empreendimento["descricao"].gsub("'", "\\'"),
+              valor_previsto: previsto_empreendimento,
+              valor_contratado: contratado_empreendimento,
+              valor_executado: executado_empreendimento,
+              created_at: Date.today
+            }
+
+            puts "Previsto: #{emp[:valor_previsto]}\tContratado: #{emp[:valor_contratado]}\tExecutado: #{emp[:valor_executado]}"
+            Empreendimento.create(emp)
+
+          rescue Errno::ETIMEDOUT => e
+            puts "\t[ERROR] TIMEOUT"
+            redo
           end
         end
-
-        emp = {
-          tema: tema["descricao"],
-          cidade_sede: empreendimento["cidadeSede"]["descricao"].urlize(:convert_spaces => true),
-          descricao: empreendimento["descricao"].gsub("'", "\\'"),
-          valor_previsto: previsto_empreendimento,
-          valor_contratado: contratado_empreendimento,
-          valor_executado: executado_empreendimento,
-          created_at: Date.today
-        }
-
-        Empreendimento.create(emp)
+      rescue Errno::ETIMEDOUT => e
+        puts "\t[ERROR] TIMEOUT"
+        redo
       end
     end
   end

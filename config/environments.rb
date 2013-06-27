@@ -48,6 +48,8 @@ configure do
   HTML_EXPIRE_TIME = 604800     # 1 semana
   STATIC_EXPIRE_TIME = 604800   # 1 semana
 
+  SENHA_ADMIN = "#opencopa$"
+
   set :static_cache_control, [:public, :max_age => STATIC_EXPIRE_TIME]
 end
 
