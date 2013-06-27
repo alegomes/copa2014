@@ -103,7 +103,12 @@ end
 post '/atualizar' do
   if params[:password] == SENHA_ADMIN
     CguWS.new.atualizar_dados
+    begin
+      Dalli::Client.new.flush
+    rescue Dalli::NetworkError => e
+    end
     erb :index, layout: :layout, :default_encoding => settings.default_encoding
+
   else
     erb :atualizar, layout: :layout, :default_encoding => settings.default_encoding
   end
