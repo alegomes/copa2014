@@ -103,6 +103,7 @@ end
 post '/atualizar' do
   if params[:password] == SENHA_ADMIN
     CguWS.new.atualizar_dados
+    puts "[UPDATE] ATUALIZACAO ENCERRADA!!!"
     begin
       Dalli::Client.new.flush
     rescue Dalli::NetworkError => e

@@ -3,7 +3,7 @@ class CreateEmpreendimentosSchema < ActiveRecord::Migration
   	create_table :empreendimentos do |t|
   		t.string :tema
   		t.string :cidade_sede
-			t.string :descricao
+			t.string :descricao, limit: 700
   		t.float :valor_previsto
   		t.float :valor_contratado
   		t.float :valor_executado
