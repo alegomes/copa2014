@@ -50,6 +50,8 @@ configure do
 
   SENHA_ADMIN = "#opencopa$"
 
+  set :cache, Dalli::Client.new
+
   set :static_cache_control, [:public, :max_age => STATIC_EXPIRE_TIME]
 end
 

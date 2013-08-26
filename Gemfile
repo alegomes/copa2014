@@ -7,6 +7,7 @@ gem 'sinatra-activerecord', '1.1.1'
 gem 'sass'
 gem 'compass'
 gem 'dalli'
+gem 'memcachier'
 gem 'rack-cache'
 gem 'httparty'
 gem 'restfulie', '>= 1.1.1'
@@ -22,5 +23,4 @@ end
 group :production do
   gem 'pg' # this gem is required to use postgres on Heroku
   gem 'unicorn'
-  gem 'memcachier'
 end
