@@ -1,0 +1,107 @@
+<% content_for :javascripts do %>
+  <script type="text/javascript" src="/javascript/cidade_sede.js" charset="utf-8"></script>
+<% end %>
+
+<% content_for :title do %>
+  OpenCopa 2014 - Por debaixo dos gramados - Tema: <%= @tema[:label_html] %> - Cidade sede: <%= @cidade_sede[:label_html] %>
+<% end %>
+
+<% content_for :header_legenda do %>
+  <div class="floating-menu">
+    <ul class="legenda">
+      <li class="verde li1"><span></span>Executado</li>
+      <li class="laranja li2"><span></span>Contratado acima do previsto</li>
+      <li class="amarelo li1"><span></span>Contratado</li>
+      <li class="vermelho li2"><span></span>Executado acima do previsto</li>
+      <li class="cinza li1"><span></span>N&atilde;o contratado</li>
+      <li class="problema li2"><span></span>Ultrapassou 100% do previsto</li>
+    </ul>
+  </div>
+<% end %>
+
+<div class="corpo" data-tema="<%= @tema[:name] %>" data-cidade-sede="<%= @cidade_sede[:name] %>">
+	<div class="quadro_moudura">
+		<div class="quadro_interno livre">
+			<div class="migalha">
+				<a href="/" title="Home" rel="home">Principais Temas</a>
+				::
+				<a href="/tema/<%= @tema[:name] %>"><%= @tema[:label] %></a>
+				<% unless @cidade_sede[:label] == "" %>
+					::
+					<span><%= @cidade_sede[:label] %></span>
+				<% end %>
+			</div>
+
+			<nav>
+				<% @temas_cidade_sede.each do |name| %>
+					<% tema = Tema.get(name).first %>
+					<% unless tema[:name] == 'seguranca' %>
+						<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name] == tema[:name] %>' 
+								href="/tema/<%= tema[:name] %>/cidade-sede/<%= @cidade_sede[:name] %>" title="<%= tema[:label] %>">
+							<%= tema[:label] %>
+						</a>
+					<% end %>
+				<% end %>
+			</nav>
+
+			<div id="<%= @tema[:name] %>">
+				<div id="<%= @tema[:name] %>_circulo" class="circulo">
+					<div class="porcento_0">
+						0%
+						<div class="marcador"></div>
+					</div>
+					<div class="porcento_50">
+						50%
+						<div class="marcador"></div>
+					</div>
+				</div>
+				<div class="image-title"></div>
+			</div>
+
+			<% if @empreendimentos.size > 0 %>
+				<div class="container_empreendimentos">
+					<div class="investimentos_cidade_sede">
+						<div class="linha_link"></div>
+						<h2> Totais do tema "<%= @tema[:label] %>" da cidade de <%= @cidade_sede[:label] %>.</h2>
+						<span class="linha">Previsto: <span class="previsto"></span></span>
+						<br/>
+						<span class="linha">Contratado: <span class="contratado"></span></span>
+						<br/>
+						<span class="linha">Executado: <span class="executado"></span></span>
+					</div>
+					<h2 style="text-align:center;">Relatório dos empreendimentos de <%= @cidade_sede[:label] %></h2>
+					<% @empreendimentos.each do |empreendimento| %>
+						<div id="<%= empreendimento.id %>" class="empreendimento_wrapper">
+							<h2><%= empreendimento.descricao %></h2>
+							
+							<span class="linha">Previsto: <span class="previsto"></span></span>
+							<br/>
+							<span class="linha">Contratado: <span class="contratado"></span></span>
+							<br/>
+							<span class="linha">Executado: <span class="executado"></span></span>
+							<br/>
+							Progresso da contratação:
+							<div class="trilha">
+								<div class="amarelo barra_contratado"></div>
+								<div class="laranja barra_contratado_excedido"></div>
+							</div>
+							Progresso da execução:
+							<div class="trilha">
+								<div class="verde barra_executado"></div>
+								<div class="vermelho barra_executado_excedido"></div>
+							</div>
+						</div>
+					<% end %>
+				</div>
+
+			<% else %>
+				
+				<div class="sem_empreendimentos">
+					N&atilde;o h&aacute; empreedimentos previstos do tema <b><%= @tema[:label] %></b> para a cidade de <b><%= @cidade_sede[:label] %></b>.
+				</div>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>

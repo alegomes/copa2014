@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <title><%= yield_content :title %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF8" />
+    <meta name="author" content="Alexandre Gomes, Wesley Rocha, Célio Latorraca">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="<%= yield_content :title %>" /> 
+    <meta property="og:type" content="sport" />
+    <meta property="og:image" content="<%= request.base_url %>/images/face-image.png" />
+    <meta property="og:url" content="<%= request.url %>" />
+    <meta property="og:site_name" content="Open Copa 2014" />
+    <meta property="fb:admins" content="100002975055570,839090006" />
+
+    <link rel="icon" href="/images/opencopa.ico" type="image/x-icon">
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35666605-1']);
+      _gaq.push(['_setDomainName', 'opencopa.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=172725276185077";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      window.___gcfg = {lang: 'pt-BR'};
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+
+      (function(d, s, id) {
+        var js,fjs = d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "//platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      })(document, "script", "twitter-wjs");
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheet/common.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheet/bootstrap.min.css" />
+
+
+    <%= yield_content :stylesheets %>
+
+    <script type="text/javascript" src="/javascript/jquery-1.8.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/bootstrap.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.raphael.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/g.line.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="/javascript/geradorGraficos.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/javascript/common.js" charset="utf-8"></script>
+
+    <%= yield_content :javascripts %>
+  </head>
+
+  <div id="message-container" class="message">
+    <span></span>
+  </div>
+
+  <body>
+    <div class="top">
+      <div class="top_area">
+        <div class="bola"></div>
+
+        <div class="menu">
+          <a href="/" title="Home" rel="home">
+              <h1>
+                  <div>OpenCopa</div>
+                  <div class="subtitle">Por debaixo dos gramados</div>
+              </h1>
+          </a>
+    
+          <%= yield_content :header_legenda %>
+
+          <a href="/about" rel="about" title="Saiba mais sobre o projeto." class="sobre"><span>Saiba mais sobre o projeto.</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="following-header">
+      <div class="following-header-body">
+        <%= yield_content :header_legenda %>
+      </div>
+    </div>
+
+    <div class="barra-superior">
+      <div class="receive-updatings">
+        <button type="button" data-toggle="modal" data-target="#receiveUpdatesModal" class="receive-updatings-button btn btn-primary" role="button"><span>&nbsp;</span>
+          Receba as novidades do site
+        </button>
+      </div>
+      <div  class="social-buttons ultima-atualizacao">
+        Dados atualizados em <span class="data"></span>
+      </div>
+      <div class="social-buttons">
+        <!-- <div class="fb-like" data-href="<%= request.url %>" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+        <a href="https://twitter.com/share" data-url="<%= request.url %>" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
+        <div class="g-plusone" data-href="<%= request.url %>" data-size="medium"></div> -->
+
+        <div class="fb-like" data-href="http://www.opencopa.com" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+        <a href="https://twitter.com/share" data-url="http://www.opencopa.com" class="twitter-share-button" data-via="OpenCopa" data-lang="pt">Tweetar</a>
+        <div class="g-plusone" data-href="http://www.opencopa.com" data-size="medium"></div>
+      </div>
+    </div>
+      
+    <%= yield %>
+
+
+    <div id="rodape">
+      <div id="redess">
+        <label>Redes sociais:</label>
+        <div class="quadro-pe">
+          <a id="facebook" title="Contato do facebook" href="http://www.facebook.com/pages/Opencopa/430359663684881?fref=ts" target="_blank" rel="nofollow">Contato do facebook</a>
+          <a id="twitter" title="Contato do twitter" href="https://twitter.com/opencopa" target="_blank" rel="nofollow">Contato do twitter</a>
+        </div>
+      </div>
+      <div id="colaboradores">
+        <label>Idealizador:</label>
+        <div class="quadro-pe">
+          <ul>
+            <li>Wesley Rocha - Designer de Interfaces</li>
+          </ul>
+          E-mail: opencopa@seatecnologia.com.br
+        </div>
+      </div>
+      <div id="patrocinador">
+        <label>Realização:</label>
+        <a href="http://opengov.seatecnologia.com.br" title="SEA Tecnologia" target="_blank" rel="nofollow"><img title="SEA Tecnologia" src="/images/logo_SEA.png"></a>
+      </div>
+      <div id="download">
+        <label>Download dos dados</label>
+        <div class="quadro-pe">
+        <a href="http://www.portaltransparencia.gov.br/copa2014/dados/download.seam" title="Dados da CGU" target="_blank" rel="nofollow" class="btn"><img title="Dados da CGU" src="/images/download.png"></a>
+        Base de dados extraída da CGU. Site Copa 2014 Transparência em 1º lugar.
+      </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="receiveUpdatesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Receba as atualizações e novidades do OpenCopa 2014</h3>
+        <p>Esta ferramenta avisará quando os dados forem atualizados, projetos atingirem 100% de contratação, execução ou ultrapassarem o orçamento previsto. Vamos informar qual o tema, cidade e empreendimento envolvido nesses marcos.</p>
+      </div>
+      <div class="modal-body">
+        <form id="receiveUpdatesForm" class="form-inline" action="/receive-update" method="post">
+          <label>E-mail:</label>
+          <input name="email" id="email" type="text" placeholder="seu@email.com" value="" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <span class="email-notify">Seu e-mail não será divulgado.<br/>Enviaremos apenas mensagens com atualizações sobre a Copa de 2014.</span>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+        <button class="btn btn-success submit">Enviar</button>
+      </div>
+    </div>
+
+  </body>
+</html>

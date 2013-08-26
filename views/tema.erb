@@ -1,0 +1,80 @@
+<% content_for :javascripts do %>
+  <script type="text/javascript" src="/javascript/tema.js" charset="utf-8"></script>
+<% end %>
+
+<% content_for :title do %>
+  OpenCopa 2014 - Por debaixo dos gramados - Tema: <%= @tema[:label_html] %>
+<% end %>
+
+<% content_for :header_legenda do %>
+  <div class="floating-menu">
+    <ul class="legenda">
+      <li class="verde li1"><span></span>Contratado e executado</li>
+      <li class="laranja li2"><span></span>Contratado acima do previsto</li>
+      <li class="amarelo li1"><span></span>Contratado e n&atilde;o executado</li>
+      <li class="vermelho li2"><span></span>Executado acima do previsto</li>
+      <li class="cinza li1"><span></span>N&atilde;o contratado</li>
+      <li class="problema li2"><span></span>Ultrapassou 100% do previsto</li>
+    </ul>
+  </div>
+<% end %>
+<div class="corpo" data-tema="<%= @tema[:name] %>">
+	<div class="quadro_moudura">
+		<div class="quadro_interno mapa">
+			<div class="migalha">
+				<a href="/" title="Home" rel="home">Principais Temas</a>&nbsp;::&nbsp;<span><%= @tema[:label] %></span>
+			</div>
+			
+			<nav>
+				<% Tema.all.each do |tema| %>
+					<% unless tema[:name] == 'seguranca' %>
+						<a id="but_<%= tema[:name] %>" class='<%= "active" if @tema[:name] == tema[:name]%>' 
+								href="/tema/<%= tema[:name] %>" title="<%= tema[:label] %>">
+							<%= tema[:label] %>
+						</a>
+					<% end %>
+				<% end %>
+			</nav>
+
+			<div id="<%= @tema[:name] %>">
+				<div id="<%= @tema[:name] %>_circulo" class="circulo">
+					<div class="porcento_0">
+						0%
+						<div class="marcador"></div>
+					</div>
+					<div class="porcento_50">
+						50%
+						<div class="marcador"></div>
+					</div>
+				</div>
+				<div class="image-title"></div>
+			</div>
+
+			<% Tema.cidades_sede.each do |cidade_sede| %>
+				<% if (@cidades_sede.include? cidade_sede[:name]) %>
+					<a id="<%= cidade_sede[:name] %>_circulo" class="cidades <%= cidade_sede[:name] %>" 
+							href="/tema/<%= @tema[:name] %>/cidade-sede/<%= cidade_sede[:name] %>">
+						<div class="seta_posicao">
+							<div class="seta"></div>
+						</div>
+						<div class="texto">
+							<h2><%= cidade_sede[:label] %></h2>
+						</div>
+						<div class="tema-info">
+							<div class="cell-middle">
+								<p class="contratado"><span class="amarelo"></span>% Contratado</p>
+								<p class="executado"><span class="verde"></span>% Executado</p>
+								<p class="contratado-extrapolado"><span class="laranja"></span>% Contratado acima do previsto</p>
+								<p class="executado-extrapolado"><span class="vermelho"></span>% Executado acima do previsto</p>
+							</div>
+						</div>
+						<div class="area">
+							<div class="btn-enpreendimentos btn btn-info">Lista dos projetos</div>
+						</div>
+					</a>
+				<% end %>
+			<% end %>
+
+		</div>
+	</div>
+</div>

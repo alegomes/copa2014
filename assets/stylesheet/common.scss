@@ -1,0 +1,1083 @@
+  @import "compass/css3/border-radius";
+  @import "compass/css3/transform";
+  @import "compass/css3/box-shadow";
+  @import "compass/css3/transition";
+  @import "compass/css3/opacity";
+  @import "compass/css3/images";
+
+
+
+  $hover_menu: #fff;
+
+  body{
+    background: #000;
+    font-family: Verdana,Arial,Serif;
+    overflow-x: hidden;
+  }
+  .beta {
+    @include background-image(linear-gradient(top, #FF6600, #DB0109));
+    @include rotate(36deg);
+    @include box-shadow(0px 3px 10px black);
+    color: white;
+    padding: 4px 56px;
+    font-size: 13px;
+    position: absolute;
+    width: 188px;
+    top: 23px;
+    right: -84px; 
+    z-index: 2;
+    text-align: center;
+    font-weight: bold;
+    span{
+      display: block;
+      font-size: 10px;
+      width: 175px;
+      font-weight: normal;
+    }
+  }
+  .top{
+    background: url(/images/top_fundo.jpg) repeat-x 50% 62px;
+    height: 212px;
+  }
+  .top_area{
+    width: 960px;
+    position: relative;
+    margin: 0 auto;
+  }
+  .bola{
+    background: url(/images/bola.png) no-repeat center;
+    height: 114px;
+    width: 123px;
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    z-index: 1;
+  }
+  .menu{
+    height: 73px;
+    width: 880px;
+    position: absolute;
+    top: 4px;
+    left: 80px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+    @include  border-radius(10px);
+    font-size: 12px;
+    font-weight: normal;
+    a {
+      text-decoration: none;
+      h1{
+        margin: 0px 0 0 47px;
+        color: #779E31;
+        font-family: Verdana,Arial,Serif;
+        font-size: 27px;
+        line-height: 14px;
+        width: 191px;
+        height: 53px;
+        padding: 20px 0 0 0;
+        border-right: 1px solid white;
+        .subtitle{
+          font-size: 11px;
+          margin-top: 11px;
+        }
+      }
+    }
+    .investimentos{
+      background-image: url(/images/icon_investimento.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 28px 0 0 78px;
+      position: absolute;
+      height: 45px;
+      width: 192px;
+      top: 0;
+      left: 518px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
+      text-decoration: none;
+      color: #838282;
+      &:hover{
+        background-color: $hover_menu;
+      }
+    }
+    .proporcao{
+      background-image: url(/images/icon_proporcao.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 19px 0 0 62px;
+      position: absolute;
+      height: 54px;
+      width: 90px;
+      top: 0;
+      left: 634px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
+      text-decoration: none;
+      color: #838282;
+      &:hover{
+        background-color: $hover_menu;
+      }
+    }
+    .sobre{
+      background-image: url(/images/sobre.png);
+      background-repeat: no-repeat;
+      background-position: 14px 50% ;
+      position: absolute;
+      height: 73px;
+      width: 191px;
+      top: 0;
+      left: 688px;
+      border-left: 1px solid #CAC7C7;
+      color: #777;
+      @include  border-radius(0 10px 10px 0);
+      &:hover{
+        background-color: $hover_menu;
+      }
+      span{
+        display: block;
+        margin: 10px;
+        margin: 22px 10px 0 62px;
+      }
+    }
+    .marcado{
+      background-color: #fff;
+    }
+  }
+
+  .menu, .floating-menu {
+    .legenda{
+      background-image: url(/images/legenda.png);
+      background-repeat: no-repeat;
+      background-position: 10px 50%;
+      padding: 4px 0 0 25px;
+      position: absolute;
+      height: 69px;
+      width: 422px;
+      left: 239px;
+      border-left: 1px solid #CAC7C7;
+      border-right: 1px solid white;
+      text-decoration: none;
+      color: #838282;
+      margin: 0;
+      font-size: 12px;
+      list-style: none;
+      font-weight: normal;
+      top: 0;
+      li{
+        padding: 5px 0 0 0;
+        float: left;
+        width: 210px;
+        span{
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+      }
+      .li1{
+        width: 200px;
+      }
+      .li2{
+        width: 220px;
+      }
+      .vermelho span{
+        background: #DB0109;
+      }
+      .amarelo span{
+        background: #f1be18;
+      }
+      .verde span{
+        background: #39b54a;
+      }
+      .cinza span{
+        background: rgba(150, 150, 150, 1);
+      }
+      .laranja span{
+        background: #DB8401;
+      }
+      .problema span{
+        background: url(/images/important.png) no-repeat center;
+        width: 22px;
+        height: 19px;
+        margin: -2px 0px 0px -1px;
+      }
+    }
+  }
+  .following-header-body{
+    height: 84px;
+    .floating-menu {
+      @include border-radius(0 0 10px 10px);
+      @include box-shadow( 0 0 10px 0px rgba(0,0,0,1));
+      background-color: rgba(255, 255, 255, 1);
+      margin: 0 auto;
+      height: 73px;
+      width: 448px;
+
+      .legenda {
+        @include border-radius(0 0 10px 10px);
+        border-left: 0px;
+        border-right: 0px;
+        position: relative;
+        left: 0px;
+      }
+    }
+  }
+  .barra-superior {
+    width: 960px;
+    position: relative;
+    margin: -117px auto 0px;
+
+    .social-buttons {
+      @include background-image(linear-gradient(top, white, #E6E6E6));
+      @include border-radius(4px);
+      float: right;
+      max-width: 420px;
+      padding: 4px 5px 0;
+      height: 26px;
+      margin-top: 2px;
+      margin-right: 7px;
+      border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+      .fb-like{
+        top: -3px;
+        width: 170px;
+      }
+      iframe{
+        padding-top: 1px;
+      }
+    }
+    .ultima-atualizacao{
+      font-size: 14px;
+      padding: 7px 6px 0;
+      height: 23px;
+      margin-right: 4px;
+      color: #523E01;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      @include background-image(linear-gradient(top, #FFF502, #BB8B0F));
+    }
+
+    .receive-updatings {
+      float: right;
+      .receive-updatings-button{
+        position: relative;
+        padding-left: 30px;
+        span{
+          background: url(/images/e-mail.png) no-repeat center center;
+          position: absolute;
+          display: block;
+          height: 20px;
+          width: 20px;
+          left: 4px;
+          top: 4px;
+        }
+      }
+    }
+  }
+  .corpo{
+    width: 960px;
+    position: relative;
+    margin: 70px auto 0;
+    display: table;
+    a{
+      display: inline-block;
+    }
+    .quadro{
+      float: left;
+      width: 423px;
+      height: 158px;
+      background: white;
+      margin: 32px 0px 32px 56px;
+      padding: 10px 0;
+      position: relative;
+      @include  border-radius(40px 10px 10px 40px);
+      div{
+        margin: 0;
+        position: relative;
+        color: #444;
+      }
+      .a_botao{
+        @include transition(200ms);
+
+        display: block;
+        position: absolute;
+        left: 63px;
+        bottom: -29px;
+        background: white;
+        padding: 6px 2px 6px 76px;
+        font-size: 13px;
+        text-decoration: none;
+        border-radius: 0 0 5px 0px;
+        width: 98px;
+        height: 20px;
+        color: white;
+        div{
+          position: absolute;
+          right: 5px;
+          z-index: 1;
+        }
+        &.botao_empreendimentos{
+          width: 170px;
+        }
+      }
+      a:hover {
+        .a_botao{
+          color:#0321FF;
+        }
+        .circulo{
+          @include box-shadow(0px 0px 25px 0px rgba(64, 119, 200, 1));
+        }  
+      }
+      h1 {
+        display: block;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        left: 126px;
+        top: -51px;
+      }
+      p {
+        font-size: 12px;
+        display: block;
+        position: absolute;
+        top: -9px;
+        right: 15px;
+        width: 240px;
+      }
+      .porcento_0{
+        position: absolute;
+        top: 34px;
+        left: 91px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #858585;
+          top: -4px;
+          right: 50%;
+        }
+      }
+      .porcento_50{
+        position: absolute;
+        bottom: 34px;
+        left: 96px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #858585;
+          bottom: -4px;
+          right: 49%;
+        }
+      }
+      .legenda{
+        padding: 0;
+        position: absolute;
+        height: 22px;
+        width: 258px;
+        right: 0px;
+        text-decoration: none;
+        margin: 0;
+        font-size: 12px;
+        list-style: none;
+        font-weight: normal;
+        top: 28px;
+        li{
+          padding:0;
+          float: left;
+        }
+        .amarelo div.square{
+          background: #f1be18;
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+        .verde div.square{
+          background: #39b54a;
+          width: 11px;
+          display: block;
+          height: 11px;
+          float: left;
+          margin: 2px 4px;
+        }
+      }
+      .grafico_yx {
+        display: block;
+        top: 9px;
+        position: absolute;
+        right: 11px;
+        width: 246px;
+        height: 134px;
+        margin: 25px 0 0 -8px !important;
+      }
+      svg {
+        float: left;
+        top: 8px;
+      }
+    }
+    .circulo {
+      // @include transition-property(box-shadow);
+      @include transition(200ms);
+    }
+    #estadio #estadio_circulo, #aeroporto #aeroporto_circulo, #mobilidade_urbana #mobilidade_urbana_circulo, #desenvolvimento_turistico #desenvolvimento_turistico_circulo,  #seguranca #seguranca_circulo,  #porto #porto_circulo{
+      background: white;
+      position: absolute;
+      display: block;
+      top: -25px;
+      left: -42px;
+      padding: 0px;
+      height: 216px;
+      font-size: 11px;
+      @include  border-radius(109px);
+      min-width: 216px;
+      svg{
+        position: absolute;
+        top: 0;
+      }
+    }
+    #estadio, #aeroporto, #mobilidade_urbana, #desenvolvimento_turistico, #seguranca, #porto {
+      width: 433px;
+      height: 162px;
+    }
+    #estadio .image-title{
+      background: url(/images/estadio.png) no-repeat center;
+      position: absolute;
+      height: 142px;
+      width: 142px;
+      top: 14px;
+      left: -4px;
+    }
+    #quadro_interno #estadio .image-title{
+      top: 40px;
+      left: 33px; 
+    }
+    #aeroporto .image-title{
+      background: url(/images/aeroporto.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 29px;
+      left: 19px;
+    }
+    #mobilidade_urbana .image-title{
+      background: url(/images/mobilidade.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 25px;
+      left: 7px;
+    }
+    #desenvolvimento_turistico .image-title{
+      background: url(/images/hotelaria.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 123px;
+      top: 22px;
+      left: 3px;
+    }
+    #seguranca .image-title{
+      background: url(/images/seguranca.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 108px;
+      top: 24px;
+      left: 12px;
+    }
+    #porto .image-title{
+      background: url(/images/portos.png) no-repeat center;
+      position: absolute;
+      height: 114px;
+      width: 148px;
+      top: 22px;
+      left: -7px;
+    }
+  } 
+  .home{
+    margin-top: 48px;
+  }
+  #rodape{
+    clear: both;
+    color: white;
+    width: 945px;
+    margin: 20px auto;
+    border-top: 1px dotted #888;
+    padding: 10px;
+    font-size: 12px;
+    display: table;
+    div{
+      float: left;
+      label{
+        display: block;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+    }
+    .quadro-pe {
+      border: 1px dotted #888;
+      border-radius: 10px;
+      height: 70px;
+      width: 165px;
+      padding: 10px;
+      height: 69px;
+
+    }
+    #redess{
+      .quadro-pe {
+        width: 165px;
+      } 
+      a{
+        display: block;
+        height: 40px;
+        width: 40px;
+        font-size: 0;
+        float: left;
+        padding: 5px 10px 0 0;
+      }
+      a#linkedin {
+        background: url(/images/icon_linkedin.png) no-repeat center;
+      }
+      a#facebook{
+        background: url(/images/icon_face.png) no-repeat center;
+      }
+      a#twitter{
+        background: url(/images/icon_twitter.png) no-repeat center;
+      }
+      a#lattes{
+        background: url(/images/icon_lates.png) no-repeat center;
+      }
+    }
+    #colaboradores{
+      .quadro-pe {
+        width: 285px;
+      }
+      width: 330px;
+      ul {
+        margin: 0;
+        padding: 0 0 0 17px;
+        li{
+          margin: 0px 0px 15px 0px;
+        }
+      }
+    }
+    #patrocinador{
+      width: 133px;
+    }
+    #redess{
+      width: 209px;
+    }
+    #download{
+      width: 272px;
+      .quadro-pe {
+        width: 248px;
+        .btn{
+          padding: 18px 16px 12px;
+          float: left;
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+  .quadro_moudura {
+    background: #fff;
+    border: 8px solid white;
+    @include border-radius(15px);
+    background: white;
+    position: relative;
+    .quadro_interno{
+      width: 950px;
+      height: 700px;
+      margin: 0 auto;
+      @include border-radius(10px);
+      position: relative;
+
+      &.mapa {
+        background: #fff url("/images/mapa_brasil.jpg") no-repeat center center;
+      }
+
+      .circulo {
+        top: -30px !important;
+        left: -42px !important;
+      }
+      a {
+        display: inline;
+        height: initial;
+        width: initial;
+        text-decoration: none;
+        color: #005FC5;
+      }
+      .migalha{
+        position: absolute;
+        top: -21px;
+        left: 105px;
+        height: 22px;
+        background: white;
+        padding: 5px 20px 5px 40px;
+        @include border-radius(0px 20px 20px 0px);
+        a {
+          font-size: 12px;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+        span{
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      nav {
+        position: absolute;
+        right: 0;
+        top: -49px;
+        a{
+          @include border-radius(35px);
+          font-size: 0px;
+          height: 55px;
+          width: 55px;
+          display: inline-block;
+          border: 2px solid transparent;
+          @include transition(all 150ms);
+          &#but_estadio{
+            background: white url(/images/but_estadio.png) no-repeat center;
+          }
+          &#but_aeroporto{
+            background: white url(/images/but_aeroporto.png) no-repeat 6px center;
+          }
+          &#but_mobilidade_urbana{
+            background: white url(/images/but_mobilidade.png) no-repeat 4px center;
+          }
+          &#but_desenvolvimento_turistico{
+            background: white url(/images/but_hotelaria.png) no-repeat center;
+          }
+          &#but_seguranca{
+            background: white url(/images/but_seguranca.png) no-repeat center;
+          }
+          &#but_porto{
+            background: white url(/images/but_portos.png) no-repeat center;
+          }
+          &:hover{
+            box-shadow: inset 0 0 14px #00812F;
+          }
+          &.active{
+            box-shadow: inset 0 0 14px #00812F;
+          }
+        }
+      }
+      .porcento_0{
+        position: absolute;
+        top: 34px;
+        left: 98px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #B32A2F;
+          top: -4px;
+          right: 50%;
+        }
+      }
+      .porcento_50{
+        position: absolute;
+        bottom: 34px;
+        left: 96px;
+        .marcador{
+          display: block;
+          position: absolute;
+          height: 5px;
+          width: 2px;
+          background: #B32A2F;
+          bottom: -4px;
+          right: 49%;
+        }
+      }
+      .cidades {
+        @include box-shadow(0px 2px 7px -1px rgba(0, 0, 0, 0.6));
+        @include transition(300ms);
+
+        background: white;
+        height: 106px;
+        width: 106px;
+        border-radius: 53px;
+        position: absolute;
+        text-decoration: none;
+        color: black;
+        .seta_posicao {
+          height: 106px;
+          width: 106px;
+          border-radius: 53px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          .seta{
+            border-width: 0px 8px 18px 8px;
+            border-style: solid;
+            border-color: transparent transparent white transparent;
+            height: 0px;
+            width: 0px;
+            position: absolute;
+            left: 43px;
+            top: -17.5px;
+          }
+        }
+        .texto{
+          display: table-cell;
+          vertical-align: middle;
+          height: 106px;
+          width: 76px;
+          padding: 0 15px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          h2{
+            font-size: 12px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            height: 106px;
+            width: 80px;
+          }
+        }
+        svg {
+          top: 0.5px;
+          margin-left: 1px;
+          float: left;
+        }
+        .tema-info {
+          @include transition-property(width);
+          @include transition-delay(0ms);
+          @include transition-duration(100ms);
+          overflow: hidden;
+          width: 0px;
+          float: left;
+          font-size: 10px;
+          position: absolute;
+          top: 0;
+          left: 106px;
+          .cell-middle{
+            display: table-cell;
+            vertical-align: middle;
+            height: 106px;
+            p{
+              width: 133px;
+            }
+          }
+          p{
+            margin: 7px 0;
+          }
+          span{
+            width: 11px;
+            display: block;
+            height: 11px;
+            float: left;
+            margin: 1px 4px;
+          }
+          .vermelho{
+            background: #DB0109;
+          }
+          .amarelo{
+            background: #f1be18;
+          }
+          .verde{
+            background: #39b54a;
+          }
+          .cinza{
+            background: rgba(150, 150, 150, 1);
+          }
+          .laranja{
+            background: #DB8401;
+          }
+          span {
+            display: block;
+          }
+        }
+        .area{
+          @include transition-delay(50ms);
+          @include transition-duration(300ms);
+          margin: 0px 0 0 37px;
+          padding-top: 4px;
+          @include opacity(0);
+          .btn-enpreendimentos{
+            width: 155px;
+          }
+        }
+        &:hover {
+          width: 255px;
+          z-index: 10;
+
+          .tema-info {
+            @include transition-delay(50ms);
+            @include transition-duration(300ms);
+            width: 133px;
+            overflow: hidden;
+          }
+          .area{
+            @include opacity(1);
+          }
+        }
+      }
+      .brasilia{
+        top: 261px;
+        left: 523px;
+        .seta_posicao {
+          @include rotate(134deg);
+        }
+      }
+      .salvador{
+        left: 689px;
+        top: 213px;
+        .seta_posicao {
+          @include rotate(134deg);
+        }
+      }
+      .porto_alegre{
+        top: 574px;
+        left: 448px;
+        .seta_posicao {
+          @include rotate(93deg);
+        }
+      }
+      .sao_paulo{
+        top: 398px;
+        left: 551px;
+        .seta_posicao {
+          @include rotate(140deg);
+        }
+      }
+      .rio_de_janeiro{
+        top: 468px;
+        left: 719px;
+        .seta_posicao {
+          @include rotate(292deg);
+        }
+      }
+      .recife{
+        top: 232px;
+        left: 841px;
+        .seta_posicao {
+          @include rotate(322deg);
+        }
+      }
+      .natal{
+        top: 92px;
+        left: 841px;
+        .seta_posicao {
+          @include rotate(226deg);
+        }
+      }
+      .fortaleza{
+        top: 46px;
+        left: 685px;
+        .seta_posicao {
+          @include rotate(136deg);
+        }
+      }
+      .manaus{
+        top: 59px;
+        left: 299px;
+        .seta_posicao {
+          @include rotate(114deg);
+        }
+      }
+      .curitiba{
+        top: 547px;
+        left: 591px;
+        .seta_posicao {
+          @include rotate(-35deg);
+        }
+      }
+      .cuiaba{
+        top: 364px;
+        left: 399px;
+        .seta_posicao {
+          @include rotate(31deg);
+        }
+      }
+      .belo_horizonte{
+        top: 345px;
+        left: 698px;
+        .seta_posicao {
+          @include rotate(234deg);
+        }
+      }
+    }
+    #autor{ 
+      width: 323px;
+      margin: 0 0 0 auto;
+      text-align: right;
+      p{
+        margin: 0;
+      }
+      a{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        font-size: 0;
+        padding: 5px 10px 0 0;
+      }
+      a#linkedin {
+        background: url(/images/icon_linkedin1.png) no-repeat center;
+      }
+      a#facebook{
+        background: url(/images/icon_face1.png) no-repeat center;
+      }
+      a#twitter{
+        background: url(/images/icon_twitter1.png) no-repeat center;
+      }
+      a#lattes{
+        background: url(/images/icon_lates1.png) no-repeat center;
+      }
+    }
+    .quadro_interno .container_empreendimentos{
+      color:#5C5B5B;
+      margin: -124px 0 0 194px;
+      padding-right: 10px;
+      .investimentos_cidade_sede, .empreendimento_wrapper{
+        border: 1px solid #888;
+        padding: 10px;
+        position: relative;
+        @include border-radius(10px);
+        background: #F7F3D7;
+        margin-bottom: 10px;
+        h2{
+          margin: 0 0 10px;
+        }
+        .linha{
+          display: block;
+          border-bottom: 1px dashed #888;
+          span{
+            position: absolute;
+            right: 10px;
+          }
+        }
+        .linha_link{
+          background: #888;
+          width: 26px;
+          height: 1px;
+          position: absolute;
+          left: -27px;
+          top: 37px;
+        }
+      }
+      .empreendimento_wrapper{
+        background: #efefef;
+      }
+      .trilha{
+        height: 26px;
+        background: #EFEFEF;
+        box-shadow: inset 0 0 10px #555;
+        @include border-radius(10px);
+        overflow: hidden;
+        margin: 5px 0;
+        div{
+          text-align: right;
+          overflow: hidden;
+        }
+        span {
+          font-size: 12px;
+          line-height: 26px;
+          padding-right: 10px;
+          color: white;
+        }
+        .verde{
+          @include border-radius(10px 0 0 10px);
+          height: 26px;
+          box-shadow: 0px 0px 8px #444, inset 0 -4px 10px #18BB19;
+          width: 0%;
+          @include background-image(linear-gradient(top, #7CDA06, #39b54a));
+        }
+        .vermelho {
+          @include border-radius(10px 0 0 10px);
+          margin-top: -26px;
+          height: 26px;
+          box-shadow: inset 0px -2px 8px #B10101;
+          width: 0%;
+          @include background-image(linear-gradient(top, #FF6600, #DB0109));
+        }
+        .amarelo{
+          @include border-radius(10px 0 0 10px);
+          height: 26px;
+          box-shadow: 0px 0px 8px #444, inset 0 -4px 10px #C49B16;
+          width: 0%;
+          @include background-image(linear-gradient(top, #f1be18, #CCA217));
+        }
+        .laranja{
+          @include border-radius(10px 0 0 10px);
+          margin-top: -26px;
+          height: 26px;
+          box-shadow: inset 0px -2px 8px #B15E04;
+          width: 0%;
+          @include background-image(linear-gradient(top, #DB8401, #C26501));
+        }
+      }
+    }
+    .livre{
+      height: 100%;
+    }
+  }
+
+.following-header {
+  @include transition(height);
+  @include transition-duration(300ms);
+
+  position: fixed;
+  top: 0px;
+  width: 960px;
+  margin-left: -480px;
+  left: 50%;
+
+  overflow: hidden;
+  height: 0;
+
+  z-index: 100;
+}
+
+.sem_empreendimentos {
+  padding: 50px;
+  color: red;
+  text-align: center;
+}
+
+.email-notify {
+  float: left;
+  text-align: left;
+  font-size: 10px;
+  padding: 3px 0;
+  color: rgba(185, 0, 0, 1);
+}
+
+.message {
+  @include transition-property(height);
+  @include transition-duration(600ms);
+  @include border-radius(0 0 15px 15px);
+  @include box-shadow(0 0 10px 0px black);
+  
+  width: 720px;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 25%;
+  text-align: center;
+  height: 0;
+  overflow: hidden;
+  color: white;
+
+  &.error{
+    background: rgba(219, 1, 9, 1);
+  }
+  &.success{
+    background: rgba(57, 181, 74, 1);
+  }
+
+  span {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+.hide {
+  display: none !important;
+}
